@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  article_category_id: 
+  author: MyString
+  is_recommand: false
+  is_carousel: false
+  is_mark: false
+  content: MyText
+  abstract: MyString
+  thumb_url: MyString
+  file_url: MyString
+  hits: 1
+
+two:
+  title: MyString
+  article_category_id: 
+  author: MyString
+  is_recommand: false
+  is_carousel: false
+  is_mark: false
+  content: MyText
+  abstract: MyString
+  thumb_url: MyString
+  file_url: MyString
+  hits: 1

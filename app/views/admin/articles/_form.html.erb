@@ -1,0 +1,201 @@
+<%= form_for(@admin_article, html: { id: "validate-form" , multipart: true  }) do |f| %>
+
+  <% if @admin_article.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@admin_article.errors.count, "error") %> prohibited this admin_article from being saved:</h2>
+    <div class="alert alert-danger fade in">
+      <button class="close" data-dismiss="alert">×</button>
+      <i class="fa-fw fa fa-times"></i>
+      <strong>Error!</strong>
+        <% @admin_article.errors.full_messages.each do |message| %>
+        <p style="text-indent:40px"><%= message %></p>
+        <% end %>
+    </div>
+  </div>
+  <% end %>
+  <!-- widget-grid -->
+  <section id="widget-grid">
+
+    <!-- widget-section-1 -->
+    <div class="jarviswidget jarviswidget-color-darken" data-widget-editbutton="false">
+      <header>
+        <span class="widget-icon"><i class="fa fa-edit"></i></span>
+        <h2><%= t("article.basic_info") %></h2>
+      </header>
+
+      <!-- smart-form -->
+      <div class="smart-form">
+        <div class="jarviswidget-editbox"></div>
+        <!-- widget-body  -->
+        <div class="widget-body no-padding">
+          <!-- basic information -->
+          <fieldset>
+            <!-- title -->
+            <div class="row">
+              <section class="col col-6">
+                <label class="label"> 
+                  <%= f.label t("article.title")  %><br>
+                </label>
+                <label class="input">
+                  <i class="icon-append fa fa-pencil"></i>
+                  <%= f.text_field :title, required: true %>
+                </label>
+              </section>
+            </div>
+            <!-- end title -->
+            <!-- category -->
+            <div class="row">
+              <section class="col col-4">
+                <label> 
+                  <%= f.label t("article.article_category") %><br>
+                </label>
+                <select name="admin_article[article_category_id]" class="select2" id="article-category" >
+                  <% @admin_article_categories.each do |admin_article_category| %>
+                    <option value="<%= admin_article_category.id %>"><%= admin_article_category.title %></option>
+                  <% end %>
+                </select>
+              </section>
+            </div>
+            <!-- end category -->
+
+            <!-- author -->
+            <div class="row">
+              <section class="col col-3">
+                <label class="label"> 
+                  <%= f.label t("article.author") %><br>
+                </label>
+                <label class="input">
+                  <i class="icon-append fa fa-pencil"></i>
+                  <%= f.text_field :author, required: true%>
+                </label>
+              </section>
+            </div>
+            <!-- end author -->
+            <!-- hits -->
+            <div class="row">
+              <section class="col col-1">
+                <label><%= f.label t("article.hits") %></label>
+                <%= f.text_field :hits, class: "spinner-both", id: "spinner", value: 0, style: 'box-sizing: border-box;', required: true %>
+              </section>
+            </div>
+            <!-- end hits -->
+            <!-- recommand switch -->
+            <div class="row">
+              <section class="col col-3">
+                <label class="toggle">
+                  <%= f.check_box :is_recommand %>
+                  <i data-swchoff-text="关闭" data-swchon-text="开启"></i><%= f.label t("article.is_recommand") %>
+                </label>
+              </section>
+            </div>
+            <!-- end recommand switch -->
+            <!-- carousel switch -->
+            <div class="row">
+              <section class="col col-3">
+                <label class="toggle">
+                  <%= f.check_box :is_carousel %>
+                  <i data-swchoff-text="关闭" data-swchon-text="开启"></i><%= f.label t("article.is_carousel") %>
+                </label>
+              </section>
+            </div>
+            <!-- end carousel switch -->
+            <!-- mark switch -->
+            <div class="row">
+              <section class="col col-3">
+                <label class="toggle">
+                  <%= f.check_box :is_mark %>
+                  <i data-swchoff-text="关闭" data-swchon-text="开启"></i><%= f.label t("article.is_mark") %>
+                </label>
+              </section>
+            </div>
+            <!-- end mark switch -->
+          </fieldset>
+          <!-- end basic information -->   
+        </div>
+        <!-- end widget-body -->
+      </div>
+      <!-- end smart-form -->
+    </div>
+    <!-- end widget-section-1 -->
+
+    <!-- widget-section-2 -->
+    <div class="jarviswidget jarviswidget-color-darken" data-widget-editbutton="false" id="is_extra">
+      <header>
+        <span class="widget-icon"><i class="fa fa-edit"></i></span>
+        <h2><%= t("article.extra_info") %></h2>
+      </header>
+      <!-- smart-form -->
+      <div class="smart-form">
+        <!-- extra information -->
+        <fieldset>
+          <!-- thumb upload -->
+          <div class="row" id="is_thumb">
+            <section class="col col-4">
+              <label class="label"><%= f.label t("article.thumb") %><br></label>
+              <div class="input input-file">
+                <span class="button"><%= f.file_field :thumb, readonly: 'true', onchange: "this.parentNode.nextSibling.value = this.value" %>上传</span><input type="text" readonly="true">
+              </div>
+            </section>
+          </div>
+          <!-- end thumb upload -->
+          <!-- file upload -->
+          <div class="row" id="is_file">
+            <section class="col col-4">
+              <label class="label"><%= f.label t("article.file") %><br></label>
+              <div class="input input-file state-success">
+                <span class="button"><%= f.file_field :file, readonly: 'true', onchange: "this.parentNode.nextSibling.value = this.value" %>上传</span><input type="text" readonly="true">
+              </div>
+            </section>
+          </div>
+          <!-- end file upload -->
+          <!-- abstract -->
+          <div class="row" id="is_abstract">
+            <section class="col col-8"> 
+              <label class="label"><%= f.label t("article.abstract") %><br></label>
+              <label class="textarea textarea-resizable"><i class="icon-append fa fa-comment"></i>   
+                <%= f.text_area :abstract, class: "custom-scroll", rows: "7" %>                
+              </label>
+            </section>
+          </div>
+          <!-- end abstract -->
+        </fieldset> 
+        <!-- end extra information    -->
+      </div>
+      <!-- end smart-form -->
+    </div>
+    <!-- end widget-section-2 -->
+
+    <!-- widget-section-3 -->
+    <div class="jarviswidget jarviswidget-color-darken" data-widget-editbutton="false" data-widget-fullscreenbutton="false" >
+      <header>
+        <span class="widget-icon"><i class="fa fa-edit"></i></span>
+        <h2><%= t("article.content_info") %></h2>
+      </header>
+      <!-- smart-form -->
+      <div class="smart-form">
+        <fieldset>
+          <!-- content -->
+          <div class="row">
+            <section> 
+              <%= f.cktext_area :content, required: true, :ckeditor => {:language => 'zh-cn', :toolbar => 'Full' }  %>
+            </section>
+          </div>
+          <!-- end content -->
+        </fieldset>
+        <!-- footer -->
+        <footer>
+          <%= link_to t("operate.back"), admin_articles_path, class: "btn btn-primary" %>
+          <div class="actions">
+            <%= f.submit t("operate.submit"), class: 'btn btn-primary' %>
+          </div>
+        </footer>
+        <!-- end footer -->
+      </div>
+      <!-- end smart-form -->
+    </div>
+    <!-- end widget-section-3 -->
+
+  </section>
+  <!-- end widget-grid -->
+
+<% end %>

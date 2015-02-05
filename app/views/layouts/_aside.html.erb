@@ -1,0 +1,20 @@
+<aside id="left-panel">
+	<nav>
+		<ul class="open">
+			<li>
+				<a href="#"><i class="fa fa-lg fa-fw fa-home"></i> <span class="menu-item-parent">首页</span></a>
+			</li>
+			<li>
+				<a href="#"><i class="fa fa-lg fa-fw fa-leaf"></i> <span class="menu-item-parent">一级菜单</span></a>
+				<ul class="open">
+					<li><%= link_to 'new', new_admin_article_category_path %></li>
+					<li class="/active"><a href="#">二级菜单</a></li>
+					<li><a href="#">二级菜单</a></li>
+					<li><a href="{{URL::to('/admin/posts')}}">Posts</a></li>
+					<li><a href="{{URL::to('/admin/posts/create')}}">Posts create</a></li>
+				</ul>
+			</li>
+		</ul>
+	</nav>
+	<span class="minifyme"> <i class="fa fa-arrow-circle-left hit"></i> </span>
+</aside>

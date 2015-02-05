@@ -1,0 +1,92 @@
+<div class="jarviswidget jarviswidget-color-darken" id="wid-id-0" data-widget-editbutton="false">
+  <header>
+    <span class="widget-icon"><i class="fa fa-edit"></i></span>
+    <h2><%= t("article_category.category_edit")%></h2>
+  </header>
+  <div>
+    <div class="jarviswidget-editbox"></div>  
+    <div class="widget-body no-padding">
+      <%= form_for(@admin_article_category, html: { class: "smart-form", id: "validate-form" }) do |f| %>
+      <% if @admin_article_category.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@admin_article_category.errors.count, "error") %> prohibited this admin_article_category from being saved:</h2>
+
+        <ul>
+          <% @admin_article_category.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+      <% end %>
+
+      <fieldset>
+        <%= f.hidden_field :parent_id %>
+        <div class="row">
+          <section class="col col-3">
+            <label class="label"> 
+              <%= t("article_category.title") %><br>
+            </label>
+            <label class="input">
+              <i class="icon-append fa fa-pencil"></i>
+              <%= f.text_field :title, required: "true" %>
+            </label>
+          </section>
+        </div>
+        <div class="row">
+          <section class="col col-3">
+            <label class="label"><%= t("article_category.content") %></label>
+          </section>
+        </div>
+        <div class="row">
+          <section class="col col-3">
+            <label class="toggle">
+              <%= f.check_box :is_article %>
+              <i data-swchoff-text="关闭" data-swchon-text="开启"></i><%= t("article_category.is_article") %>
+            </label>
+          </section>
+        </div>
+        <div class="row">
+          <section class="col col-3">
+            <label class="toggle">
+              <%= f.check_box :is_thumb %>
+              <i data-swchoff-text="关闭" data-swchon-text="开启"></i><%= t("article_category.is_thumb") %>
+            </label>
+          </section>
+        </div>
+        <div class="row">
+          <section class="col col-3">
+            <label class="toggle">
+              <%= f.check_box :is_file %>
+              <i data-swchoff-text="关闭" data-swchon-text="开启"></i><%= t("article_category.is_file") %>
+            </label>
+          </section>
+        </div>
+        <div class="row">
+          <section class="col col-3">
+            <label class="toggle">
+              <%= f.check_box :is_abstract %>
+              <i data-swchoff-text="关闭" data-swchon-text="开启"></i><%= t("article_category.is_abstract") %>
+            </label>
+          </section>
+        </div>
+        <div class="row">
+          <section class="col col-3">
+            <label class="toggle">
+              <%= f.check_box :is_carousel %>
+              <i data-swchoff-text="关闭" data-swchon-text="开启"></i><%= t("article_category.is_carousel") %>
+            </label>
+          </section>
+        </div>
+        <footer>
+            <%= link_to '返回', admin_article_categories_path, class: "btn btn-primary" %>
+          <div class="actions">
+            <%= f.submit '提交', class: "btn btn-primary" %>
+          </div>
+        </footer>
+      </fieldset>
+      <% end %>
+
+
+    </div>
+  </div>
+</div>

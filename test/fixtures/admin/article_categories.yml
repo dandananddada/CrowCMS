@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ancestry: MyString
+  title: MyString
+  is_article: false
+  is_thumb: false
+  is_file: false
+  is_abstract: false
+  is_carousel: MyString
+
+two:
+  ancestry: MyString
+  title: MyString
+  is_article: false
+  is_thumb: false
+  is_file: false
+  is_abstract: false
+  is_carousel: MyString

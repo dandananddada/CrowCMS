@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Dashboard</title>
+	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+	<%= stylesheet_link_tag params[:controller] %>
+	<%= csrf_meta_tags %>
+	<%= yield :csslib %>
+</head>
+<body>
+	<header id="header">
+		<div id="logo-group">
+			<span id="logo"><a href=""><img src="" alt="Dashboard"></a></span>
+		</div>
+		<div class="pull-right">
+			<div id="hide-menu" class="btn-header pull-right">
+				<span> <a href="javascript:void(0);" title="Collapse Menu"><i class="fa fa-reorder"></i></a> </span>
+			</div>
+			<div id="logout" class="btn-header transparent pull-right">
+				<span> <a href="{{URL::to('logout')}}" title="Sign Out"><i class="fa fa-sign-out"></i></a> </span>
+			</div>
+		</div>
+
+	</header>
+	<%= render 'layouts/aside' %>
+	<div id="main" role="main">
+		<div id="ribbon">
+			<ol class="breadcrumb">
+			</ol>
+		</div>
+		<div id="content">
+			<%= yield %>
+		</div>
+	</div>
+	<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+	<%= yield :jslib %>
+	<%= javascript_include_tag params[:controller] %>
+</body>
+</html>

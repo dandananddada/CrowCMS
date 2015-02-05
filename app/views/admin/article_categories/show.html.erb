@@ -1,0 +1,93 @@
+<%if notice %>
+<div class="alert alert-success fade in">
+  <button class="close" data-dismiss="alert">×</button>
+  <i class="fa-fw fa fa-check"></i>
+  <strong><%= notice %></strong>
+</div>
+<% end %>
+<div class="jarviswidget jarviswidget-color-darken" id="wid-id-0" data-widget-editbutton="false">
+  <header>
+    <span class="widget-icon"><i class="fa fa-eye"></i></span>
+    <h2><%= t("article_category.category_info")%></h2>
+  </header>
+  <div>
+    <div class="jarviswidget-editbox"></div>  
+    <div class="widget-body no-padding">
+      <div class="smart-form">
+        <fieldset>
+          <div class="row">
+            <div class="col col-2">
+              <label class="label"> 
+                <h4><%= @admin_article_category.title %></h4>
+              </label>
+            </div>
+          </div>
+          <div class="row">
+            <section class="col col-2">
+              <label class="toggle">
+                <% if @admin_article_category.is_article === true %>
+                <input type="checkbox" name="checkbox-toggle" checked="true" disabled="true">
+                <% else%>
+                <input type="checkbox" name="checkbox-toggle" disabled="true">
+                <% end %>
+                <i data-swchoff-text="关闭" data-swchon-text="开启"></i><%= t("article_category.is_article") %>
+              </label>
+            </section>
+          </div>
+          <div class="row">
+            <section class="col col-2">
+              <label class="toggle">
+                <% if @admin_article_category.is_thumb === true %>
+                <input type="checkbox" name="checkbox-toggle" checked="true" disabled="true">
+                <% else%>
+                <input type="checkbox" name="checkbox-toggle" disabled="true">
+                <% end %>
+                <i data-swchoff-text="关闭" data-swchon-text="开启"></i><%= t("article_category.is_thumb") %>
+              </label>
+            </section>
+          </div>
+          <div class="row">
+            <section class="col col-2">
+              <label class="toggle">
+                <% if @admin_article_category.is_file === true %>
+                <input type="checkbox" name="checkbox-toggle" checked="true" disabled="true">
+                <% else%>
+                <input type="checkbox" name="checkbox-toggle" disabled="true">
+                <% end %>
+                <i data-swchoff-text="关闭" data-swchon-text="开启"></i><%= t("article_category.is_file") %>
+              </label>
+            </section>
+          </div>
+          <div class="row">
+            <section class="col col-2">
+              <label class="toggle">
+                <% if @admin_article_category.is_abstract === true %>
+                <input type="checkbox" name="checkbox-toggle" checked="true" disabled="true">
+                <% else%>
+                <input type="checkbox" name="checkbox-toggle" disabled="true">
+                <% end %>
+                <i data-swchoff-text="关闭" data-swchon-text="开启"></i><%= t("article_category.is_abstract") %>
+              </label>
+            </section>
+          </div>
+          <div class="row">
+            <section class="col col-2">
+              <label class="toggle">
+                <% if @admin_article_category.is_carousel === true %>
+                <input type="checkbox" name="checkbox-toggle" checked="true" disabled="true">
+                <% else%>
+                <input type="checkbox" name="checkbox-toggle" disabled="true">
+                <% end %>
+                <i data-swchoff-text="关闭" data-swchon-text="开启"></i><%= t("article_category.is_carousel") %>
+              </label>
+            </section>
+          </div>
+        </fieldset>
+        <footer>
+          <%= link_to t("operate.back"), admin_article_categories_path, class: "btn btn-primary" %>
+          <%= link_to t("operate.edit"), edit_admin_article_category_path(@admin_article_category), class: "btn btn-primary" %>
+        </footer>
+      </div>
+    </div>
+  </div>
+</div>

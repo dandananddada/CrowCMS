@@ -1,0 +1,16 @@
+<%if notice %>
+<div class="alert alert-success fade in">
+  <button class="close" data-dismiss="alert">×</button>
+  <i class="fa-fw fa fa-check"></i>
+  <strong><%= notice %></strong>
+</div>
+<% end %>
+<div class="jarviswidget jarviswidget-color-darken" id="wid-id-1" data-widget-editbutton="false">
+  <header>
+    <span class="widget-icon"> <i class="fa fa-table"></i> </span>
+    <h2><p><%= t("article_category.table_title") %></p></h2>
+  </header>
+  <div class="tree smart-form">
+        <%= nested_article_category @admin_article_categories.roots %>
+  </div>  
+</div>
