@@ -1,14 +1,27 @@
 <aside id="left-panel">
 	<nav>
-		<ul class="open">
+		<ul>
 			<li>
-				<a href="#"><i class="fa fa-lg fa-fw fa-home"></i> <span class="menu-item-parent">首页</span></a>
+				<a href="#"><i class="fa fa-lg fa-fw fa-home"></i> <span class="menu-item-parent">	
+					<%= t("menu.submenu.home_menu") %>
+				</span></a>
 			</li>
 			<li>
-				<a href="#"><i class="fa fa-lg fa-fw fa-leaf"></i> <span class="menu-item-parent">一级菜单</span></a>
-				<ul class="open">
+				<a href="#"><i class="fa fa-lg fa-fw fa-list-ul"></i> <span class="menu-item-parent">
+					<%= t("menu.submenu.article_menu") %>
+				</span></a>
+				<ul>
+					<li><%= link_to t("menu.midmenu.article_category_menu"), admin_article_categories_path %></li>
+					<li><%= link_to t("menu.midmenu.article_menu"), admin_articles_path %></li>
+				</ul>
+			</li>
+			<li>
+				<a href="#"><i class="fa fa-lg fa-fw fa-picture-o"></i> <span class="menu-item-parent">
+					<%= t("menu.submenu.picture_menu") %>
+				</span></a>
+				<ul>
 					<li><%= link_to 'new', new_admin_article_category_path %></li>
-					<li class="/active"><a href="#">二级菜单</a></li>
+					<li><a href="#">二级菜单</a></li>
 					<li><a href="#">二级菜单</a></li>
 					<li><a href="{{URL::to('/admin/posts')}}">Posts</a></li>
 					<li><a href="{{URL::to('/admin/posts/create')}}">Posts create</a></li>

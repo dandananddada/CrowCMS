@@ -154,6 +154,12 @@ $.fn.extend({
 				} // end else
 			} // end if
 		});
+
+	//expland all elements, by EtenGstar,2015.02.05
+	$('nav').find('ul').slideDown(235);
+	$('nav').find('ul li').addClass("open");
+	$('nav').find('ul li').find("b:first").html(opts.openedSign);
+
 	} // end function
 });
 

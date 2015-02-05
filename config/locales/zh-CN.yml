@@ -202,32 +202,28 @@ zh-CN:
       short: ! '%b%d日 %H:%M'
     pm: 下午
 
+  menu:
+    submenu:
+      home_menu: 首页
+      article_menu: 文章模块
+      picture_menu: 图片模块
+    midmenu:
+      article_category_menu: 分栏管理
+      article_menu: 文章管理
 
-  activerecord:
-    attributes:
-      article:
-        title: 标题
-        article_category_id: 所属分栏
-        author: 作者
-        is_recommand: 推荐
-        is_carousel: 轮播
-        is_mark: 特殊标记
-        content: 内容
-        abstract: 摘要
-        hits: 点击率
   article_category:
     table_title: 分栏管理
     category_edit: 编辑分栏
     category_info: 分栏信息
     title: 分栏名称
     content: 分栏内容
-    is_article: 允许发布信息
+    is_article: 允许发布文章
     is_abstract: 允许发布摘要
     is_thumb: 允许发布缩略图
     is_file: 允许上传附件
     is_carousel: 允许发布图集
   article:
-    table_title: 信息管理
+    table_title: 文章管理
     basic_info: 基本信息
     id: 编号
     title: 标题
@@ -253,6 +249,17 @@ zh-CN:
     back: 返回
 
   activerecord:
+    attributes:
+      article:
+        title: 标题
+        article_category_id: 所属分栏
+        author: 作者
+        is_recommand: 推荐
+        is_carousel: 轮播
+        is_mark: 特殊标记
+        content: 内容
+        abstract: 摘要
+        hits: 点击率
     successful:
       messages:
         article_category_created: 分栏添加成功。

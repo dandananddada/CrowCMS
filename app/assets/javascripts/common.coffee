@@ -1,5 +1,5 @@
   $.validator.messages.required = "该字段不能为空，请输入相关信息！"
-
+  
   $.rails.allowAction = (link) ->
     return true  unless link.attr("data-confirm")
     $.rails.showConfirmDialog link
