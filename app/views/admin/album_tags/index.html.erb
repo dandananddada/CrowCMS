@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Admin Album Tags</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Text</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @admin_album_tags.each do |admin_album_tag| %>
+      <tr>
+        <td><%= admin_album_tag.text %></td>
+        <td><%= link_to 'Show', admin_album_tag %></td>
+        <td><%= link_to 'Edit', edit_admin_album_tag_path(admin_album_tag) %></td>
+        <td><%= link_to 'Destroy', admin_album_tag, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Album tag', new_admin_album_tag_path %>

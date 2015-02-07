@@ -4,8 +4,12 @@ module Admin::ArticleCategoriesHelper
 			admin_article_categories.each do |admin_article_category|
 				concat(content_tag(:li,admin_article_category) do 
 					concat(content_tag(:span,'admin_article_category') do
-						concat(content_tag(:i,'',class: "fa fa-lg fa-folder-open"))
-						concat(content_tag(:div, admin_article_category.title, style: "display:inline; padding-left:12px"))
+						if admin_article_category.has_children? 
+							concat(content_tag(:i,'',class: "fa fa-lg fa-minus-circle"))
+						else
+							concat(content_tag(:i,'',class: "icon-leaf"))
+						end
+						concat(content_tag(:div, admin_article_category.title, style: "display:inline; padding:12px"))
 					end
 					)
 					concat(content_tag(:a,'',class: "pull-right", href: admin_article_category_path(admin_article_category.id), data: { method: "delete", confirm: "Are you sure"}) do
@@ -26,7 +30,7 @@ module Admin::ArticleCategoriesHelper
 							end 
 						end
 						)
-					concat(content_tag(:a,'',class: "pull-right", href: new_admin_article_category_path(parent_id: admin_article_category.id)) do
+					concat(content_tag(:a,'',class: "pull-right", href: admin_article_category_new_path(admin_article_category.id)) do
 							content_tag(:div,'',class: "btn-label btn-success", style: "border-radius:0px;//background-color:rgb(48,113,169)") do
 								content_tag(:i,'',class: "glyphicon glyphicon-plus")
 							end 

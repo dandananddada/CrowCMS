@@ -1,0 +1,21 @@
+<%= form_for(@admin_album_tag) do |f| %>
+  <% if @admin_album_tag.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@admin_album_tag.errors.count, "error") %> prohibited this admin_album_tag from being saved:</h2>
+
+      <ul>
+      <% @admin_album_tag.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :text %><br>
+    <%= f.text_field :text %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

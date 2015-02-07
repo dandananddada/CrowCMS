@@ -23,5 +23,7 @@
 //= require plugin/datatables/DT_bootstrap
 //= require plugin/jquery-validate/jquery.validate.min
 //= require plugin/select2/select2
+//= require plugin/dropzone/dropzone.min
+//= require plugin/superbox/superbox
 //= require app
 //= require common

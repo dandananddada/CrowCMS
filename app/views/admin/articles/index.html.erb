@@ -70,10 +70,14 @@
             <td><%= admin_article.author %></td>
             <td><%= admin_article.hits %></td>
             <td><%= admin_article.created_at %></td>
-
-            <td><%= link_to t("operate.show"), admin_article, class: "btn bg-color-blue txt-color-white" %>
-            <%= link_to t("operate.edit"), edit_admin_article_path(admin_article), data: { no_turbolink: true }, class: "btn bg-color-orange txt-color-white" %>
-          <%= link_to t("operate.delete"), admin_article, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn bg-color-red txt-color-white" %></td>
+            <td>
+             <%= link_to t("operate.show"), admin_article, class: "btn bg-color-blue txt-color-white" %>
+             <%= link_to t("operate.edit"), edit_admin_article_path(admin_article), data: { no_turbolink: true }, class: "btn bg-color-orange txt-color-white" %>
+             <%= link_to t("operate.delete"), admin_article, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn bg-color-red txt-color-white" %>
+             <% if admin_article.article_category.is_carousel === true %>
+             <%= link_to t("article.is_carousel"), admin_picture_by_article_path(admin_article.id), class: "btn bg-color-blueDark txt-color-white pull-right" %>
+             <% end %>
+           </td>
           </tr>
           <% end %>
         </tbody>

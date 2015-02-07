@@ -4,7 +4,7 @@ CrowCMS is a cms based on Rails.
 
 You can manage your articles and categries by this beta1.0 version.
 
-I will add picture modules in the next days.
+I will add picture module in the next days.
 
 Thanks.
 

@@ -2,9 +2,21 @@ Rails.application.routes.draw do
 
   mount Ckeditor::Engine => '/ckeditor'
   namespace :admin do
-    resources :article_categories, path: 'article-category'
+  #article module
+    resources :article_categories, path: 'article-category', except: :new
+    #add a category under super category.
+    get 'article-category/new/:parent_id', to: 'article_categories#new', as: :article_category_new, :constraints => { :parent_id => /\d/ }
+   
     resources :articles, path: 'article'
-    get 'article_concat', to: 'articles#article_concat', path: 'article-concat'
+    #reload article elements when categroy select changed.
+    get 'article-concat', to: 'articles#article_concat'
+
+    resources :article_pictures, path: 'article-picture', only: [:create, :destroy]
+    #show pictures belongs specificy article.
+    get 'article-picture/:article_id', to: 'article_pictures#index', as: :picture_by_article, :constraints => { :article_id => /\d/ }   
+
+  #album module
+    resources :album_tags, path: 'album-tag'
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

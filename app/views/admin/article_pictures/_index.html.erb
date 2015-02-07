@@ -1,0 +1,40 @@
+
+  <div class="jarviswidget jarviswidget-color-darken" data-widget-editbutton="false">
+    <header>
+      <span class="widget-icon"> <i class="fa fa-table"></i> </span>
+      <h2><p><%= t("article_picture.table_title") %></p></h2>
+    </header>
+    <div>
+      <div class="jarviswidget-editbox"></div>  
+      <div class="widget-body no-padding">
+        <div class="widget-body-toolbar"></div>
+        <table id="dt_basic" class="table table-striped table-bordered">
+          <thead>
+            <tr>
+              <th><%= t("article_picture.id") %></th>
+              <th><%= t("article_picture.picture_name") %></th>
+              <th><%= t("article_picture.picture_type") %></th>
+              <th><%= t("article_picture.picture_size") %></th>
+              <th><%= t("article_picture.picture_updated_at") %></th>
+              <th><%= t("operate.title") %></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @admin_article_pictures.each do |admin_article_picture| %>
+            <tr>
+              <td><%= admin_article_picture.id %></td>
+              <td><%= admin_article_picture.picture_file_name %></td>
+              <td><%= admin_article_picture.picture_content_type %></td>
+              <td><%= admin_article_picture.picture_file_size %></td>
+              <td><%= admin_article_picture.picture_updated_at %></td>
+              <td>
+                <a href="javascript:void(0);" class="btn bg-color-green txt-color-white" rel="tooltip" data-placement="left" data-original-title="<img src=' <%= admin_article_picture.picture.url(:small) %>' alt='<%= admin_article_picture.picture_file_name %>' class='online'>" data-html="true"><%= t("operate.preview") %></a> 
+                <%= link_to t("operate.delete"), admin_article_picture, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn bg-color-red txt-color-white" %>
+              </td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>      
+      </div>
+    </div>
+  </div>

@@ -70,9 +70,10 @@
               </label>
             </section>
           </div>
-          <div class="row">
+           <div class="row">
             <section class="col col-2">
               <label class="toggle">
+               <%= @admin_article_category.is_carousel %>
                 <% if @admin_article_category.is_carousel === true %>
                 <input type="checkbox" name="checkbox-toggle" checked="true" disabled="true">
                 <% else%>

@@ -146,8 +146,8 @@ $.fn.extend({
 					});
 
 				} else {
-					$(this).parent().find("ul:first").slideDown(opts.speed, function() {
-						/*$(this).effect("highlight", {color : '#616161'}, 500); - disabled due to CPU clocking on phones*/
+					$(this).parent().find("ul").slideDown(opts.speed, function() {
+						// $(this).effect("highlight", {color : '#616161'}, 500); - disabled due to CPU clocking on phones
 						$(this).parent("li").addClass("open");
 						$(this).parent("li").find("b:first").delay(opts.speed).html(opts.openedSign);
 					});

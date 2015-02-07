@@ -1,0 +1,40 @@
+# Place all the behaviors and hooks related to the matching controller here.
+# All this logic will automatically be available in application.js.
+# You can use CoffeeScript in this file: http://coffeescript.org/
+myDropzone = undefined
+$(document).ready ->
+  pageSetUp()
+  Dropzone.autoDiscover = false
+  if $("#mydropzone").length
+    myDropzone = new Dropzone('#mydropzone',
+      paramName: 'admin_article_picture[picture]'
+      parallelUploads: '20'
+      addRemoveLinks: true
+      maxFilesize: 20
+      dictRemoveFile: '删除'
+      autoDiscover: false
+      autoProcessQueue: false
+      dictResponseError: '文件上传失败')
+    $('#dt_basic').dataTable
+      'sPaginationType': 'bootstrap'
+      'iDisplayLength': 6
+      'aLengthMenu': [6,12,18,24]
+      'oLanguage':
+        'sProcessing': '正在加载中......'
+        'sZeroRecords': '对不起，查询不到相关数据！'
+        'sEmptyTable': '表中无数据存在！'
+        'sInfo': '当前显示 _START_ 到 _END_ 条，共 _TOTAL_ 条记录'
+        'sInfoFiltered': '数据表中共为 _MAX_ 条记录'
+        'oPaginate':
+          'sFirst': '首页'
+          'sPrevious': '上一页'
+          'sNext': '下一页'
+          'sLast': '末页'
+    return       
+root = exports ? this
+root.upload = ->
+  myDropzone.processQueue()
+  $(".btn.btn-sm.btn-danger.btn-block").hide()
+  return
+root.reload = ->
+  history.go(0)

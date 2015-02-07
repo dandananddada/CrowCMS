@@ -4,6 +4,7 @@ class Admin::Article < ActiveRecord::Base
 		validates :author, presence: true
 		validates :content, presence: true
 	belongs_to :article_category
+	has_many :article_picture, dependent: :destroy
 	has_attached_file :thumb, 
 					  styles: { small: "150x150>"},
 					  url: "/uploads/articles/thumb/:id/:style/:basename.:extension",

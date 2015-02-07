@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150202132655) do
+ActiveRecord::Schema.define(version: 20150206131744) do
+
+  create_table "album_tags", force: :cascade do |t|
+    t.string "text", limit: 255
+  end
 
   create_table "article_categories", force: :cascade do |t|
     t.string   "ancestry",    limit: 255
@@ -24,6 +28,16 @@ ActiveRecord::Schema.define(version: 20150202132655) do
     t.datetime "created_at",                              null: false
     t.datetime "updated_at",                              null: false
   end
+
+  create_table "article_pictures", force: :cascade do |t|
+    t.integer  "article_id",           limit: 4
+    t.string   "picture_file_name",    limit: 255
+    t.string   "picture_content_type", limit: 255
+    t.integer  "picture_file_size",    limit: 4
+    t.datetime "picture_updated_at"
+  end
+
+  add_index "article_pictures", ["article_id"], name: "index_article_pictures_on_article_id", using: :btree
 
   create_table "articles", force: :cascade do |t|
     t.string   "title",               limit: 255
@@ -65,5 +79,6 @@ ActiveRecord::Schema.define(version: 20150202132655) do
   add_index "ckeditor_assets", ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable", using: :btree
   add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type", using: :btree
 
+  add_foreign_key "article_pictures", "articles"
   add_foreign_key "articles", "article_categories"
 end

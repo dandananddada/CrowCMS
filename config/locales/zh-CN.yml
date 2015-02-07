@@ -231,7 +231,7 @@ zh-CN:
     author: 作者
     hits: 点击率
     is_recommand: 推荐
-    is_carousel: 轮播
+    is_carousel: 图集
     is_mark: 特殊标记
     extra_info: 附加信息
     thumb: 缩略图
@@ -239,14 +239,25 @@ zh-CN:
     abstract: 摘要
     content_info: 文本信息
     created_at: 创建日期
+  article_picture:
+    table_title: 图集管理
+    id: 编号
+    picture_name: 图片名称
+    picture_type: 图片类型
+    picture_size: 图片大小（kb）
+    picture_updated_at: 上传日期 
+    upload_title: 图集上传
   operate:
     title: 操作
     new: 添加
     show: 显示
     edit: 修改
     delete: 删除
+    upload: 上传
     submit: 提交
     back: 返回
+    manage: 管理
+    preview: 预览
 
   activerecord:
     attributes:
