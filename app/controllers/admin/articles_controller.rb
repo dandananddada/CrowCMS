@@ -32,10 +32,12 @@ class Admin::ArticlesController < ApplicationController
       if @admin_article.save
         format.html { redirect_to @admin_article, notice: "#{t 'activerecord.successful.messages.article_created'}" }
         format.json { render :show, status: :created, location: @admin_article }
+        # format.js { render :show, status: :created, location: @admin_article }
       else
         @admin_article_categories = Admin::ArticleCategory.all
         format.html { render :new }
         format.json { render json: @admin_article.errors, status: :unprocessable_entity }
+        # format.js { render json: @admin_article.errors, status: :unprocessable_entity }
       end
     end
   end

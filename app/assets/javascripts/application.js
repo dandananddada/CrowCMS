@@ -25,5 +25,6 @@
 //= require plugin/select2/select2
 //= require plugin/dropzone/dropzone.min
 //= require plugin/superbox/superbox
+//= require plugin/masonry/masonry.pkgd.min
 //= require app
 //= require common

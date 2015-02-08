@@ -11,10 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150206131744) do
+ActiveRecord::Schema.define(version: 20150208152958) do
 
   create_table "album_tags", force: :cascade do |t|
     t.string "text", limit: 255
+  end
+
+  create_table "albums", force: :cascade do |t|
+    t.string   "name",               limit: 255
+    t.string   "tags",               limit: 255
+    t.string   "description",        limit: 255
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.string   "cover_file_name",    limit: 255
+    t.string   "cover_content_type", limit: 255
+    t.integer  "cover_file_size",    limit: 4
+    t.datetime "cover_updated_at"
   end
 
   create_table "article_categories", force: :cascade do |t|
@@ -79,6 +91,21 @@ ActiveRecord::Schema.define(version: 20150206131744) do
   add_index "ckeditor_assets", ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable", using: :btree
   add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type", using: :btree
 
+  create_table "photos", force: :cascade do |t|
+    t.integer  "album_id",           limit: 4
+    t.string   "name",               limit: 255
+    t.string   "description",        limit: 255
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.string   "image_file_name",    limit: 255
+    t.string   "image_content_type", limit: 255
+    t.integer  "image_file_size",    limit: 4
+    t.datetime "image_updated_at"
+  end
+
+  add_index "photos", ["album_id"], name: "index_photos_on_album_id", using: :btree
+
   add_foreign_key "article_pictures", "articles"
   add_foreign_key "articles", "article_categories"
+  add_foreign_key "photos", "albums"
 end

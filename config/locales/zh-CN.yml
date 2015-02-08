@@ -207,9 +207,14 @@ zh-CN:
       home_menu: 首页
       article_menu: 文章模块
       picture_menu: 图片模块
+      album_menu: 相册模块
+      photo_menu:
     midmenu:
       article_category_menu: 分栏管理
       article_menu: 文章管理
+      album_tags: 标签管理
+      album: 相册管理
+
 
   article_category:
     table_title: 分栏管理
@@ -247,6 +252,18 @@ zh-CN:
     picture_size: 图片大小（kb）
     picture_updated_at: 上传日期 
     upload_title: 图集上传
+  album_tag: 
+    create: 新建标签
+    edit: 编辑标签
+    manage: 标签管理
+    name: 标签名称
+  album:
+    create: 新建相册
+    edit: 编辑相册
+    name: 相册名称
+    tags: 相册标签  
+    cover: 相册封面
+    description: 相册描述
   operate:
     title: 操作
     new: 添加
@@ -279,3 +296,9 @@ zh-CN:
         article_created: 文章添加成功。
         article_updated: 文章更新成功。
         article_deleted: 文章删除成功。
+        album_tag_created: 标签添加成功。
+        album_tag_updated: 标签更新成功。
+        album_tag_deleted: 标签删除成功。
+        album_created: 相册添加成功。
+        album_updated: 相册更新成功。
+        album_deleted: 相册删除成功。

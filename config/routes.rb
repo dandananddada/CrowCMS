@@ -16,7 +16,10 @@ Rails.application.routes.draw do
     get 'article-picture/:article_id', to: 'article_pictures#index', as: :picture_by_article, :constraints => { :article_id => /\d/ }   
 
   #album module
-    resources :album_tags, path: 'album-tag'
+    resources :album_tags, path: 'album-tags'
+    resources :albums
+    resources :photos, except: :new
+    get 'photo/new/:album_id', to: 'photos#new', as: :photo_new, :constraints => { :parent_id => /\d/ }
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -30,11 +30,13 @@ class Admin::ArticlePicturesController < ApplicationController
 
     respond_to do |format|
       if @admin_article_picture.save
+        format.js { render :aaa, status: :created, location: @admin_article_picture }
         format.html { redirect_to @admin_article_picture, notice: 'Article picture was successfully created.' }
         format.json { render :show, status: :created, location: @admin_article_picture }
       else
         format.html { render :new }
         format.json { render json: @admin_article_picture.errors, status: :unprocessable_entity }
+        format.js { render json: @admin_article_picture.errors, status: :unprocessable_entity }
       end
     end
   end

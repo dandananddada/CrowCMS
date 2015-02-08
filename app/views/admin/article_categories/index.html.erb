@@ -10,7 +10,12 @@
     <span class="widget-icon"> <i class="fa fa-table"></i> </span>
     <h2><p><%= t("article_category.table_title") %></p></h2>
   </header>
-  <div class="tree smart-form">
+  <div>
+    <div class="jarviswidget-editbox"></div>  
+    <div class="widget-body">
+      <div class="tree smart-form">
         <%= nested_article_category @admin_article_categories.roots %>
+      </div>
+    </div>
   </div>  
 </div>

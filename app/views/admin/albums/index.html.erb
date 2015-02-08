@@ -1,0 +1,72 @@
+<%if notice %>
+<div class="alert alert-success fade in">
+  <button class="close" data-dismiss="alert">×</button>
+  <i class="fa-fw fa fa-check"></i>
+  <strong><%= notice %></strong>
+</div>
+<% end %>
+
+
+<div class="row">
+  <div class="col-md-12">
+    <a href="<%= new_admin_album_path %>" 
+       class="btn btn-labeled btn-success" 
+       data-toggle="modal" 
+       data-target="#myModal">
+      <span class="btn-label">
+      <i class="glyphicon glyphicon-plus"></i></span><%= t("operate.new") %></a>
+    </a>
+  </div>
+</div>
+<br>
+<div class="row" id="container">
+  <% @admin_albums.each do |admin_album| %>
+  
+  <div class="col-xs-12 col-sm-4 col-md-2 item">
+    <div class="panel panel-darken">
+      <div class="panel-heading">
+        <h3 class="panel-title text-align-center">
+          <%= admin_album.name %></h3>
+        </div>
+        <div class="panel-body no-padding text-align-center">
+          <div class="the-price">
+            <a href="<%= admin_album_path(admin_album) %>">
+              <%= image_tag admin_album.cover.url, class: "img-responsive" %>
+            </a>
+          </div>
+        </div>
+        <div class="panel-footer no-padding">
+          <a href="<%= edit_admin_album_path(admin_album) %>" 
+             class="btn bg-color-orange txt-color-white btn-block" 
+             data-toggle="modal" 
+             data-target="#myModal_<%= admin_album.id %>">
+            <%= t("operate.edit") %>
+          </a>
+        </div>
+        <div class="panel-footer no-padding">
+          <a href="<%= admin_album_path(admin_album) %>" 
+             class="btn bg-color-redLight txt-color-white btn-block" 
+             data-method="delete" 
+             data-confirm="Are you sure?" >
+            <%= t("operate.delete") %>
+          </a>
+        </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="myModal_<%= admin_album.id %>" tabindex="-1" role="dialog" aria-labelledby="myModal" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>
+
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModal" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+    </div>
+  </div>
+</div>

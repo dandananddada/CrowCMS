@@ -17,13 +17,11 @@
 			</li>
 			<li>
 				<a href="#"><i class="fa fa-lg fa-fw fa-picture-o"></i> <span class="menu-item-parent">
-					<%= t("menu.submenu.picture_menu") %>
+					<%= t("menu.submenu.album_menu") %>
 				</span></a>
 				<ul>
-					<li><a href="#">二级菜单</a></li>
-					<li><a href="#">二级菜单</a></li>
-					<li><a href="{{URL::to('/admin/posts')}}">Posts</a></li>
-					<li><a href="{{URL::to('/admin/posts/create')}}">Posts create</a></li>
+					<li><%= link_to t("menu.midmenu.album_tags"), admin_album_tags_path %></li>
+					<li><%= link_to t("menu.midmenu.album"), admin_albums_path %></li>
 				</ul>
 			</li>
 		</ul>

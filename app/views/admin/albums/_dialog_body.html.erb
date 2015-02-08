@@ -1,0 +1,51 @@
+  <div class="smart-form">
+        <fieldset>
+          <!-- name -->
+          <div class="row">
+            <div class="col col-md-12">
+              <label class="label"> 
+                <%= f.label t("album.name") %><br>
+              </label>
+              <label class="input">
+                <i class="icon-append fa fa-pencil"></i>
+                <%= f.text_field :name, required: true%>
+              </label>
+            </div>
+          </div>
+          <!-- end name -->
+          <!-- tags -->
+          <div class="row">
+            <div class="col col-md-12">
+              <label> 
+                <%= f.label t("album.tags") %><br>
+              </label>
+              <select name="admin_album[tags]" class="select2" id="test" multiple  id="album-category" >
+                <% @admin_album_tags.each do |admin_album_tag| %>
+                <option value="<%= admin_album_tag.id %>"><%= admin_album_tag.text %></option>
+                <% end %>
+              </select>
+            </div>
+          </div>
+          <!-- end tags -->
+          <!-- cover -->
+          <div class="row">
+            <div class="col col-md-12">
+              <label class="label"><%= f.label t("album.cover") %><br></label>
+              <div class="input input-file">
+                <span class="button"><%= f.file_field :cover, readonly: 'true', onchange: "this.parentNode.nextSibling.value = this.value" %><%= t("operate.upload") %></span><input type="text" readonly="true">
+              </div>
+            </div>
+          </div>
+          <!-- end cover -->
+          <!-- description -->
+          <div class="row">
+            <div class="col col-md-12"> 
+              <label class="label"><%= f.label t("album.description") %><br></label>
+              <label class="textarea textarea-resizable"><i class="icon-append fa fa-comment"></i>   
+                <%= f.text_area :description, class: "custom-scroll", rows: "7" %>                
+              </label>
+            </div>
+          </div>
+          <!-- end description -->
+        </fieldset>
+      </div>

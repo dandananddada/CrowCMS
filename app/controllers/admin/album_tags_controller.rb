@@ -15,10 +15,12 @@ class Admin::AlbumTagsController < ApplicationController
   # GET /admin/album_tags/new
   def new
     @admin_album_tag = Admin::AlbumTag.new
+    render layout: false
   end
 
   # GET /admin/album_tags/1/edit
   def edit
+    render layout: false
   end
 
   # POST /admin/album_tags
@@ -28,7 +30,7 @@ class Admin::AlbumTagsController < ApplicationController
 
     respond_to do |format|
       if @admin_album_tag.save
-        format.html { redirect_to @admin_album_tag, notice: 'Album tag was successfully created.' }
+        format.html { redirect_to admin_album_tags_url, notice: "#{t 'activerecord.successful.messages.album_tag_created'}" }
         format.json { render :show, status: :created, location: @admin_album_tag }
       else
         format.html { render :new }
@@ -42,7 +44,7 @@ class Admin::AlbumTagsController < ApplicationController
   def update
     respond_to do |format|
       if @admin_album_tag.update(admin_album_tag_params)
-        format.html { redirect_to @admin_album_tag, notice: 'Album tag was successfully updated.' }
+        format.html { redirect_to admin_album_tags_url, notice: "#{t 'activerecord.successful.messages.album_tag_updated'}" }
         format.json { render :show, status: :ok, location: @admin_album_tag }
       else
         format.html { render :edit }
@@ -56,7 +58,7 @@ class Admin::AlbumTagsController < ApplicationController
   def destroy
     @admin_album_tag.destroy
     respond_to do |format|
-      format.html { redirect_to admin_album_tags_url, notice: 'Album tag was successfully destroyed.' }
+      format.html { redirect_to admin_album_tags_url, notice: "#{t 'activerecord.successful.messages.album_tag_deleted'}" }
       format.json { head :no_content }
     end
   end

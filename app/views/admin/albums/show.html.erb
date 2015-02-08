@@ -1,0 +1,49 @@
+<% if notice %>
+<div class="alert alert-success fade in">
+  <button class="close" data-dismiss="alert">×</button>
+  <i class="fa-fw fa fa-check"></i>
+  <strong><%= notice %></strong>
+</div>
+<% end %>
+
+<div class="row hidden-mobile">
+	<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+		<h1 class="page-title txt-color-blueDark">
+			<i class="fa-fw fa fa-picture-o"></i> 
+			Gallery <span>>
+			Smart Responsive gallery </span></h1>
+	</div>
+
+	<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 text-align-right">
+		<div class="page-title">
+			<a href="javascript:void(0);" class="btn btn-default">Upload</a>
+			<%= link_to t("operate.back"), admin_albums_path , class: "btn btn-default" %>
+		</div>
+	</div>
+</div>
+<p>
+  <strong>Name:</strong>
+  <%= @admin_album.name %>
+</p>
+
+<p>
+  <strong>Tags:</strong>
+  <%= @admin_album.tags %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @admin_album.description %>
+</p>
+<%= link_to 'Edit', edit_admin_album_path(@admin_album) %> |
+<%= link_to 'Back', admin_albums_path %>
+<div class="row">
+	<div class="superbox col-sm-12">
+		<div class="superbox-list">
+			<img src="img/superbox/superbox-thumb-1.jpg" data-img="img/superbox/superbox-full-1.jpg" alt="My first photoshop layer mask on a high end PSD template theme" title="Miller Cine" class="superbox-img">
+		</div>
+	</div>
+	<!-- /SuperBox -->
+
+	<div class="superbox-show" style="height:300px; display: none"></div>
+</div>

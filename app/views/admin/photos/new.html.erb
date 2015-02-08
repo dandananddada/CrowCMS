@@ -1,0 +1,20 @@
+<%= form_for(@admin_photo, remote: true, :authenticity_token => true, html: { id: "mydropzone", class: "dropzone dz-clickable", multipart: true }) do |f| %>
+
+<div class="modal-header">
+	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+		&times;
+	</button>
+	<h4 class="modal-title" id="myModalLabel"><%= t("album_tag.edit") %></h4>
+</div>
+<div class="modal-body">
+
+	<%= f.hidden_field :album_id %>
+	<div class="dz-default dz-message">
+		<span>Drop files here to upload</span>
+	</div>
+</div>
+<div class="modal-footer">
+	<%= f.submit t("operate.submit"), class: "btn btn-primary" %>
+	<button type="button" class="btn btn-default" data-dismiss="modal"><%= t("operate.back") %></button>
+</div>
+<% end %>
