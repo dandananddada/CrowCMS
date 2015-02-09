@@ -5,68 +5,79 @@
   <strong><%= notice %></strong>
 </div>
 <% end %>
+<div class="jarviswidget jarviswidget-color-darken" id="wid-id-0" data-widget-editbutton="false">
+  <header>
+    <span class="widget-icon"> <i class="fa fa-picture-o"></i> </span>
+    <h2><p><%= t("album.table_title") %></p></h2>
+  </header>
+  <div>
+    <div class="jarviswidget-editbox"></div>  
+    <div class="widget-body">
 
-
-<div class="row">
-  <div class="col-md-12">
-    <a href="<%= new_admin_album_path %>" 
-       class="btn btn-labeled btn-success" 
-       data-toggle="modal" 
-       data-target="#myModal">
-      <span class="btn-label">
-      <i class="glyphicon glyphicon-plus"></i></span><%= t("operate.new") %></a>
-    </a>
-  </div>
-</div>
-<br>
-<div class="row" id="container">
-  <% @admin_albums.each do |admin_album| %>
-  
-  <div class="col-xs-12 col-sm-4 col-md-2 item">
-    <div class="panel panel-darken">
-      <div class="panel-heading">
-        <h3 class="panel-title text-align-center">
-          <%= admin_album.name %></h3>
+      <div class="row">
+        <div class="col-md-12">
+          <a href="<%= new_admin_album_path %>" 
+           class="btn btn-labeled btn-success" 
+           data-toggle="modal" 
+           data-target="#myModal">
+           <span class="btn-label">
+            <i class="glyphicon glyphicon-plus"></i></span><%= t("operate.new") %>
+          </a>
         </div>
-        <div class="panel-body no-padding text-align-center">
-          <div class="the-price">
-            <a href="<%= admin_album_path(admin_album) %>">
-              <%= image_tag admin_album.cover.url, class: "img-responsive" %>
-            </a>
+      </div>
+      <br>
+      <div class="row" id="container">
+        <% @admin_albums.each do |admin_album| %>
+
+        <div class="col-xs-12 col-sm-4 col-md-2 item">
+          <div class="panel panel-darken">
+            <div class="panel-heading">
+              <h3 class="panel-title text-align-center">
+                <%= admin_album.name %></h3>
+              </div>
+              <div class="panel-body no-padding text-align-center">
+                <div class="the-price">
+                  <a href="<%= admin_album_path(admin_album) %>">
+                    <%= image_tag admin_album.cover.url(:small), class: "img-responsive" %>
+                  </a>
+                </div>
+              </div>
+              <div class="panel-footer no-padding">
+                <a href="<%= edit_admin_album_path(admin_album) %>" 
+                 class="btn bg-color-orange txt-color-white btn-block" 
+                 data-toggle="modal" 
+                 data-target="#myModal_<%= admin_album.id %>">
+                 <%= t("operate.edit") %>
+               </a>
+             </div>
+             <div class="panel-footer no-padding">
+              <a href="<%= admin_album_path(admin_album) %>" 
+               class="btn bg-color-redLight txt-color-white btn-block" 
+               data-method="delete" 
+               data-confirm="Are you sure?" >
+               <%= t("operate.delete") %>
+             </a>
+           </div>
+         </div>
+       </div>
+
+       <div class="modal fade" id="myModal_<%= admin_album.id %>" tabindex="-1" role="dialog" aria-labelledby="myModal" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
           </div>
         </div>
-        <div class="panel-footer no-padding">
-          <a href="<%= edit_admin_album_path(admin_album) %>" 
-             class="btn bg-color-orange txt-color-white btn-block" 
-             data-toggle="modal" 
-             data-target="#myModal_<%= admin_album.id %>">
-            <%= t("operate.edit") %>
-          </a>
-        </div>
-        <div class="panel-footer no-padding">
-          <a href="<%= admin_album_path(admin_album) %>" 
-             class="btn bg-color-redLight txt-color-white btn-block" 
-             data-method="delete" 
-             data-confirm="Are you sure?" >
-            <%= t("operate.delete") %>
-          </a>
-        </div>
+      </div>
+      <% end %>
     </div>
-  </div>
 
-  <div class="modal fade" id="myModal_<%= admin_album.id %>" tabindex="-1" role="dialog" aria-labelledby="myModal" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
+
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModal" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+        </div>
       </div>
     </div>
+
   </div>
-  <% end %>
 </div>
-
-
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModal" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-    </div>
-  </div>
 </div>

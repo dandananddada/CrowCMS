@@ -1,6 +1,38 @@
-<h1>Editing Admin Photo</h1>
+<%= form_for(@admin_photo) do |f| %>
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+          &times;
+        </button>
+        <h4 class="modal-title" id="myModalLabel"><%= t("photo.edit") %></h4>
+      </div>
+      <div class="modal-body">
+        <div class="smart-form">
+          <fieldset>
+            <div class="row">
+              <div class="col col-md-12">
+                <label class="label"> 
+                  <%= f.label t("photo.name") %><br>
+                </label>
+                <label class="input">
+                  <i class="icon-append fa fa-pencil"></i>
+                  <%= f.text_field :name, required: true%>
+                </label>
+              </div>
+            </div>
+            <div class="row">
+              <section class="col col-md-12"> 
+                <label class="label"><%= f.label t("photo.description") %><br></label>
+                <label class="textarea textarea-resizable"><i class="icon-append fa fa-comment"></i>   
+                  <%= f.text_area :description, class: "custom-scroll", rows: "7" %>                
+                </label>
+              </section>
+            </div>
+          </fieldset>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <%= f.submit t("operate.submit"), class: "btn btn-primary" %>
+        <button type="button" class="btn btn-default" data-dismiss="modal"><%= t("operate.back") %></button>
+      </div>
 
-<%= render 'form' %>
-
-<%= link_to 'Show', @admin_photo %> |
-<%= link_to 'Back', admin_photos_path %>
+<% end %>

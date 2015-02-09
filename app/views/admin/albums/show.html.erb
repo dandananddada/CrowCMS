@@ -1,49 +1,80 @@
 <% if notice %>
 <div class="alert alert-success fade in">
-  <button class="close" data-dismiss="alert">×</button>
-  <i class="fa-fw fa fa-check"></i>
-  <strong><%= notice %></strong>
+	<button class="close" data-dismiss="alert">×</button>
+	<i class="fa-fw fa fa-check"></i>
+	<strong><%= notice %></strong>
 </div>
 <% end %>
+<div class="jarviswidget jarviswidget-color-darken" id="wid-id-0" data-widget-editbutton="false">
+	<header>
+		<span class="widget-icon"> <i class="fa fa-table"></i> </span>
+		<h2><p><%= t("article.table_title") %></p></h2>
+	</header>
+	<div>
+		<div class="jarviswidget-editbox"></div>  
+		<div class="widget-body">
+			<div class="row hidden-mobile">
+				<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+					<h1 class="page-title txt-color-blueDark">
+						<i class="fa-fw fa fa-picture-o"></i><%= t("photo.board_title") %>
+						<span><%= @admin_album.name %></span>
+					</h1>
+				</div>
+				<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 text-align-right">
+					<div class="page-title">
+						<a href="<%= admin_photo_new_path(@admin_album.id) %>" 
+							class="btn btn-default" 
+							data-toggle="modal" 
+							data-target="#myModal">
+							<%= t("operate.upload") %>
+						</a>
+						<%= link_to t("operate.update"), "javascript:reload()" , class: "btn btn-default" %>
+						<%= link_to t("operate.back"), admin_albums_path , class: "btn btn-default" %>
+					</div>
+				</div>
+			</div>
+			<div class="alert alert-info fade in">
+				<i class="fa-fw fa fa-description"></i>
+				<strong><%= t("photo.board_description") %></strong><%= @admin_album.description %>
+			</div>
+			<div class="row">
+				<div class="superbox col-sm-12">
+					<% @admin_photos.each do |admin_photo|%>
+					<div class="superbox-list">
+						<%= image_tag admin_photo.image.url(:small),
+						data: { img: admin_photo.image.url },
+						alt: admin_photo.description,
+						title: admin_photo.name,
+						photo_id: admin_photo.id,
+						created_at: admin_photo.created_at,
+						class: "superbox-img"
+							%>
+						</div>
+						<% end %>
+					</div>
+					<div class="superbox-show" style="height:300px; display: none"></div>
+				</div>
 
-<div class="row hidden-mobile">
-	<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-		<h1 class="page-title txt-color-blueDark">
-			<i class="fa-fw fa fa-picture-o"></i> 
-			Gallery <span>>
-			Smart Responsive gallery </span></h1>
-	</div>
-
-	<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 text-align-right">
-		<div class="page-title">
-			<a href="javascript:void(0);" class="btn btn-default">Upload</a>
-			<%= link_to t("operate.back"), admin_albums_path , class: "btn btn-default" %>
+				<% @admin_photos.each do |admin_photo|%>
+				<div class="modal fade" 
+				id="myModal_<%= admin_photo.id %>" 
+				tabindex="-1" role="dialog" 
+				aria-labelledby="myModal" 
+				aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<!-- render form -->
+					</div>
+				</div>
+			</div>
+			<% end %>
+			<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModal" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>
-<p>
-  <strong>Name:</strong>
-  <%= @admin_album.name %>
-</p>
 
-<p>
-  <strong>Tags:</strong>
-  <%= @admin_album.tags %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @admin_album.description %>
-</p>
-<%= link_to 'Edit', edit_admin_album_path(@admin_album) %> |
-<%= link_to 'Back', admin_albums_path %>
-<div class="row">
-	<div class="superbox col-sm-12">
-		<div class="superbox-list">
-			<img src="img/superbox/superbox-thumb-1.jpg" data-img="img/superbox/superbox-full-1.jpg" alt="My first photoshop layer mask on a high end PSD template theme" title="Miller Cine" class="superbox-img">
-		</div>
-	</div>
-	<!-- /SuperBox -->
-
-	<div class="superbox-show" style="height:300px; display: none"></div>
-</div>

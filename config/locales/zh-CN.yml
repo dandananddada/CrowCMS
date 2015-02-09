@@ -253,23 +253,33 @@ zh-CN:
     picture_updated_at: 上传日期 
     upload_title: 图集上传
   album_tag: 
+    table_title: 标签管理
     create: 新建标签
     edit: 编辑标签
-    manage: 标签管理
     name: 标签名称
   album:
+    table_title: 相册管理
     create: 新建相册
     edit: 编辑相册
     name: 相册名称
     tags: 相册标签  
     cover: 相册封面
     description: 相册描述
+  photo:
+    board_title: 相册>
+    board_description: 描述：
+    new: 上传相片
+    edit: 编辑相片
+    title: 相片名称
+    name: 相片名称
+    description: 相片描述
   operate:
     title: 操作
     new: 添加
     show: 显示
     edit: 修改
     delete: 删除
+    update: 更新
     upload: 上传
     submit: 提交
     back: 返回
@@ -302,3 +312,6 @@ zh-CN:
         album_created: 相册添加成功。
         album_updated: 相册更新成功。
         album_deleted: 相册删除成功。
+        photo_created: 相片添加成功。
+        photo_updated: 相片更新成功。
+        photo_deleted: 相片删除成功。

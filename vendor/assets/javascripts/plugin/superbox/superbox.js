@@ -14,9 +14,17 @@
 	$.fn.SuperBox = function(options) {
 		
 		var superbox      = $('<div class="superbox-show"></div>'),
-			superboximg   = $('<img src="" class="superbox-current-img"><div id="imgInfoBox" class="superbox-imageinfo inline-block"> <h1>Image Title</h1><span><p><em>http://imagelink.com/thisimage.jpg</em></p><p class="superbox-img-description">Image description</p><p><a href="javascript:destroy()" class="btn btn-danger btn-sm pull-right">Delete</a></p></span> </div>'),
+		    superboximg   = $('<img src="" class="superbox-current-img">'+
+						      '<div id="imgInfoBox" class="superbox-imageinfo inline-block">'+
+						      '<h1>Image Title</h1><span><p><em></em></p>'+
+						      '<p class="superbox-img-description">Image description</p><p>'+
+						      '<a class="btn btn-primary btn-sm" data-toggle="modal">修改</a>'+
+						      '<a class="btn btn-danger btn-sm" data-method="delete" data-confirm="xxx">删除</a></p></span></div>'),
 			superboxclose = $('<div class="superbox-close txt-color-white"><i class="fa fa-times fa-lg"></i></div>');
-		
+
+
+             
+             
 		superbox.append(superboximg).append(superboxclose);
 		
 		var imgInfoBox = $('.superbox-imageinfo');
@@ -28,10 +36,11 @@
 		
 				var currentimg = $this.find('.superbox-img'),
 					imgData = currentimg.data('img'),
-					imgDescription = currentimg.attr('alt') || "No description",
+					imgDescription = currentimg.attr('alt') || "相片还没有添加描述信息",
 					imgLink = imgData,
-					imgTitle = currentimg.attr('title') || "No Title";
-					
+					imgTitle = currentimg.attr('title') || "相片还没有名称";
+					photoId = currentimg.attr('photo_id');
+					createdAt = currentimg.attr('created_at')
 					//console.log(imgData, imgDescription, imgLink, imgTitle)
 					
 				superboximg.attr('src', imgData);
@@ -43,9 +52,12 @@
 				//$('#imgInfoBox >:first-child').text(imgTitle);
 				//$('#imgInfoBox .superbox-img-description').text(imgDescription);
 				
-				superboximg.find('em').text(imgLink);
+				superboximg.find('em').text(createdAt);
 				superboximg.find('>:first-child').text(imgTitle);
 				superboximg.find('.superbox-img-description').text(imgDescription);
+				superboximg.find('.btn.btn-primary.btn-sm').attr('href','/admin/photos/'+photoId+'/edit');
+				superboximg.find('.btn.btn-primary.btn-sm').attr('data-target','#myModal_'+photoId);
+				superboximg.find('.btn.btn-danger.btn-sm').attr('href','/admin/photos/'+photoId);
 				
 				//console.log("fierd")
 				
@@ -73,7 +85,6 @@
 					$('.superbox-show').slideUp();
 				});
 			});
-			
 		});
 	};
 })(jQuery);

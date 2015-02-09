@@ -15,24 +15,27 @@ class Admin::PhotosController < ApplicationController
   # GET /admin/photos/new
   def new
     @admin_photo = Admin::Photo.new(:album_id => params[:album_id])
+    render layout: false
   end
 
   # GET /admin/photos/1/edit
   def edit
+    render layout: false
   end
 
   # POST /admin/photos
   # POST /admin/photos.json
   def create
     @admin_photo = Admin::Photo.new(admin_photo_params)
-
     respond_to do |format|
       if @admin_photo.save
         format.html { redirect_to @admin_photo, notice: 'Photo was successfully created.' }
         format.json { render :show, status: :created, location: @admin_photo }
+        #format.js { render :show, status: :created, location: @admin_photo }
       else
         format.html { render :new }
         format.json { render json: @admin_photo.errors, status: :unprocessable_entity }
+       #format.js { render :show, status: :created, location: @admin_photo }
       end
     end
   end
@@ -42,7 +45,7 @@ class Admin::PhotosController < ApplicationController
   def update
     respond_to do |format|
       if @admin_photo.update(admin_photo_params)
-        format.html { redirect_to @admin_photo, notice: 'Photo was successfully updated.' }
+        format.html { redirect_to :back, notice: 'Photo was successfully updated.' }
         format.json { render :show, status: :ok, location: @admin_photo }
       else
         format.html { render :edit }
@@ -56,7 +59,7 @@ class Admin::PhotosController < ApplicationController
   def destroy
     @admin_photo.destroy
     respond_to do |format|
-      format.html { redirect_to admin_photos_url, notice: 'Photo was successfully destroyed.' }
+      format.html { redirect_to :back, notice: 'Photo was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
