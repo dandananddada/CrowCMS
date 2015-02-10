@@ -18,7 +18,7 @@
 						      '<div id="imgInfoBox" class="superbox-imageinfo inline-block">'+
 						      '<h1>Image Title</h1><span><p><em></em></p>'+
 						      '<p class="superbox-img-description">Image description</p><p>'+
-						      '<a class="btn btn-primary btn-sm" data-toggle="modal">修改</a>'+
+						      '<a class="btn btn-primary btn-sm" data-toggle="modal">修改</a>&nbsp;&nbsp;'+
 						      '<a class="btn btn-danger btn-sm" data-method="delete" data-confirm="xxx">删除</a></p></span></div>'),
 			superboxclose = $('<div class="superbox-close txt-color-white"><i class="fa fa-times fa-lg"></i></div>');
 
