@@ -1,4 +1,4 @@
-class Admin::ArticlePicturesController < ApplicationController
+class Admin::ArticlePicturesController < AuthController
   before_action :set_admin_article_picture, only: [:show, :edit, :update, :destroy]
 
   # GET /admin/article_pictures

@@ -1,4 +1,4 @@
-class Admin::AlbumsController < ApplicationController
+class Admin::AlbumsController < AuthController
   before_action :set_admin_album, only: [:show, :edit, :update, :destroy]
 
   # GET /admin/albums

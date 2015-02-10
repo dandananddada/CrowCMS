@@ -12,7 +12,8 @@ module Admin::ArticleCategoriesHelper
 						concat(content_tag(:div, admin_article_category.title, style: "display:inline; padding:12px"))
 					end
 					)
-					concat(content_tag(:a,'',class: "pull-right", href: admin_article_category_path(admin_article_category.id), data: { method: "delete", confirm: "Are you sure"}) do
+					concat(content_tag(:a,'',class: "pull-right", href: admin_article_category_path(admin_article_category.id), data: { method: "delete", title: t('article_category.delete_title'), 
+                       																													confirm: t('article_category.delete_info') }) do
 							content_tag(:div,'',class: "btn-label btn-danger", style: "border-radius:0px;//background-color:rgb(201,48,44)") do
 								content_tag(:i,'',class: "glyphicon glyphicon-trash")
 							end 

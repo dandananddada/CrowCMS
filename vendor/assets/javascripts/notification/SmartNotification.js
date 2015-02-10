@@ -1,6 +1,6 @@
 // Smart Notification (bootstraphunter.com)
 
-$.sound_path = "sound/";
+$.sound_path = "/sound/";
 
 $(document).ready(function () {
 

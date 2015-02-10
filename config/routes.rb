@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
+  
+  root to: 'admin/home#index'
 
+  devise_for :users, controllers: { sessions: "users/sessions" }, path: "", path_names: { sign_in: 'login', sign_out: 'logout', registration: 'register' }
   mount Ckeditor::Engine => '/ckeditor'
   namespace :admin do
+  
   #article module
     resources :article_categories, path: 'article-category', except: :new
     #add a category under super category.

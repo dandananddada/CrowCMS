@@ -18,7 +18,7 @@
 				<span> <a href="javascript:void(0);" title="Collapse Menu"><i class="fa fa-reorder"></i></a> </span>
 			</div>
 			<div id="logout" class="btn-header transparent pull-right">
-				<span> <a href="{{URL::to('logout')}}" title="Sign Out"><i class="fa fa-sign-out"></i></a> </span>
+				<span> <a href="<%= destroy_user_session_path %>" title="Sign Out" data-method="delete" data-title="退出" data-confirm="在关闭浏览器前退出登录，能让您的账户更加安全"><i class="fa fa-sign-out"></i></a> </span>
 			</div>
 		</div>
 

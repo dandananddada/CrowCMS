@@ -37,8 +37,9 @@
 
           <a href="<%= admin_album_tag_path(admin_album_tag) %>" 
              class="btn btn-labeled btn-danger pull-right" 
-             data-method="delete" 
-             data-confirm="Are you sure?" >
+             data-method="delete"
+             data-title="<%= t("album_tag.delete_title") %>" 
+             data-confirm="<%= t("album_tag.delete_info") %>" >
             <span class="btn-label"><i class="glyphicon glyphicon-trash"></i></span>  <!-- for style -->
             <%= t("operate.delete") %>
           </a><!-- delete button -->

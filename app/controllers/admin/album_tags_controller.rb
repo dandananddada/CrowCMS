@@ -1,4 +1,4 @@
-class Admin::AlbumTagsController < ApplicationController
+class Admin::AlbumTagsController < AuthController
   before_action :set_admin_album_tag, only: [:show, :edit, :update, :destroy]
 
   # GET /admin/album_tags

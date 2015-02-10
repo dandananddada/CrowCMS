@@ -227,6 +227,8 @@ zh-CN:
     is_thumb: 允许发布缩略图
     is_file: 允许上传附件
     is_carousel: 允许发布图集
+    delete_title: 您确认要删除分栏？
+    delete_info: 删除分栏后，分栏下的文章也会一并删除，请谨慎操作！
   article:
     table_title: 文章管理
     basic_info: 基本信息
@@ -244,6 +246,8 @@ zh-CN:
     abstract: 摘要
     content_info: 文本信息
     created_at: 创建日期
+    delete_title: 您确认要删除文章？
+    delete_info: 文章删除后将无法恢复，请谨慎操作！
   article_picture:
     table_title: 图集管理
     id: 编号
@@ -252,11 +256,15 @@ zh-CN:
     picture_size: 图片大小（kb）
     picture_updated_at: 上传日期 
     upload_title: 图集上传
+    delete_title: 您确认要删除图片？
+    delete_info: 图片删除后将无法恢复，请谨慎操作！
   album_tag: 
     table_title: 标签管理
     create: 新建标签
     edit: 编辑标签
     name: 标签名称
+    delete_title: 您确认要删除标签？
+    delete_info: 标签删除后将无法恢复，请谨慎操作！
   album:
     table_title: 相册管理
     create: 新建相册
@@ -265,6 +273,8 @@ zh-CN:
     tags: 相册标签  
     cover: 相册封面
     description: 相册描述
+    delete_title: 您确认要删除相册？
+    delete_info: 相册删除，其下的相片也会一并删除，请谨慎操作！
   photo:
     board_title: 相册>
     board_description: 描述：
@@ -273,6 +283,11 @@ zh-CN:
     title: 相片名称
     name: 相片名称
     description: 相片描述
+    delete_title: 您确认要删除图片？                #这部分在superbox.js中
+    delete_info: 图片删除后将无法恢复，请谨慎操作！    #这部分在superbox.js中
+  auth:
+    admin: 后台管理
+    login: 登录
   operate:
     title: 操作
     new: 添加

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CrowCMS</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'lockscreen.css' %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+ <% if notice %>
+ <div id="error_explanation">
+  <div class="alert alert-danger fade in">
+    <button class="close" data-dismiss="alert">×</button>
+    <i class="fa-fw fa fa-times"></i>
+    <strong>Error!</strong>
+    <p style="text-indent:40px"><%= notice %></p>
+  </div>
+</div>
+<% end %>
+  <div id="main" role="main">
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name),html: { class: "lockscreen animated flipInY" }) do |f| %>
+    <div class="logo">
+      <h1 class="semi-bold"><img src="img/logo-o.png" alt="" />CrowCMS</h1>
+    </div>
+    <div>
+      <img src="images/male.png" alt="" width="120" height="120" />
+      <div>
+        <h1><i class="fa fa-user fa-3x text-muted air air-top-right hidden-mobile"></i><%= t("auth.admin") %><small><i class="fa fa-lock text-muted"></i> &nbsp;<%= t("auth.login") %></small></h1>
+        <p class="text-muted">
+         <a href="javascript:void(0)">admin@163.com</a>
+         <%= f.hidden_field :email, autofocus: true, class: "form-control", value: "admin@163.com" %>
+       </p>
+
+       <div class="input-group">
+         <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
+         <div class="input-group-btn">
+          <button class="btn btn-primary" type="submit">
+            <i class="fa fa-key"></i>
+          </button>
+        </div>
+      </div>
+      <p class="no-margin margin-top-5">
+        <p>&nbsp;</p>
+        <% render "devise/shared/links" %>
+      </p>
+    </div>
+
+  </div>
+  <p class="font-xs margin-top-5">
+    Copyright CrowCMS 2015.
+  </p>
+  <% end %>
+</div>
+<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

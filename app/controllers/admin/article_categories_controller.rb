@@ -1,4 +1,4 @@
-class Admin::ArticleCategoriesController < ApplicationController
+class Admin::ArticleCategoriesController < AuthController
   before_action :set_admin_article_category, only: [:show, :edit, :update, :destroy]
 
   # GET /admin/article_categories

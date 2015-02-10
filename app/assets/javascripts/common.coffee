@@ -12,12 +12,12 @@
   $.rails.showConfirmDialog = (link) ->
     html = undefined
     message = undefined
-    html = undefined
-    message = undefined
+    title = undefined
+    title = link.attr("data-title")
     message = link.attr("data-confirm")
     $.SmartMessageBox
-      title: "删除确认"
-      content: "数据删除后将无法恢复，请谨慎操作！"
+      title: title
+      content: message
       buttons: "[否][是]"
     , (ButtonPressed) ->
       $.rails.confirmed link  if ButtonPressed is "是"

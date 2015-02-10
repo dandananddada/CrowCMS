@@ -53,8 +53,9 @@
              <div class="panel-footer no-padding">
               <a href="<%= admin_album_path(admin_album) %>" 
                class="btn bg-color-redLight txt-color-white btn-block" 
-               data-method="delete" 
-               data-confirm="Are you sure?" >
+               data-method="delete"
+               data-title="<%= t("album.delete_title") %>" 
+               data-confirm="<%= t("album.delete_info") %>">
                <%= t("operate.delete") %>
              </a>
            </div>

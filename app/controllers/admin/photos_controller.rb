@@ -1,4 +1,4 @@
-class Admin::PhotosController < ApplicationController
+class Admin::PhotosController < AuthController
   before_action :set_admin_photo, only: [:show, :edit, :update, :destroy]
 
   # GET /admin/photos
