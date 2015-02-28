@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<title>Dashboard</title>
 	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-	<%= stylesheet_link_tag params[:controller] %>
+	<%= stylesheet_link_tag params[:controller], 'data-turbolinks-track' => true %>
 	<%= csrf_meta_tags %>
 	<%= yield :csslib %>
 </head>
