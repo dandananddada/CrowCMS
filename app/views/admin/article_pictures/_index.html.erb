@@ -28,7 +28,7 @@
               <td><%= admin_article_picture.picture_file_size %></td>
               <td><%= admin_article_picture.picture_updated_at %></td>
               <td>
-                <a href="javascript:void(0);" class="btn bg-color-green txt-color-white" rel="tooltip" data-placement="left" data-original-title="<img src=' <%= admin_article_picture.picture.url(:small) %>' alt='<%= admin_article_picture.picture_file_name %>' class='online'>" data-html="true"><%= t("operate.preview") %></a> 
+                <a href="javascript:void(0);" class="btn bg-color-green txt-color-white" rel="tooltip" data-placement="left" data-original-title="<img src=' <%= admin_article_picture.picture.url(:small) %>' alt='<%= admin_article_picture.picture_file_name %>'>" data-html="true"><%= t("operate.preview") %></a> 
                 <%= link_to t("operate.delete"), admin_article_picture, method: :delete, data: { title: "#{t('article_picture.delete_title')}", confirm: "#{t('article_picture.delete_info')}" }, class: "btn bg-color-red txt-color-white" %>
               </td>
             </tr>

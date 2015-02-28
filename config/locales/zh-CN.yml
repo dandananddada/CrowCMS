@@ -248,6 +248,13 @@ zh-CN:
     created_at: 创建日期
     delete_title: 您确认要删除文章？
     delete_info: 文章删除后将无法恢复，请谨慎操作！
+    search_by_id: 根据文章编号查询 
+    search_by_category: 根据文章分栏查询 
+    search_by_title:  根据文章标题查询
+    search_by_author: 根据文章作者查询 
+    search_by_hits:  根据文章点击率查询
+    search_by_created:  根据文章创建日期查询
+
   article_picture:
     table_title: 图集管理
     id: 编号

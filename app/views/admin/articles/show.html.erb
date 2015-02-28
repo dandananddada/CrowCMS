@@ -8,11 +8,11 @@
 <div class="jarviswidget jarviswidget-color-darken" id="wid-id-3" data-widget-editbutton="false" data-widget-custombutton="false">
   <header>
     <span class="widget-icon"> <i class="fa fa-eye"></i> </span>
-    <h2>信息预览</h2>        
+    <h2><%= t("operate.show") %></h2>        
   </header>
   <div>
     <div class="jarviswidget-editbox"></div>
-    <div class="widget-body no-padding">
+    <div class="widget-body">
       <div class="smart-form">
         <fieldset>
           <div class="row">
@@ -24,23 +24,52 @@
           </div>
           <div class="row">
             <section class="col col-md-12">
-              <h5 class="text-right">
-              <%= @admin_article.author %>,<%= @admin_article.created_at %>,<%= @admin_article.hits %>
+              <h5 class="text-right"><%= t("article.author") %>:
+              <%= @admin_article.author %>&nbsp;
+                <%= t("article.created_at") %>:
+                <%= @admin_article.created_at.strftime("%Y-%m-%d") %>&nbsp;
+                <%= t("article.hits") %>:
+                <%= @admin_article.hits %>
               </h5>
             </section>
           </div>
 
-         <header>
-            <%= @admin_article.abstract %>
-         </header>
-
-          <div class="row">
+           <div class="row">
             <section class="col col-md-12">
-              <p>
-                <%= raw(@admin_article.content) %>
-              </p>
+               <h2 class="article-abstract">
+                <small><%= @admin_article.abstract %></small>
+              </h2>
             </section>
           </div>
+          <div class="row">
+            <section class="col col-md-12">
+              <h5 class="article-content">
+                <%= raw(@admin_article.content) %>
+              </h5>
+            </section>
+          </div>
+
+          <% if (@admin_article.thumb_file_name) %>
+           <div class="row">
+            <section class="col col-md-12">
+              <span class="article-thumb"><i class="glyphicon glyphicon-picture"></i><%= t("article.thumb") %>:</span>
+            </section>
+            <section class="col col-md-12">
+              <%= image_tag @admin_article.thumb.url(:small) %>
+            </section>
+          </div>
+          <% end %>
+
+          <% if (@admin_article.file_file_name) %>
+           <div class="row">
+            <section class="col col-md-12">
+              <span class="article-link pull-right"><i class="glyphicon glyphicon-link"></i><%= t("article.file") %>:
+              <a href="<%= @admin_article.file.url %>"><%= @admin_article.file_file_name %></a>
+              </span>
+            </section>
+          </div>
+          <% end %>
+
         </fieldset>
         <footer>
           <%= link_to t("operate.back"), admin_articles_path, class: "pull-right btn btn-primary" %>
@@ -52,21 +81,6 @@
   </div>
   <!-- end widget div -->
 </div>
-
-<p>
-  <strong>Abstract:</strong>
-  <%= @admin_article.abstract %>
-</p>
-
-<p>
-  <strong>Thumb url:</strong>
-  <%= image_tag @admin_article.thumb.url(:small) %>
-</p>
-
-<p>
-  <strong>File url:</strong>
-  <a href="<%= @admin_article.file.url %>"><%= @admin_article.file_file_name %></a>
-</p>
 
 
 
