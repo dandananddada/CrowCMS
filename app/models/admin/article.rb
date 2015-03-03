@@ -1,8 +1,9 @@
 class Admin::Article < ActiveRecord::Base
-		validates :title, presence: true
-		validates :article_category_id, presence: true
-		validates :author, presence: true
-		validates :content, presence: true
+	validates :title, presence: true
+	validates :article_category_id, presence: true
+	validates :author, presence: true
+	validates :content, presence: true
+	
 	belongs_to :article_category
 	has_many :article_picture, dependent: :destroy
 	has_attached_file :thumb, 

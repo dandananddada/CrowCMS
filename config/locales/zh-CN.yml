@@ -99,7 +99,7 @@ zh-CN:
     format: ! '%{attribute}%{message}'
     messages:
       accepted: 必须是可被接受的
-      blank: 不能为空字符
+      blank: 不能为空
       present: 必须是空白
       confirmation: 与确认值不匹配
       empty: 不能留空
@@ -229,6 +229,7 @@ zh-CN:
     is_carousel: 允许发布图集
     delete_title: 您确认要删除分栏？
     delete_info: 删除分栏后，分栏下的文章也会一并删除，请谨慎操作！
+    new: 添加顶级分栏
   article:
     table_title: 文章管理
     basic_info: 基本信息
@@ -309,17 +310,13 @@ zh-CN:
     preview: 预览
 
   activerecord:
+    models:
+      admin/article: 文章
     attributes:
-      article:
+      admin/article:
         title: 标题
-        article_category_id: 所属分栏
         author: 作者
-        is_recommand: 推荐
-        is_carousel: 轮播
-        is_mark: 特殊标记
-        content: 内容
-        abstract: 摘要
-        hits: 点击率
+        content: 文章内容
     successful:
       messages:
         article_category_created: 分栏添加成功。

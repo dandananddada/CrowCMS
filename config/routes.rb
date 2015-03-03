@@ -23,7 +23,7 @@ Rails.application.routes.draw do
     resources :album_tags, path: 'album-tags'
     resources :albums
     resources :photos, except: :new
-    get 'photo/new/:album_id', to: 'photos#new', as: :photo_new, :constraints => { :parent_id => /\d/ }
+    get 'photo/new/:album_id', to: 'photos#new', as: :photo_new, :constraints => { :parent_id => /\d|nil/ }
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

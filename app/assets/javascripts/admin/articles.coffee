@@ -5,6 +5,7 @@
 $(document).ready ->
   pageSetUp()
   $('#validate-form').validate()
+  $("#is_extra").hide()
   return
   
 $("#datatable_fixed_column thead input").keyup ->

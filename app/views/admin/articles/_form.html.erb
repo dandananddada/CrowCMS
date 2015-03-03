@@ -2,14 +2,14 @@
 
   <% if @admin_article.errors.any? %>
   <div id="error_explanation">
-    <h2><%= pluralize(@admin_article.errors.count, "error") %> prohibited this admin_article from being saved:</h2>
     <div class="alert alert-danger fade in">
       <button class="close" data-dismiss="alert">×</button>
       <i class="fa-fw fa fa-times"></i>
-      <strong>Error!</strong>
+      <strong>
         <% @admin_article.errors.full_messages.each do |message| %>
-        <p style="text-indent:40px"><%= message %></p>
+          <%= message %>
         <% end %>
+      </strong>
     </div>
   </div>
   <% end %>
@@ -50,7 +50,7 @@
                   <%= f.label t("article.article_category") %><br>
                 </label>
                 <select name="admin_article[article_category_id]" class="select2" id="article-category" >
-                  <% @admin_article_categories.each do |admin_article_category| %>
+                  <% Admin::ArticlesController::ARTICLS_CATEGORY.each do |admin_article_category| %>
                     <option value="<%= admin_article_category.id %>"><%= admin_article_category.title %></option>
                   <% end %>
                 </select>

@@ -1,6 +1,9 @@
 class Admin::ArticlesController < AuthController
   before_action :set_admin_article, only: [:show, :edit, :update, :destroy]
 
+  #article categories in views
+  ARTICLS_CATEGORY = Admin::ArticleCategory.select_article_categories
+  
   # GET /admin/articles
   # GET /admin/articles.json
   def index
@@ -14,13 +17,11 @@ class Admin::ArticlesController < AuthController
 
   # GET /admin/articles/new
   def new
-    @admin_article_categories = Admin::ArticleCategory.all
     @admin_article = Admin::Article.new
   end
 
   # GET /admin/articles/1/edit
   def edit
-     @admin_article_categories = Admin::ArticleCategory.all
   end
 
   # POST /admin/articles
@@ -34,7 +35,6 @@ class Admin::ArticlesController < AuthController
         format.json { render :show, status: :created, location: @admin_article }
         # format.js { render :show, status: :created, location: @admin_article }
       else
-        @admin_article_categories = Admin::ArticleCategory.all
         format.html { render :new }
         format.json { render json: @admin_article.errors, status: :unprocessable_entity }
         # format.js { render json: @admin_article.errors, status: :unprocessable_entity }
