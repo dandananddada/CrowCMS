@@ -201,7 +201,9 @@ zh-CN:
       long: ! '%Y年%b%d日 %H:%M'
       short: ! '%b%d日 %H:%M'
     pm: 下午
-
+  devise:
+    failure:
+      invalid: 账号/密码错误，请重新输入
   menu:
     submenu:
       home_menu: 首页
