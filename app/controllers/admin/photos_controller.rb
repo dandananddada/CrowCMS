@@ -14,7 +14,7 @@ class Admin::PhotosController < AuthController
 
   # GET /admin/photos/new
   def new
-    @admin_photo = Admin::Photo.new(:album_id => params[:album_id])
+    @admin_photo = Admin::Photo.new(:album_id => params[:id])
     render layout: false
   end
 

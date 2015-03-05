@@ -56,12 +56,11 @@ $("#spinner").spinner
 
 $("#article-category").change ->
   $.ajax
-    url: "/admin/article-concat"
+    url: "/admin/article/concat"
     data:
       id: $("#article-category").val()
 
     success: (data) ->
-      console.info data
       if data.is_file is false and data.is_thumb is false and data.is_abstract is false
           $("#is_extra").hide()
       else

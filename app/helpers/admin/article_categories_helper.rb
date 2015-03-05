@@ -31,7 +31,7 @@ module Admin::ArticleCategoriesHelper
 							end 
 						end
 						)
-					concat(content_tag(:a,'',class: "pull-right", href: admin_article_category_new_path(admin_article_category.id)) do
+					concat(content_tag(:a,'',class: "pull-right", href: article_category_new_admin_article_category_path(admin_article_category.id)) do
 							content_tag(:div,'',class: "btn-label btn-success", style: "border-radius:0px;//background-color:rgb(48,113,169)") do
 								content_tag(:i,'',class: "glyphicon glyphicon-plus")
 							end 

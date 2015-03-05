@@ -14,11 +14,10 @@ class Admin::ArticleCategoriesController < AuthController
 
   # GET /admin/article_categories/new
   def new
-    params[:parent_id].inspect
-    if (params[:parent_id] == '0')
+    if (params[:id] == '0')
       @admin_article_category = Admin::ArticleCategory.new
     else
-      @admin_article_category = Admin::ArticleCategory.new(:parent_id => params[:parent_id])
+      @admin_article_category = Admin::ArticleCategory.new(:parent_id => params[:id])
     end
    
   end
