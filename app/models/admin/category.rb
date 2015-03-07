@@ -1,4 +1,4 @@
-class Admin::ArticleCategory < ActiveRecord::Base
+class Admin::Category < ActiveRecord::Base
 	has_ancestry
 	has_many :article, dependent: :destroy
 

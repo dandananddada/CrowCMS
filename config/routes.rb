@@ -12,11 +12,11 @@ Rails.application.routes.draw do
   
   namespace :admin do
   #article module
-    resources :article_categories, path: 'article-category', except: :new do
+    resources :categories, path: 'category', except: :new do
         #add a category under super category.
-        get 'new', to: 'article_categories#new', 
+        get 'new', to: 'categories#new', 
                    on: :member, 
-                   as: :article_category_new, 
+                   as: :new, 
                    :constraints => { :parent_id => /\d/ }
     end
 

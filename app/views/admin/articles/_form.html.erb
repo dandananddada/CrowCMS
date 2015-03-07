@@ -47,11 +47,11 @@
             <div class="row">
               <section class="col col-4">
                 <label> 
-                  <%= f.label t("article.article_category") %><br>
+                  <%= f.label t("article.category") %><br>
                 </label>
-                <select name="admin_article[article_category_id]" class="select2" id="article-category" >
-                  <% Admin::ArticlesController::ARTICLS_CATEGORY.each do |admin_article_category| %>
-                    <option value="<%= admin_article_category.id %>"><%= admin_article_category.title %></option>
+                <select name="admin_article[category_id]" class="select2" id="article-category" >
+                  <% Admin::ArticlesController::ARTICLS_CATEGORY.each do |article_category| %>
+                    <option value="<%= article_category.id %>"><%= article_category.title %></option>
                   <% end %>
                 </select>
               </section>

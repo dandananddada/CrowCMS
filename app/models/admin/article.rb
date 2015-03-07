@@ -1,10 +1,10 @@
 class Admin::Article < ActiveRecord::Base
 
-	belongs_to :article_category
+	belongs_to :category
 	has_many :article_picture, dependent: :destroy
 
 	validates :title, presence: true
-	validates :article_category_id, presence: true
+	validates :category_id, presence: true
 	validates :author, presence: true
 	validates :content, presence: true
 	

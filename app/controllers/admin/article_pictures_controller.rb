@@ -4,8 +4,8 @@ class Admin::ArticlePicturesController < AuthController
   # GET /admin/article_pictures
   # GET /admin/article_pictures.json
   def index
-   @admin_article_picture = Admin::ArticlePicture.new(article_id: params[:article_id])
-   @admin_article_pictures = Admin::ArticlePicture.where(article_id: params[:article_id])
+   @admin_article_picture = Admin::ArticlePicture.new(article_id: params[:id])
+   @admin_article_pictures = Admin::ArticlePicture.where(article_id: params[:id])
   end
 
   # GET /admin/article_pictures/1

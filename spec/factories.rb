@@ -3,7 +3,7 @@ FactoryGirl.define do
 		f.email "admin@163.com"
 		f.encrypted_password "$2a$10$jJNRjL9XlQr4zhxwGCLUceiVtSX9X9GPeTTdoSjCTQ7eWnrePXwcK"
 	end
-	factory :article_category, class: Admin::ArticleCategory do |f|
+	factory :category, class: Admin::Category do |f|
 		f.id 1
 		f.ancestry nil
 		f.title "article category title"

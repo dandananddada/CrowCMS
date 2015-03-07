@@ -217,13 +217,13 @@ zh-CN:
       photo_menu:
     midmenu:
       page_menu: 文档管理
-      article_category_menu: 分栏管理
+      category_menu: 分栏管理
       article_menu: 文章管理
       album_tags: 标签管理
       album: 相册管理
 
 
-  article_category:
+  category:
     table_title: 分栏管理
     category_edit: 编辑分栏
     category_info: 分栏信息
@@ -242,7 +242,7 @@ zh-CN:
     basic_info: 基本信息
     id: 编号
     title: 标题
-    article_category: 所属分栏
+    category: 所属分栏
     author: 作者
     hits: 点击率
     is_recommand: 推荐

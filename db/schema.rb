@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150306151451) do
+ActiveRecord::Schema.define(version: 20150307024517) do
 
   create_table "album_tags", force: :cascade do |t|
     t.string "text", limit: 255
@@ -29,18 +29,6 @@ ActiveRecord::Schema.define(version: 20150306151451) do
     t.datetime "cover_updated_at"
   end
 
-  create_table "article_categories", force: :cascade do |t|
-    t.string   "ancestry",    limit: 255
-    t.string   "title",       limit: 255
-    t.boolean  "is_article",  limit: 1,   default: true
-    t.boolean  "is_thumb",    limit: 1,   default: false
-    t.boolean  "is_file",     limit: 1,   default: false
-    t.boolean  "is_abstract", limit: 1,   default: false
-    t.boolean  "is_carousel", limit: 1,   default: false
-    t.datetime "created_at",                              null: false
-    t.datetime "updated_at",                              null: false
-  end
-
   create_table "article_pictures", force: :cascade do |t|
     t.integer  "article_id",           limit: 4
     t.string   "picture_file_name",    limit: 255
@@ -53,7 +41,6 @@ ActiveRecord::Schema.define(version: 20150306151451) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "title",               limit: 255
-    t.integer  "article_category_id", limit: 4
     t.string   "author",              limit: 255,   default: "管理员"
     t.boolean  "is_recommand",        limit: 1,     default: false
     t.boolean  "is_carousel",         limit: 1,     default: false
@@ -71,9 +58,22 @@ ActiveRecord::Schema.define(version: 20150306151451) do
     t.string   "file_content_type",   limit: 255
     t.integer  "file_file_size",      limit: 4
     t.datetime "file_updated_at"
+    t.integer  "category_id",         limit: 4
   end
 
-  add_index "articles", ["article_category_id"], name: "index_articles_on_article_category_id", using: :btree
+  add_index "articles", ["category_id"], name: "fk_rails_8e9a6c93ed", using: :btree
+
+  create_table "categories", force: :cascade do |t|
+    t.string   "ancestry",    limit: 255
+    t.string   "title",       limit: 255
+    t.boolean  "is_article",  limit: 1,   default: true
+    t.boolean  "is_thumb",    limit: 1,   default: false
+    t.boolean  "is_file",     limit: 1,   default: false
+    t.boolean  "is_abstract", limit: 1,   default: false
+    t.boolean  "is_carousel", limit: 1,   default: false
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
+  end
 
   create_table "ckeditor_assets", force: :cascade do |t|
     t.string   "data_file_name",    limit: 255, null: false
@@ -136,6 +136,6 @@ ActiveRecord::Schema.define(version: 20150306151451) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   add_foreign_key "article_pictures", "articles"
-  add_foreign_key "articles", "article_categories"
+  add_foreign_key "articles", "categories"
   add_foreign_key "photos", "albums"
 end

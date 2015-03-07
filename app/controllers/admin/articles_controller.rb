@@ -2,7 +2,7 @@ class Admin::ArticlesController < AuthController
   before_action :set_admin_article, only: [:show, :edit, :update, :destroy]
 
   #article categories in views
-  ARTICLS_CATEGORY = Admin::ArticleCategory.select_article_categories
+  ARTICLS_CATEGORY = Admin::Category.select_article_categories
   
   # GET /admin/articles
   # GET /admin/articles.json
@@ -67,7 +67,7 @@ class Admin::ArticlesController < AuthController
   end
 
   def article_concat
-    @article_concat = Admin::ArticleCategory.find(params[:id])
+    @article_concat = Admin::Category.find(params[:id])
     render json: @article_concat
   end
 
@@ -80,6 +80,6 @@ class Admin::ArticlesController < AuthController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def admin_article_params
-      params.require(:admin_article).permit(:title, :article_category_id, :author, :is_recommand, :is_carousel, :is_mark, :content, :abstract, :thumb, :file, :hits)
+      params.require(:admin_article).permit(:title, :category_id, :author, :is_recommand, :is_carousel, :is_mark, :content, :abstract, :thumb, :file, :hits)
     end
 end
