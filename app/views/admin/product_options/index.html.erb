@@ -1,0 +1,78 @@
+<%if notice %>
+<div class="alert alert-success fade in">
+  <button class="close" data-dismiss="alert">×</button>
+  <i class="fa-fw fa fa-check"></i>
+  <strong><%= notice %></strong>
+</div>
+<% end %>
+<div class="jarviswidget jarviswidget-color-darken" id="wid-id-1" data-widget-editbutton="false">
+  <header>
+    <span class="widget-icon"> <i class="fa fa-tags"></i> </span>
+    <h2><p><%= t "product_option.table_title" %></p></h2>
+  </header>
+  <div>
+    <div class="jarviswidget-editbox"></div>  
+    <div class="widget-body">
+
+      <div class="row">
+        <div class="col-md-12">
+          <a href="<%= new_admin_product_option_path() %>" 
+             class="btn btn-labeled btn-success" 
+             data-toggle="modal" 
+             data-target="#myModal">
+             <span class="btn-label"><i class="glyphicon glyphicon-plus"></i></span>
+            <%= t "operate.new" %>
+          </a>
+        </div>
+      </div><br><!-- crete button -->
+
+      <div class="row">
+        <% @admin_product_options.each do |admin_product_option| %>
+        <div class="col-md-12">
+          <span class="label label-default" style="font-size:16px">
+            <i class="fa fa-cogs"></i>&nbsp;&nbsp;<%= admin_product_option.text %>
+          </span>
+          <a href="<%= admin_product_option_path(admin_product_option) %>" 
+            class="btn btn-labeled btn-danger pull-right" 
+            data-method="delete"
+            data-title="<%= t("product_option.delete_title") %>" 
+            data-confirm="<%= t("product_option.delete_info") %>" >
+            <span class="btn-label"><i class="glyphicon glyphicon-trash"></i></span>  <!-- for style -->
+            <%= t("operate.delete") %>
+          </a><!-- delete button -->
+
+          <a href="<%= edit_admin_product_option_path(admin_product_option) %>" 
+            class="btn btn-labeled btn-warning btn-warning-mr pull-right" 
+            data-toggle="modal" 
+            data-target="#myModal_<%= admin_product_option.id %>">
+            <span class="btn-label"><i class="glyphicon glyphicon-edit"></i></span>
+            <%= t("operate.edit") %>
+          </a><!-- edit button -->
+        </div><br><br>
+        <!-- dialog for edit tag -->
+        <div class="modal fade" 
+             id="myModal_<%= admin_product_option.id %>" 
+             tabindex="-1" role="dialog" 
+             aria-labelledby="myModal" 
+             aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <!-- render form -->
+              </div>
+            </div>
+        </div>
+        <!-- end dialog -->
+        <% end %>
+      </div> 
+    </div>
+  </div>
+</div>
+
+<!-- dialog for create tag -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModal" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+    </div>
+  </div>
+</div>
+<!-- end dialog -->

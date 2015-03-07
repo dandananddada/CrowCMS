@@ -204,14 +204,19 @@ zh-CN:
   devise:
     failure:
       invalid: 账号/密码错误，请重新输入
+    sessions:
+      user:
+        signed_in: 欢迎登陆CrowCMS后台管理系统
   menu:
     submenu:
       home_menu: 首页
+      page_menu: 文档模块
       article_menu: 文章模块
       picture_menu: 图片模块
       album_menu: 相册模块
       photo_menu:
     midmenu:
+      page_menu: 文档管理
       article_category_menu: 分栏管理
       article_menu: 文章管理
       album_tags: 标签管理
@@ -295,6 +300,26 @@ zh-CN:
     description: 相片描述
     delete_title: 您确认要删除图片？                #这部分在superbox.js中
     delete_info: 图片删除后将无法恢复，请谨慎操作！    #这部分在superbox.js中
+  page:
+    table_title: 文档管理
+    edit_title: 编辑文档
+    id: 编号
+    title: 标题
+    abstract: 摘要
+    content: 内容
+    delete_title: 您确认要删除文档？                #这部分在superbox.js中
+    delete_info: 文档删除后将无法恢复，请谨慎操作！    #这部分在superbox.js中
+    search_by_id: 根据文档编号查询 
+    search_by_title:  根据文档标题查询
+    search_by_content: 根据文档内容查询 
+    search_by_created:  根据文档创建日期查询
+  product_option:
+    text: 参数名称
+    table_title: 参数管理
+    create: 新建参数
+    edit: 编辑参数
+    delete_title: 您确认要删除参数？
+    delete_info: 参数删除后将无法恢复，请谨慎操作！
   auth:
     admin: 后台管理
     login: 登录
@@ -314,11 +339,14 @@ zh-CN:
   activerecord:
     models:
       admin/article: 文章
+      admin/page: 文档
     attributes:
       admin/article:
         title: 标题
         author: 作者
         content: 文章内容
+      admin/page:
+        content: 文档内容
     successful:
       messages:
         article_category_created: 分栏添加成功。
@@ -336,3 +364,6 @@ zh-CN:
         photo_created: 相片添加成功。
         photo_updated: 相片更新成功。
         photo_deleted: 相片删除成功。
+        page_created: 文档添加成功。
+        page_updated: 文档更新成功。
+        page_deleted: 文档删除成功。

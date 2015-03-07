@@ -1,0 +1,37 @@
+<%if notice %>
+<div class="alert alert-success fade in">
+  <button class="close" data-dismiss="alert">×</button>
+  <i class="fa-fw fa fa-check"></i>
+  <strong><%= notice %></strong>
+</div>
+<% end %>
+<div class="jarviswidget jarviswidget-color-darken" id="wid-id-3" data-widget-editbutton="false" data-widget-custombutton="false">
+  <header>
+    <span class="widget-icon"> <i class="fa fa-eye"></i> </span>
+    <h2><%= t("operate.show") %></h2>        
+  </header>
+  <div>
+    <div class="jarviswidget-editbox"></div>
+    <div class="widget-body">
+      <div class="smart-form">
+        <fieldset>
+        	<div class="row">
+        		<h2 class="text-center">
+        			<%= @admin_page.title %>
+        		</h2>
+        	</div>
+			<div class="row">
+				<%= raw(@admin_page.content) %>
+			</div>
+        </fieldset>
+
+        <footer>
+          <%= link_to t("operate.back"), admin_pages_path, class: "pull-right btn btn-primary" %>
+          <%= link_to t("operate.edit"), edit_admin_page_path(@admin_page), class: "pull-right btn btn-primary", data: { no_turbolink: true }%>
+        </footer>
+      </div>
+    </div>
+    <!-- end widget content -->
+  </div>
+  <!-- end widget div -->
+</div>

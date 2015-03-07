@@ -20,4 +20,13 @@ FactoryGirl.define do
 		f.author "author"
 		f.content "<p>your article content</p>"
 	end
+	factory :page, class: Admin::Page do |f|
+		f.id 1
+		f.title "your article title"
+		f.content "<p>your article content</p>"
+	end
+	factory :product_option, class: Admin::ProductOption do |f|
+		f.id 1
+		f.text "your article title"
+	end
 end

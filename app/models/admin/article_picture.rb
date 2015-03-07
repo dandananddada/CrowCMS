@@ -1,5 +1,6 @@
 class Admin::ArticlePicture < ActiveRecord::Base
     belongs_to :article
+    
   	has_attached_file :picture, 
 					  styles: { small: "150x150>"},
 					  url: "/uploads/articles/pictures/:id/:style/:basename.:extension",

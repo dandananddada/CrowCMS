@@ -1,0 +1,81 @@
+<%if notice %>
+<div class="alert alert-success fade in">
+  <button class="close" data-dismiss="alert">×</button>
+  <i class="fa-fw fa fa-check"></i>
+  <strong><%= notice %></strong>
+</div>
+<% end %>
+
+<div class="jarviswidget jarviswidget-color-darken" id="wid-id-0" data-widget-editbutton="false">
+  <header>
+    <span class="widget-icon"> <i class="fa fa-file"></i> </span>
+    <h2><p><%= t "page.table_title" %></p></h2>
+  </header>
+  <div>
+    <div class="jarviswidget-editbox"></div>  
+    <div class="widget-body no-padding">
+      <table id="datatable_fixed_column" class="table table-striped table-bordered">
+        <thead>
+          <tr>
+            <th><%= t "page.id" %></th>
+            <th><%= t "page.title" %></th>
+            <th><%= t "page.abstract" %></th>
+            <th><%= t "article.created_at" %></th>
+            <th><%= t "operate.title" %></th>
+          </tr>
+             <tr class="second">
+            <td class="smart-form">
+              <label class="input">
+                <input type="text" value="<%= t "page.search_by_id" %>" class="search_init">
+              </label>
+            </td>
+            <td class="smart-form">
+              <label class="input">
+                <input type="text" value="<%= t "page.search_by_title" %>" class="search_init">
+              </label>  
+            </td>
+            <td class="smart-form">
+              <label class="input">
+                <input type="text" value="<%= t "page.search_by_content" %>" class="search_init">
+              </label>  
+            </td>
+            <td class="smart-form">
+              <label class="input">
+                <input type="text" value="<%= t "page.search_by_created" %>" class="search_init">
+              </label>  
+            </td>
+            <td>
+                <%= link_to t("operate.new"), new_admin_page_path, data: { no_turbolink: true }, class: "btn bg-color-green txt-color-white" %>
+            </td>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @admin_pages.each do |admin_page| %>
+          <tr>
+           <td><%= admin_page.id %></td>
+            <td><%= admin_page.title.blank? %></td>
+            <td> <!-- 这里需要一个判断 -->
+              <%= admin_page.abstract %>
+              <div class="select2-container select2-container-multi select2" id="s2id_autogen3" style="width: 100%;"><ul class="select2-choices">  <li class="select2-search-field">    <label for="s2id_autogen4" class="select2-offscreen"></label>    <input type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="select2-input" id="s2id_autogen4" placeholder="" style="width: 20px;" aria-activedescendant="select2-result-label-446">  </li></ul></div>
+            </td>
+            <td><%= admin_page.created_at.strftime("%Y-%m-%d") %></td>
+            <td>
+              <%= link_to t("operate.show"), admin_page, class: "btn bg-color-blue txt-color-white" %>
+              <%= link_to t("operate.edit"), edit_admin_page_path(admin_page), data: { no_turbolink: true }, class: "btn bg-color-orange txt-color-white" %>
+             <%= link_to t("operate.delete"), admin_page, method: :delete, data: { title: "#{t('page.delete_title')}", confirm: "#{t('page.delete_info')}" }, class: "btn bg-color-red txt-color-white" %>
+            </td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>      
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+

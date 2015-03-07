@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+
   root to: 'admin/home#index'
 
   devise_for :users, 
@@ -40,6 +41,14 @@ Rails.application.routes.draw do
                  :constraints => { :parent_id => /\d|nil/ },
                  on: :member
     end
+
+  #page module
+    resources :pages, path: 'page'
+    
+  #product module
+    resources :product_options, path: 'product-option'
   end
+
+
 
 end
