@@ -1,7 +1,7 @@
 <div class="jarviswidget jarviswidget-color-darken" id="wid-id-0" data-widget-editbutton="false">
   <header>
     <span class="widget-icon"><i class="fa fa-edit"></i></span>
-    <h2><%= t("category.category_edit")%></h2>
+    <h2><%= t "category.category_edit" %></h2>
   </header>
   <div>
     <div class="jarviswidget-editbox"></div>  
@@ -21,10 +21,11 @@
 
       <fieldset>
         <%= f.hidden_field :parent_id %>
+        <%= f.hidden_field :option_ids, id: "option-ids" %>
         <div class="row">
           <section class="col col-3">
             <label class="label"> 
-              <%= t("category.title") %><br>
+              <%= t "category.title" %><br>
             </label>
             <label class="input">
               <i class="icon-append fa fa-pencil"></i>
@@ -34,14 +35,14 @@
         </div>
         <div class="row">
           <section class="col col-3">
-            <label class="label"><%= t("category.content") %></label>
+            <label class="label"><%= t "category.content" %></label>
           </section>
         </div>
         <div class="row">
           <section class="col col-3">
             <label class="toggle">
               <%= f.check_box :is_article %>
-              <i data-swchoff-text="关闭" data-swchon-text="开启"></i><%= t("category.is_article") %>
+              <i data-swchoff-text="关闭" data-swchon-text="开启"></i><%= t "category.is_article" %>
             </label>
           </section>
         </div>
@@ -49,7 +50,7 @@
           <section class="col col-3">
             <label class="toggle">
               <%= f.check_box :is_thumb %>
-              <i data-swchoff-text="关闭" data-swchon-text="开启"></i><%= t("category.is_thumb") %>
+              <i data-swchoff-text="关闭" data-swchon-text="开启"></i><%= t "category.is_thumb" %>
             </label>
           </section>
         </div>
@@ -57,7 +58,7 @@
           <section class="col col-3">
             <label class="toggle">
               <%= f.check_box :is_file %>
-              <i data-swchoff-text="关闭" data-swchon-text="开启"></i><%= t("category.is_file") %>
+              <i data-swchoff-text="关闭" data-swchon-text="开启"></i><%= t "category.is_file" %>
             </label>
           </section>
         </div>
@@ -65,7 +66,7 @@
           <section class="col col-3">
             <label class="toggle">
               <%= f.check_box :is_abstract %>
-              <i data-swchoff-text="关闭" data-swchon-text="开启"></i><%= t("category.is_abstract") %>
+              <i data-swchoff-text="关闭" data-swchon-text="开启"></i><%= t "category.is_abstract" %>
             </label>
           </section>
         </div>
@@ -73,15 +74,34 @@
           <section class="col col-3">
             <label class="toggle">
               <%= f.check_box :is_carousel %>
-              <i data-swchoff-text="关闭" data-swchon-text="开启"></i><%= t("category.is_carousel") %>
+              <i data-swchoff-text="关闭" data-swchon-text="开启"></i><%= t "category.is_carousel" %>
             </label>
           </section>
         </div>
+        <div class="row">
+          <section class="col col-3">
+            <label class="toggle">
+               <%= f.check_box :is_option, id: "is_option" %>
+              <i data-swchoff-text="关闭" data-swchon-text="开启"></i><%= t "category.is_option" %>
+            </label>
+          </section>
+        </div>
+        <div class="row" id="option_checkboxs" >
+          <div class="col col-4">
+            <% Admin::CategoriesController::OPTIONS.each_slice(3) do |slice| %>
+            <% slice.each do |category| %>
+            <section class="col col-4 pd-l-no">
+              <label class="checkbox">
+                <input type="checkbox" name="<%= category.text %>" value="<%= category.id %>" class="option-checbox"><i></i><%= category.text %>
+              </label>
+            </section>  
+            <% end %>
+            <% end %>
+          </div> 
+        </div>
         <footer>
-            <%= link_to '返回', admin_categories_path, class: "btn btn-primary" %>
-          <div class="actions">
-            <%= f.submit '提交', class: "btn btn-primary" %>
-          </div>
+            <%= link_to t("operate.back"), admin_categories_path, class: "btn btn-primary" %>
+            <%= link_to t("operate.submit"), "javascript:submit()", class: "btn btn-primary" %>
         </footer>
       </fieldset>
       <% end %>

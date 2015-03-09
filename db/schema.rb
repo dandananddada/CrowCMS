@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150307024517) do
+ActiveRecord::Schema.define(version: 20150307125305) do
 
   create_table "album_tags", force: :cascade do |t|
     t.string "text", limit: 255
@@ -40,28 +40,29 @@ ActiveRecord::Schema.define(version: 20150307024517) do
   add_index "article_pictures", ["article_id"], name: "index_article_pictures_on_article_id", using: :btree
 
   create_table "articles", force: :cascade do |t|
-    t.string   "title",               limit: 255
-    t.string   "author",              limit: 255,   default: "管理员"
-    t.boolean  "is_recommand",        limit: 1,     default: false
-    t.boolean  "is_carousel",         limit: 1,     default: false
-    t.boolean  "is_mark",             limit: 1,     default: false
-    t.text     "content",             limit: 65535
-    t.string   "abstract",            limit: 255
-    t.integer  "hits",                limit: 4,     default: 0
-    t.datetime "created_at",                                        null: false
-    t.datetime "updated_at",                                        null: false
-    t.string   "thumb_file_name",     limit: 255
-    t.string   "thumb_content_type",  limit: 255
-    t.integer  "thumb_file_size",     limit: 4
+    t.integer  "category_id",        limit: 4
+    t.string   "title",              limit: 255
+    t.string   "author",             limit: 255,   default: "管理员"
+    t.boolean  "is_recommand",       limit: 1,     default: false
+    t.boolean  "is_carousel",        limit: 1,     default: false
+    t.boolean  "is_mark",            limit: 1,     default: false
+    t.text     "options",            limit: 65535
+    t.text     "content",            limit: 65535
+    t.string   "abstract",           limit: 255
+    t.integer  "hits",               limit: 4,     default: 0
+    t.datetime "created_at",                                       null: false
+    t.datetime "updated_at",                                       null: false
+    t.string   "thumb_file_name",    limit: 255
+    t.string   "thumb_content_type", limit: 255
+    t.integer  "thumb_file_size",    limit: 4
     t.datetime "thumb_updated_at"
-    t.string   "file_file_name",      limit: 255
-    t.string   "file_content_type",   limit: 255
-    t.integer  "file_file_size",      limit: 4
+    t.string   "file_file_name",     limit: 255
+    t.string   "file_content_type",  limit: 255
+    t.integer  "file_file_size",     limit: 4
     t.datetime "file_updated_at"
-    t.integer  "category_id",         limit: 4
   end
 
-  add_index "articles", ["category_id"], name: "fk_rails_8e9a6c93ed", using: :btree
+  add_index "articles", ["category_id"], name: "fk_rails_09aecb6043", using: :btree
 
   create_table "categories", force: :cascade do |t|
     t.string   "ancestry",    limit: 255
@@ -71,6 +72,8 @@ ActiveRecord::Schema.define(version: 20150307024517) do
     t.boolean  "is_file",     limit: 1,   default: false
     t.boolean  "is_abstract", limit: 1,   default: false
     t.boolean  "is_carousel", limit: 1,   default: false
+    t.boolean  "is_option",   limit: 1
+    t.string   "option_ids",  limit: 255
     t.datetime "created_at",                              null: false
     t.datetime "updated_at",                              null: false
   end

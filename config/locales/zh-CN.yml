@@ -214,13 +214,14 @@ zh-CN:
       article_menu: 文章模块
       picture_menu: 图片模块
       album_menu: 相册模块
-      photo_menu:
+      product_menu: 产品模块
     midmenu:
       page_menu: 文档管理
       category_menu: 分栏管理
       article_menu: 文章管理
       album_tags: 标签管理
       album: 相册管理
+      product_option: 参数管理
 
 
   category:
@@ -234,6 +235,7 @@ zh-CN:
     is_thumb: 允许发布缩略图
     is_file: 允许上传附件
     is_carousel: 允许发布图集
+    is_option: 是否设置参数
     delete_title: 您确认要删除分栏？
     delete_info: 删除分栏后，分栏下的文章也会一并删除，请谨慎操作！
     new: 添加顶级分栏
@@ -367,3 +369,6 @@ zh-CN:
         page_created: 文档添加成功。
         page_updated: 文档更新成功。
         page_deleted: 文档删除成功。
+        product_option_created: 产品参数添加成功。
+        product_option_updated: 产品参数更新成功。
+        product_option_deleted: 产品参数删除成功。

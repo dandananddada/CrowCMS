@@ -1,7 +1,7 @@
 module Admin::ArticleCategoriesHelper
-	def nested_category(admin_article_categories)
+	def nested_category(admin_categories)
 		content_tag :ul do
-			admin_article_categories.each do |admin_category|
+			admin_categories.each do |admin_category|
 				concat(content_tag(:li,admin_category) do 
 					concat(content_tag(:span,'admin_category') do
 						if admin_category.has_children? 
@@ -45,4 +45,11 @@ module Admin::ArticleCategoriesHelper
 			end
 		end
 	end
+
+	def article_option(options)
+		options.each do |option|
+			content_tag(:p,'option')
+		end
+	end
+
 end

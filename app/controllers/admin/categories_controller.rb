@@ -1,10 +1,13 @@
 class Admin::CategoriesController < AuthController
   before_action :set_admin_category, only: [:show, :edit, :update, :destroy]
 
+  # product options
+  OPTIONS = Admin::ProductOption.all
+  
   # GET /admin/article_categories
   # GET /admin/article_categories.json
   def index
-    @admin_article_categories = Admin::Category.all
+    @admin_categories = Admin::Category.all
   end
 
   # GET /admin/article_categories/1
@@ -24,6 +27,7 @@ class Admin::CategoriesController < AuthController
 
   # GET /admin/article_categories/1/edit
   def edit
+    @options = @admin_category.option_ids.split(",").map(&:to_i)
   end
 
   # POST /admin/article_categories
@@ -61,7 +65,7 @@ class Admin::CategoriesController < AuthController
   def destroy
     @admin_category.destroy
     respond_to do |format|
-      format.html { redirect_to admin_article_categories_url, notice: "#{t 'activerecord.successful.messages.article_category_deleted'}" }
+      format.html { redirect_to admin_categories_url, notice: "#{t 'activerecord.successful.messages.article_category_deleted'}" }
       format.json { head :no_content }
     end
   end
@@ -74,6 +78,6 @@ class Admin::CategoriesController < AuthController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def admin_category_params
-      params.require(:admin_category).permit(:parent_id, :title, :is_article, :is_thumb, :is_file, :is_abstract, :is_carousel)
+      params.require(:admin_category).permit(:parent_id, :title, :is_article, :is_thumb, :is_file, :is_abstract, :is_carousel, :is_option, :option_ids)
     end
 end

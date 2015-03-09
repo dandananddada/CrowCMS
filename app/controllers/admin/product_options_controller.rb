@@ -30,7 +30,7 @@ class Admin::ProductOptionsController < ApplicationController
 
     respond_to do |format|
       if @admin_product_option.save
-        format.html { redirect_to admin_product_options_url, notice: 'Product option was successfully created.' }
+        format.html { redirect_to admin_product_options_url, notice: "#{ t 'activerecord.successful.messages.product_option_created'}" }
         format.json { render :index, status: :created, location: @admin_product_option }
       else
         format.html { render :new }
@@ -44,7 +44,7 @@ class Admin::ProductOptionsController < ApplicationController
   def update
     respond_to do |format|
       if @admin_product_option.update(admin_product_option_params)
-        format.html { redirect_to admin_product_options_url, notice: 'Product option was successfully updated.' }
+        format.html { redirect_to admin_product_options_url, notice: "#{ t 'activerecord.successful.messages.product_option_updated'}"  }
         format.json { render :index, status: :ok, location: @admin_product_option }
       else
         format.html { render :edit }
@@ -58,7 +58,7 @@ class Admin::ProductOptionsController < ApplicationController
   def destroy
     @admin_product_option.destroy
     respond_to do |format|
-      format.html { redirect_to admin_product_options_url, notice: 'Product option was successfully destroyed.' }
+      format.html { redirect_to admin_product_options_url, notice: "#{ t 'activerecord.successful.messages.product_option_deleted'}"  }
       format.json { head :no_content }
     end
   end
