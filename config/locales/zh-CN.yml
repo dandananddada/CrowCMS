@@ -215,6 +215,7 @@ zh-CN:
       picture_menu: 图片模块
       album_menu: 相册模块
       product_menu: 产品模块
+      message_menu: 留言板
       trash_menu: 回收站
     midmenu:
       page_menu: 文档管理
@@ -223,9 +224,9 @@ zh-CN:
       album_tags: 标签管理
       album: 相册管理
       product_option: 参数管理
+      message_menu: 留言管理
       trash_article: 垃圾文章
       trash_page: 垃圾文档
-
 
   category:
     table_title: 分栏管理
@@ -333,6 +334,24 @@ zh-CN:
     edit: 编辑参数
     delete_title: 您确认要删除参数？
     delete_info: 参数删除后将无法恢复，请谨慎操作！
+  message:
+    id: 编号
+    author: 发布者
+    email: 邮箱
+    is_permit: 审核状态
+    permit_no: 未通过
+    permit_yes: 已通过
+    review_no: 取消显示
+    review_yes: 允许显示
+    content: 留言内容
+    reply: 回复内容
+    no_reply: 尚未恢复留言
+    created_at: 发布日期
+    table_title: 留言管理
+    show_dialog: 显示留言
+    reply_dialog: 回复留言
+    delete_title: 您确认要删除该留言？               
+    delete_info: 留言删除后将无法恢复，请谨慎操作！
   auth:
     admin: 后台管理
     login: 登录
@@ -349,9 +368,12 @@ zh-CN:
     manage: 管理
     preview: 预览
     restore: 恢复
+    review: 审核
+    reply: 回复
+    close: 关闭
   trash:
-    article_title: 文章数据
-    page_title: 文档数据
+    article_title: 垃圾文章
+    page_title: 垃圾文档
 
   activerecord:
     models:
@@ -391,3 +413,6 @@ zh-CN:
         product_option_created: 产品参数添加成功。
         product_option_updated: 产品参数更新成功。
         product_option_deleted: 产品参数删除成功。
+        message_updated: 留言回复添加成功。
+        message_deleted: 留言删除成功。
+        message_reviewed: 留言审核状态修改成功

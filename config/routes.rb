@@ -59,6 +59,12 @@ Rails.application.routes.draw do
       end
     end
     #end trash namespae
+    
+    #message module
+    resources :messages, path: 'message' do
+      put 'review', to: 'messages#review', on: :member
+    end
+
   end 
   #end admin namespace
 

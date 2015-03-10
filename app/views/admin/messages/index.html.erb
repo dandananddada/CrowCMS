@@ -1,0 +1,135 @@
+<%if notice %>
+<div class="alert alert-success fade in">
+  <button class="close" data-dismiss="alert">×</button>
+  <i class="fa-fw fa fa-check"></i>
+  <strong><%= notice %></strong>
+</div>
+<% end %>
+<div class="jarviswidget jarviswidget-color-darken" id="wid-id-0" data-widget-editbutton="false">
+  <header>
+    <span class="widget-icon"> <i class="fa fa-comments"></i> </span>
+    <h2><p><%= t "message.table_title" %></p></h2>
+  </header>
+  <div>
+    <div class="jarviswidget-editbox"></div>  
+    <div class="widget-body no-padding">
+      <table id="datatable_fixed_column" class="table table-striped table-bordered">
+        <thead>
+          <tr>
+            <th><%= t "message.id" %></th>
+            <th><%= t "message.author" %></th>
+            <th><%= t "message.email" %></th>
+            <th><%= t "message.is_permit" %></th>
+            <th><%= t "message.created_at" %></th>
+            <th><%= t "operate.review" %></th>
+            <th><%= t "operate.title" %></th>
+          </tr>
+          <tr class="second">
+            <td class="smart-form">
+              <label class="input">
+                <input type="text" value="<%= t("article.search_by_id") %>" class="search_init">
+              </label>
+            </td>
+            <td class="smart-form">
+              <label class="input">
+                <input type="text" value="<%= t("article.search_by_category") %>" class="search_init">
+              </label>  
+            </td>
+            <td class="smart-form">
+              <label class="input">
+                <input type="text" value="<%= t("article.search_by_title") %>" class="search_init">
+              </label>  
+            </td>
+            <td class="smart-form">
+              <label class="input">
+                <input type="text" value="<%= t("article.search_by_author") %>" class="search_init">
+              </label>  
+            </td>
+            <td class="smart-form">
+              <label class="input">
+                <input type="text" value="<%= t("article.search_by_hits") %>" class="search_init">
+              </label>  
+            </td>
+            <td colspan="2">
+            </td>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @admin_messages.each do |admin_message| %>
+          <tr>
+            <td><%= admin_message.id %></td>
+            <td><%= admin_message.author %></td>
+            <td><%= admin_message.email %></td>
+            <td>
+            <% if admin_message.is_permit == true %>
+            <%= t "message.permit_yes" %>
+            <% else %>
+            <%= t "message.permit_no" %>
+            <% end %>
+            </td>
+            <td><%= admin_message.created_at.strftime("%Y-%m-%d, %H:%M") %></td>
+            <td>
+            <a href="<%= review_admin_message_path(admin_message.id) %>" data-method="put" class="btn bg-color-green txt-color-white" >
+            <% if admin_message.is_permit == true %>
+              <%= t "message.review_no" %>
+            <% else %>
+               <%= t "message.review_yes" %>
+            <% end %>
+            </a>
+            </td>
+            <td>
+               <a href="<%= admin_message_path(admin_message) %>" 
+               class="btn bg-color-green txt-color-white" 
+               data-toggle="modal" 
+               data-target="#show_<%= admin_message.id %>">
+               <%= t "operate.show" %>
+             </a><!-- show button -->
+             <a href="<%= edit_admin_message_path(admin_message) %>" 
+               class="btn bg-color-green txt-color-white" 
+               data-toggle="modal" 
+               data-target="#reply_<%= admin_message.id %>">
+               <%= t "operate.reply" %>
+             </a><!-- edit button -->
+               <%= link_to t("operate.delete"), admin_message_path(admin_message.id), method: :delete, data: { title: "#{t('message.delete_title')}", confirm: "#{t('message.delete_info')}" }, class: "btn bg-color-red txt-color-white" %>
+           </td>
+          </tr>
+          <!-- dialog for show message -->
+          <div class="modal fade" 
+          id="show_<%= admin_message.id %>" 
+          tabindex="-1" role="dialog" 
+          aria-labelledby="myModal" 
+          aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <!-- render form -->
+            </div>
+          </div>
+        </div>
+        <!-- end dialog -->
+        <!-- dialog for reply message -->
+        <div class="modal fade" 
+        id="reply_<%= admin_message.id %>" 
+        tabindex="-1" role="dialog" 
+        aria-labelledby="myModal" 
+        aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <!-- render form -->
+          </div>
+        </div>
+      </div>
+      <!-- end dialog -->
+          <% end %>
+        </tbody>
+      </table>      
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+

@@ -1,0 +1,39 @@
+<%= form_for(@admin_message) do |f| %>
+
+<div class="modal-header">
+	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+		&times;
+	</button>
+	<h4 class="modal-title" id="myModalLabel"><%= t "message.reply_dialog" %></h4>
+</div>
+<div class="modal-body">
+	<div class="smart-form">
+		<fieldset>
+			<div class="row">
+				<div class="col col-md-12">
+					<%= t "message.content" %>:
+				</div>
+			</div>
+			<div class="row">
+				<div class="col col-md-12">
+					<%= raw @admin_message.content %>
+				</div>
+			</div>
+			<br>
+			<div class="row">
+				<section class="col col-md-12"> 
+					<label class="label"><%= f.label t "message.reply" %><br></label>
+					<label class="textarea textarea-resizable"><i class="icon-append fa fa-comment"></i>   
+						<%= f.text_area :reply, class: "custom-scroll", rows: "7" %>                
+					</label>
+				</section>
+			</div>
+		</fieldset>
+	</div>
+</div>
+<div class="modal-footer">
+	<%= f.submit t("operate.submit"), class: "btn btn-primary" %>
+	<button type="button" class="btn btn-default" data-dismiss="modal"><%= t("operate.back") %></button>
+</div>
+
+<% end %>

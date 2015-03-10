@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150310072447) do
+ActiveRecord::Schema.define(version: 20150310091927) do
 
   create_table "album_tags", force: :cascade do |t|
     t.string "text", limit: 255
@@ -23,11 +23,14 @@ ActiveRecord::Schema.define(version: 20150310072447) do
     t.string   "description",        limit: 255
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
+    t.datetime "deleted_at"
     t.string   "cover_file_name",    limit: 255
     t.string   "cover_content_type", limit: 255
     t.integer  "cover_file_size",    limit: 4
     t.datetime "cover_updated_at"
   end
+
+  add_index "albums", ["deleted_at"], name: "index_albums_on_deleted_at", using: :btree
 
   create_table "article_pictures", force: :cascade do |t|
     t.integer  "article_id",           limit: 4
@@ -95,6 +98,16 @@ ActiveRecord::Schema.define(version: 20150310072447) do
 
   add_index "ckeditor_assets", ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable", using: :btree
   add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type", using: :btree
+
+  create_table "messages", force: :cascade do |t|
+    t.string   "author",     limit: 255
+    t.string   "email",      limit: 255
+    t.boolean  "is_permit",  limit: 1,     default: false
+    t.text     "content",    limit: 65535
+    t.text     "reply",      limit: 65535
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
+  end
 
   create_table "pages", force: :cascade do |t|
     t.string   "title",      limit: 255

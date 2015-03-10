@@ -1,0 +1,64 @@
+ <div class="modal-header">
+ 	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+ 		&times;
+ 	</button>
+ 	<h4 class="modal-title" id="myModalLabel"><%= t "message.show_dialog" %></h4>
+ </div>
+ <div class="modal-body">
+ 	<div class="smart-form">
+ 		<fieldset>
+ 			<div class="row">
+ 				<div class="col col-md-12">
+ 					<h2><small><%= t "message.author" %>:</small></h2>
+ 				</div>
+ 			</div>
+ 			<div class="row">
+ 				<div class="col col-md-12">
+ 					<h2><small><%= @admin_message.author %></small></h2>
+ 				</div>
+ 			</div>
+ 			<br>
+ 			<div class="row">
+ 				<div class="col col-md-offset-1 col-md-11">
+ 					<h2><small><%= t "message.email" %>:</small></h2>
+ 				</div>
+ 			</div>
+ 			<div class="row">
+ 				<div class="col col-md-12">
+ 					<h2><small><%= @admin_message.email %></small></h2>
+ 				</div>
+ 			</div>
+ 			<br>
+ 			<div class="row">
+ 				<div class="col col-md-12">
+ 					<h2><small><%= t "message.content" %>:</small></h2>
+ 				</div>
+ 			</div>
+ 			<div class="row">
+ 				<div class="col col-md-12">
+ 					<h2><small><%= raw @admin_message.content %></small></h2>
+ 				</div>
+ 			</div>
+ 			<br>	
+ 			<div class="row">
+ 				<div class="col col-md-12">
+ 					<h2><small><%= t "message.reply" %>:</small></h2>
+ 				</div>
+ 			</div>
+ 			<div class="row">
+ 				<div class="col col-md-12">
+ 					<h2><small>
+ 					<% if @admin_message %>
+ 					<%= raw @admin_message.reply %>
+ 					<% else %>
+ 					<%= t "message.no_reply" %>
+ 					<% end %>
+ 					</small></h2>
+ 				</div>
+ 			</div>
+ 		</fieldset>
+ 	</div>
+ </div>
+ <div class="modal-footer">
+ 	<button type="button" class="btn btn-default" data-dismiss="modal"><%= t("operate.close") %></button>
+ </div>
