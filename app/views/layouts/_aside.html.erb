@@ -33,6 +33,14 @@
 					<li><%= link_to t("menu.midmenu.album"), admin_albums_path %></li>
 				</ul>
 			</li>
+			<li>
+				<a href="#"><i class="fa fa-lg fa-fw fa-trash-o"></i> <span class="menu-item-parent">
+					<%= t("menu.submenu.trash_menu") %>
+				</span></a>
+				<ul>
+					<li><%= link_to t("menu.midmenu.trash_article"), admin_trash_articles_path %></li>
+				</ul>
+			</li>
 		</ul>
 	</nav>
 	<span class="minifyme"> <i class="fa fa-arrow-circle-left hit"></i> </span>

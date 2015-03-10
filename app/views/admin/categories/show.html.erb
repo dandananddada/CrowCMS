@@ -82,6 +82,37 @@
               </label>
             </section>
           </div>
+           <div class="row">
+            <section class="col col-2">
+              <label class="toggle">
+                <% if @admin_category.is_option === true %>
+                <input type="checkbox" name="checkbox-toggle" checked="true" disabled="true">
+                <% else%>
+                <input type="checkbox" name="checkbox-toggle" disabled="true">
+                <% end %>
+                <i data-swchoff-text="关闭" data-swchon-text="开启"></i><%= t("category.is_option") %>
+              </label>
+            </section>
+          </div>
+          <% if @admin_category.is_option === true %>
+          <div class="row">
+            <div class="col col-4">
+              <% @options.each do |category| %>
+              <section class="col col-4 pd-l-no">
+                <label class="checkbox">
+                <input type="checkbox" name="<%= category.text %>" value="<%= category.text %>" class="option-checbox" disabled
+                  <% @admin_category.option_keys.split(",").each do |is_checked| %> 
+                  <% if category.text ==  is_checked %>
+                  checked
+                  <% end %>
+                  <% end %>
+                  ><i></i><%= category.text %>
+                </label>
+              </section>  
+              <% end %>
+            </div> 
+          </div>
+          <% end %>
         </fieldset>
         <footer>
           <%= link_to t("operate.back"), admin_categories_path, class: "btn btn-primary" %>

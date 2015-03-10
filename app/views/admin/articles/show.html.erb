@@ -41,6 +41,18 @@
               </h2>
             </section>
           </div>
+          <% if @admin_article.options %>
+          <div class="row">
+            <section class="col col-md-12">
+              <h2 class="article-option">
+                <% eval(@admin_article.options).each do |key,value| %>
+                <div class="col-md-1"><small><%= key %>：</small></div>
+                <div class="col-md-1"><small><%= value %></small></div>
+                <% end %>
+              </h2>
+            </section>
+          </div>
+          <% end %>
           <div class="row">
             <section class="col col-md-12">
               <h5 class="article-content">

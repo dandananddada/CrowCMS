@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   
-
   root to: 'admin/home#index'
 
   devise_for :users, 
@@ -47,8 +46,16 @@ Rails.application.routes.draw do
     
   #product module
     resources :product_options, path: 'product-option'
-  end
 
+  #trash module
+    namespace :trash do
+      resources :articles, path: 'article', only: [:index, :destroy] do
+        put 'restore', to: 'articles#restore', on: :member
+      end
+    end
+    #end trash namespae
+  end 
+  #end admin namespace
 
 
 end

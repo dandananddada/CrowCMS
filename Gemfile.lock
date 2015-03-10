@@ -145,6 +145,8 @@ GEM
       activesupport (>= 3.0.0)
       cocaine (~> 0.5.3)
       mime-types
+    paranoia (2.1.0)
+      activerecord (~> 4.0)
     pry (0.10.1)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -265,7 +267,8 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   mysql2
-  paperclip
+  paperclip (~> 4.2)
+  paranoia (~> 2.0)
   rails (= 4.2.0)
   responders
   rspec-rails

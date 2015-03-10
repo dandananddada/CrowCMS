@@ -2,14 +2,12 @@ class Admin::Article < ActiveRecord::Base
 
 	belongs_to :category
 	has_many :article_picture, dependent: :destroy
-
-	serialize :options
+	acts_as_paranoid	#for soft delete
 
 	validates :title, presence: true
 	validates :category_id, presence: true
 	validates :author, presence: true
 	validates :content, presence: true
-	
 	has_attached_file :thumb, 
 					  styles: { small: "150x150>"},
 					  url: "/uploads/articles/thumb/:id/:style/:basename.:extension",

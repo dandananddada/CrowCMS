@@ -18,10 +18,12 @@ class Admin::ArticlesController < AuthController
   # GET /admin/articles/new
   def new
     @admin_article = Admin::Article.new
+    get_categories
   end
 
   # GET /admin/articles/1/edit
   def edit
+    get_categories
   end
 
   # POST /admin/articles
@@ -35,6 +37,7 @@ class Admin::ArticlesController < AuthController
         format.json { render :show, status: :created, location: @admin_article }
         # format.js { render :show, status: :created, location: @admin_article }
       else
+        get_categories
         format.html { render :new }
         format.json { render json: @admin_article.errors, status: :unprocessable_entity }
         # format.js { render json: @admin_article.errors, status: :unprocessable_entity }
@@ -50,6 +53,7 @@ class Admin::ArticlesController < AuthController
         format.html { redirect_to @admin_article, notice: "#{t 'activerecord.successful.messages.article_updated'}" }
         format.json { render :show, status: :ok, location: @admin_article }
       else
+        get_categories
         format.html { render :edit }
         format.json { render json: @admin_article.errors, status: :unprocessable_entity }
       end
@@ -73,6 +77,10 @@ class Admin::ArticlesController < AuthController
 
 
   private
+    def get_categories
+      @categories = Admin::Category.select_article_categories 
+    end
+    
     # Use callbacks to share common setup or constraints between actions.
     def set_admin_article
       @admin_article = Admin::Article.find(params[:id])
@@ -80,6 +88,6 @@ class Admin::ArticlesController < AuthController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def admin_article_params
-      params.require(:admin_article).permit(:title, :category_id, :author, :is_recommand, :is_carousel, :is_mark, :content, :abstract, :thumb, :file, :hits)
+      params.require(:admin_article).permit(:title, :category_id, :author, :is_recommand, :is_carousel, :is_mark, :content, :options, :abstract, :thumb, :file, :hits)
     end
 end

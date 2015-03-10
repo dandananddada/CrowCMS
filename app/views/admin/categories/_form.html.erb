@@ -21,7 +21,7 @@
 
       <fieldset>
         <%= f.hidden_field :parent_id %>
-        <%= f.hidden_field :option_ids, id: "option-ids" %>
+        <%= f.hidden_field :option_keys, id: "option-ids" %>
         <div class="row">
           <section class="col col-3">
             <label class="label"> 
@@ -86,19 +86,39 @@
             </label>
           </section>
         </div>
+        <% if @admin_category.is_option === true %>
+        <div class="row" id="option_checkboxs">
+          <div class="col col-4">
+            <% @options.each do |category| %>
+            <section class="col col-4 pd-l-no">
+              <label class="checkbox">
+                <input type="checkbox" name="<%= category.text %>" value="<%= category.text %>" class="option-checbox" 
+                <% @admin_category.option_keys.split(",").each do |is_checked| %> 
+                <% if category.text ==  is_checked %>
+                checked
+                <% end %>
+                <% end %>
+                ><i></i><%= category.text %>
+              </label>
+            </section>  
+            <% end %>
+          </div> 
+        </div>
+        <% else %>
         <div class="row" id="option_checkboxs" >
           <div class="col col-4">
-            <% Admin::CategoriesController::OPTIONS.each_slice(3) do |slice| %>
+            <% @options.each_slice(3) do |slice| %>
             <% slice.each do |category| %>
             <section class="col col-4 pd-l-no">
               <label class="checkbox">
-                <input type="checkbox" name="<%= category.text %>" value="<%= category.id %>" class="option-checbox"><i></i><%= category.text %>
+                <input type="checkbox" name="<%= category.text %>" value="<%= category.text %>" class="option-checbox"><i></i><%= category.text %>
               </label>
             </section>  
             <% end %>
             <% end %>
           </div> 
         </div>
+        <% end %>
         <footer>
             <%= link_to t("operate.back"), admin_categories_path, class: "btn btn-primary" %>
             <%= link_to t("operate.submit"), "javascript:submit()", class: "btn btn-primary" %>

@@ -1,0 +1,90 @@
+<%if notice %>
+<div class="alert alert-success fade in">
+  <button class="close" data-dismiss="alert">×</button>
+  <i class="fa-fw fa fa-check"></i>
+  <strong><%= notice %></strong>
+</div>
+<% end %>
+<div class="jarviswidget jarviswidget-color-darken" id="wid-id-0" data-widget-editbutton="false">
+  <header>
+    <span class="widget-icon"> <i class="fa fa-file"></i> </span>
+    <h2><p><%= t("trash.article_title") %></p></h2>
+  </header>
+  <div>
+    <div class="jarviswidget-editbox"></div>  
+    <div class="widget-body no-padding">
+      <table id="datatable_fixed_column" class="table table-striped table-bordered">
+        <thead>
+          <tr>
+            <th><%= t("article.id") %></th>
+            <th><%= t("article.category") %></th>
+            <th><%= t("article.title") %></th>
+            <th><%= t("article.author") %></th>
+            <th><%= t("article.hits") %></th>
+            <th><%= t("article.deleted_at") %></th>
+            <th><%= t("operate.title") %></th>
+          </tr>
+          <tr class="second">
+            <td class="smart-form">
+              <label class="input">
+                <input type="text" value="<%= t("article.search_by_id") %>" class="search_init">
+              </label>
+            </td>
+            <td class="smart-form">
+              <label class="input">
+                <input type="text" value="<%= t("article.search_by_category") %>" class="search_init">
+              </label>  
+            </td>
+            <td class="smart-form">
+              <label class="input">
+                <input type="text" value="<%= t("article.search_by_title") %>" class="search_init">
+              </label>  
+            </td>
+            <td class="smart-form">
+              <label class="input">
+                <input type="text" value="<%= t("article.search_by_author") %>" class="search_init">
+              </label>  
+            </td>
+            <td class="smart-form">
+              <label class="input">
+                <input type="text" value="<%= t("article.search_by_hits") %>" class="search_init">
+              </label>  
+            </td>
+            <td class="smart-form">
+              <label class="input">
+                <input type="text" value="<%= t("article.search_by_created") %>" class="search_init">
+              </label>  
+            </td>
+            <td>
+                
+            </td>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @admin_trush_articles.each do |admin_trush_article| %>
+          <tr>
+            <td><%= admin_trush_article.id %></td>
+            <td><%= admin_trush_article.category.title %></td>
+            <td><%= admin_trush_article.title %></td>
+            <td><%= admin_trush_article.author %></td>
+            <td><%= admin_trush_article.hits %></td>
+            <td><%= admin_trush_article.created_at.strftime("%Y-%m-%d, %H:%M") %></td>
+            <td>
+             <%= link_to t("operate.restore"), restore_admin_trash_article_path(admin_trush_article.id), method: :put, class: "btn bg-color-green txt-color-white" %>
+              <%= link_to t("operate.delete"), admin_trash_article_path(admin_trush_article.id), method: :delete, data: { title: "#{t('article.delete_title')}", confirm: "#{t('article.force_delete_info')}" }, class: "btn bg-color-red txt-color-white" %>
+           </td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>      
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+

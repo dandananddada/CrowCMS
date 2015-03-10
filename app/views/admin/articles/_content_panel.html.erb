@@ -1,0 +1,29 @@
+ <!-- widget-section-4 -->
+    <div class="jarviswidget jarviswidget-color-darken" data-widget-editbutton="false" data-widget-fullscreenbutton="false" >
+      <header>
+        <span class="widget-icon"><i class="fa fa-edit"></i></span>
+        <h2><%= t("article.content_info") %></h2>
+      </header>
+      <!-- smart-form -->
+      <div class="smart-form">
+        <fieldset>
+          <!-- content -->
+          <div class="row">
+            <section> 
+              <%= f.cktext_area :content, required: true, :ckeditor => {:language => 'zh-cn', :toolbar => 'Full' }  %>
+            </section>
+          </div>
+          <!-- end content -->
+        </fieldset>
+        <!-- footer -->
+        <footer>
+          <%= link_to t("operate.back"), admin_articles_path, class: "btn btn-primary" %>
+          <div class="actions">
+            <%= link_to t("operate.submit"),"javascript:submit()", class: 'btn btn-primary' %>
+          </div>
+        </footer>
+        <!-- end footer -->
+      </div>
+      <!-- end smart-form -->
+    </div>
+    <!-- end widget-section-4 -->

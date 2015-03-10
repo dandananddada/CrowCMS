@@ -215,6 +215,7 @@ zh-CN:
       picture_menu: 图片模块
       album_menu: 相册模块
       product_menu: 产品模块
+      trash_menu: 回收站
     midmenu:
       page_menu: 文档管理
       category_menu: 分栏管理
@@ -222,6 +223,7 @@ zh-CN:
       album_tags: 标签管理
       album: 相册管理
       product_option: 参数管理
+      trash_article: 删除文章管理
 
 
   category:
@@ -250,20 +252,25 @@ zh-CN:
     is_recommand: 推荐
     is_carousel: 图集
     is_mark: 特殊标记
+    option_info: 参数信息
+    option: 参数
     extra_info: 附加信息
     thumb: 缩略图
     file: 附件
     abstract: 摘要
     content_info: 文本信息
     created_at: 创建日期
+    deleted_at: 删除日期
     delete_title: 您确认要删除文章？
-    delete_info: 文章删除后将无法恢复，请谨慎操作！
+    delete_info: 文章删除后将进入回收站！
+    force_delete_info: 文章删除后将无法恢复，请谨慎操作！
     search_by_id: 根据文章编号查询 
     search_by_category: 根据文章分栏查询 
     search_by_title:  根据文章标题查询
     search_by_author: 根据文章作者查询 
     search_by_hits:  根据文章点击率查询
     search_by_created:  根据文章创建日期查询
+    select_option_default: 请选择文章分类
 
   article_picture:
     table_title: 图集管理
@@ -337,6 +344,9 @@ zh-CN:
     back: 返回
     manage: 管理
     preview: 预览
+    restore: 恢复
+  trash:
+    article_title: 文章数据
 
   activerecord:
     models:
@@ -357,6 +367,8 @@ zh-CN:
         article_created: 文章添加成功。
         article_updated: 文章更新成功。
         article_deleted: 文章删除成功。
+        article_restored: 文章恢复成功。
+        article_force_deleted: 文章已经彻底删除。
         album_tag_created: 标签添加成功。
         album_tag_updated: 标签更新成功。
         album_tag_deleted: 标签删除成功。

@@ -5,7 +5,6 @@
 $(document).ready ->
   pageSetUp()
   $('#validate-form').validate()
-  $("#is_extra").hide()
   return
   
 $("#datatable_fixed_column thead input").keyup ->
@@ -61,10 +60,20 @@ $("#article-category").change ->
       id: $("#article-category").val()
 
     success: (data) ->
-      if data.is_file is false and data.is_thumb is false and data.is_abstract is false
-          $("#is_extra").hide()
+      if data.is_option is true
+        $("#option_panel").show()
+        array = new Array()
+        array = data.option_keys.split(',')
+        $("#option_items").empty()
+        for a in array
+          $("#option_items").append "<div class='row'><section class='col col-5'><label for='"+a+"' class='label' >"+a+"</label><label class='input'><i class='icon-append fa fa-cogs'></i><input type='text' name='"+a+"' value='' /></label></section></div>"
+        $("#is_option").show()
       else
-        $("#is_extra").show()
+        $("#option_panel").hide()
+      if data.is_file is false and data.is_thumb is false and data.is_abstract is false
+          $("#extra_panel").hide()
+      else
+        $("#extra_panel").show()
         if data.is_thumb is false
           $("#is_thumb").hide()
         else
@@ -77,3 +86,12 @@ $("#article-category").change ->
           $("#is_abstract").hide()
         else
           $("#is_abstract").show()
+root = exports ? this
+root.submit = ->
+  str = "{"
+  $("#option_items .row .col .input input").each ->
+    str+= "\:"+this.name+"=>\""+this.value+"\","
+  $("#options").val(str.substring(0,str.length-1)+"}")
+  $("#validate-form").submit()
+  return
+

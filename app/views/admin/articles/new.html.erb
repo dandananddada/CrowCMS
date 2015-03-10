@@ -1,1 +1,40 @@
-<%= render 'form' %>
+<%= form_for(@admin_article, html: { id: "validate-form" , multipart: true  }) do |f| %>
+
+ <%= render partial: "error", locals: {admin_article: @admin_article} %>
+ 
+  <!-- widget-grid -->
+  <section id="widget-grid">
+
+    <%= render partial: "basic_panel", locals: {f: f} %>
+
+    <%= render partial: "option_panel", locals: {f: f} %>
+   
+
+    <!-- widget-section-3 -->
+    <div class="jarviswidget jarviswidget-color-darken" data-widget-editbutton="false" id="extra_panel">
+      <header>
+        <span class="widget-icon"><i class="fa fa-edit"></i></span>
+        <h2><%= t("article.extra_info") %></h2>
+      </header>
+      <!-- smart-form -->
+      <div class="smart-form">
+        <!-- extra information -->
+        <fieldset>
+          
+          <%= render partial: "admin/articles/extra/thumb", locals: {f: f} %>
+          <%= render partial: "admin/articles/extra/file", locals: {f: f} %>
+          <%= render partial: "admin/articles/extra/abstract", locals: {f: f} %>
+
+        </fieldset> 
+        <!-- end extra information    -->
+      </div>
+      <!-- end smart-form -->
+    </div>
+    <!-- end widget-section-3 -->
+
+    <%= render partial: "content_panel", locals: {f: f} %>
+  
+  </section>
+  <!-- end widget-grid -->
+
+<% end %>

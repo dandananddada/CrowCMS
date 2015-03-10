@@ -34,6 +34,6 @@ root.submit = ->
     $("#option-ids").val(str.substring(0,str.length-1))
   else
     $("#option-ids").val("")
-  $("#validate-form").submit();
+  $("#validate-form").submit()
   return
 

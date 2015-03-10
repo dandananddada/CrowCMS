@@ -1,0 +1,31 @@
+
+     <!-- widget-section-2 -->
+    <div class="jarviswidget jarviswidget-color-darken" data-widget-editbutton="false" id="option_panel">
+      <header>
+        <span class="widget-icon"><i class="fa fa-edit"></i></span>
+        <h2><%= t("article.option_info") %></h2>
+      </header>
+      <!-- smart-form -->
+      <div class="smart-form">
+        <!-- extra information -->
+        <fieldset>
+           <!-- option -->
+          <%= f.hidden_field :options, id: "options" %>
+          <div class="row" id="is_option">
+            <section class="col col-8"> 
+              <div class="div" id="option_items">
+                <% if @admin_article.options %>
+                <%= render partial: "option_list_for_edit", locals: {admin_article: @admin_article} %>
+                <% else %>
+                <%= t "article.select_option_default" %>
+                <% end %>
+              </div>
+            </section>
+          </div>
+          <!-- end option -->
+        </fieldset> 
+        <!-- end extra information    -->
+      </div>
+      <!-- end smart-form -->
+    </div>
+    <!-- end widget-section-2 -->

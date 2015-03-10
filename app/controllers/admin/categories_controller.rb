@@ -2,7 +2,6 @@ class Admin::CategoriesController < AuthController
   before_action :set_admin_category, only: [:show, :edit, :update, :destroy]
 
   # product options
-  OPTIONS = Admin::ProductOption.all
   
   # GET /admin/article_categories
   # GET /admin/article_categories.json
@@ -13,10 +12,12 @@ class Admin::CategoriesController < AuthController
   # GET /admin/article_categories/1
   # GET /admin/article_categories/1.json
   def show
+    get_options
   end
 
   # GET /admin/article_categories/new
   def new
+    get_options
     if (params[:id] == '0')
       @admin_category = Admin::Category.new
     else
@@ -27,7 +28,7 @@ class Admin::CategoriesController < AuthController
 
   # GET /admin/article_categories/1/edit
   def edit
-    @options = @admin_category.option_ids.split(",").map(&:to_i)
+    get_options
   end
 
   # POST /admin/article_categories
@@ -40,6 +41,7 @@ class Admin::CategoriesController < AuthController
         format.html { redirect_to @admin_category, notice: "#{t 'activerecord.successful.messages.article_category_created'}" }
         format.json { render :show, status: :created, location: @admin_category }
       else
+        get_options
         format.html { render :new }
         format.json { render json: @admin_category.errors, status: :unprocessable_entity }
       end
@@ -54,6 +56,7 @@ class Admin::CategoriesController < AuthController
         format.html { redirect_to @admin_category, notice: "#{t 'activerecord.successful.messages.article_category_updated'}" }
         format.json { render :show, status: :ok, location: @admin_category }
       else
+        get_options
         format.html { render :edit }
         format.json { render json: @admin_category.errors, status: :unprocessable_entity }
       end
@@ -71,6 +74,10 @@ class Admin::CategoriesController < AuthController
   end
 
   private
+    def get_options
+      @options = Admin::ProductOption.all
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_admin_category
       @admin_category = Admin::Category.find(params[:id])
@@ -78,6 +85,6 @@ class Admin::CategoriesController < AuthController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def admin_category_params
-      params.require(:admin_category).permit(:parent_id, :title, :is_article, :is_thumb, :is_file, :is_abstract, :is_carousel, :is_option, :option_ids)
+      params.require(:admin_category).permit(:parent_id, :title, :is_article, :is_thumb, :is_file, :is_abstract, :is_carousel, :is_option, :option_keys)
     end
 end

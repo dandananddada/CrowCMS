@@ -1,0 +1,12 @@
+<% eval(@admin_article.options).each_slice(2) do |slice| %>
+<div class='row'>
+	<% slice.each do |key,value| %>
+	<section class="col col-4">
+		<label for="<%= key %>" class="label"><%= key %></label>
+		<label class="input"><i class='icon-append fa fa-cogs'></i>
+			<input type="text" name="<%= key %>" value="<%= value %>" >
+		</label>
+	</section>
+	<% end %>
+</div>
+<% end %>

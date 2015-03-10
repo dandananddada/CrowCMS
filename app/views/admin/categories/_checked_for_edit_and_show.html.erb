@@ -1,0 +1,17 @@
+<div class="row">
+  <div class="col col-4">
+    <% @options.each do |category| %>
+    <section class="col col-4 pd-l-no">
+      <label class="checkbox">
+      <input type="checkbox" name="<%= category.text %>" value="<%= category.text %>" class="option-checbox" 
+        <% @admin_category.option_keys.split(",").each do |is_checked| %> 
+        <% if category.text ==  is_checked %>
+        checked
+        <% end %>
+        <% end %>
+        ><i></i><%= category.text %>
+      </label>
+    </section>  
+    <% end %>
+  </div> 
+</div>
