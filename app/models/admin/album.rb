@@ -1,6 +1,5 @@
 class Admin::Album < ActiveRecord::Base
 	has_many :photo, dependent: :destroy
-	
 	has_attached_file :cover, 
                        styles: 	{ small: "240x240>"},
                        url: 	"/uploads/albums/cover/:id/:style/:basename.:extension",

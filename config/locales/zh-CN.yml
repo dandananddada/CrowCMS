@@ -223,7 +223,8 @@ zh-CN:
       album_tags: 标签管理
       album: 相册管理
       product_option: 参数管理
-      trash_article: 删除文章管理
+      trash_article: 垃圾文章
+      trash_page: 垃圾文档
 
 
   category:
@@ -316,12 +317,15 @@ zh-CN:
     title: 标题
     abstract: 摘要
     content: 内容
-    delete_title: 您确认要删除文档？                #这部分在superbox.js中
-    delete_info: 文档删除后将无法恢复，请谨慎操作！    #这部分在superbox.js中
+    deleted_at: 删除日期
+    delete_title: 您确认要删除文档？               
+    delete_info: 文档删除后将进入回收站！
+    force_delete_info: 文档删除后将无法恢复，请谨慎操作！
     search_by_id: 根据文档编号查询 
     search_by_title:  根据文档标题查询
     search_by_content: 根据文档内容查询 
     search_by_created:  根据文档创建日期查询
+    search_by_deleted: 根据文档删除日期
   product_option:
     text: 参数名称
     table_title: 参数管理
@@ -347,6 +351,7 @@ zh-CN:
     restore: 恢复
   trash:
     article_title: 文章数据
+    page_title: 文档数据
 
   activerecord:
     models:
@@ -381,6 +386,8 @@ zh-CN:
         page_created: 文档添加成功。
         page_updated: 文档更新成功。
         page_deleted: 文档删除成功。
+        page_restored: 文档恢复成功。
+        page_force_deleted: 文档已经彻底删除
         product_option_created: 产品参数添加成功。
         product_option_updated: 产品参数更新成功。
         product_option_deleted: 产品参数删除成功。

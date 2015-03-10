@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150310021846) do
+ActiveRecord::Schema.define(version: 20150310072447) do
 
   create_table "album_tags", force: :cascade do |t|
     t.string "text", limit: 255
@@ -102,7 +102,10 @@ ActiveRecord::Schema.define(version: 20150310021846) do
     t.text     "content",    limit: 65535
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
+    t.datetime "deleted_at"
   end
+
+  add_index "pages", ["deleted_at"], name: "index_pages_on_deleted_at", using: :btree
 
   create_table "photos", force: :cascade do |t|
     t.integer  "album_id",           limit: 4

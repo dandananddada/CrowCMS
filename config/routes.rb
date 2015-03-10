@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  
+
   root to: 'admin/home#index'
 
   devise_for :users, 
@@ -49,8 +49,13 @@ Rails.application.routes.draw do
 
   #trash module
     namespace :trash do
+      #for article
       resources :articles, path: 'article', only: [:index, :destroy] do
         put 'restore', to: 'articles#restore', on: :member
+      end
+      #for pages
+      resources :pages, path: 'page', only: [:index, :destroy] do
+        put 'restore', to: 'pages#restore', on: :member
       end
     end
     #end trash namespae
