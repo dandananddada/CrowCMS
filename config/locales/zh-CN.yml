@@ -119,7 +119,7 @@ zh-CN:
       restrict_dependent_destroy:
         one: 由于 %{record} 需要此记录，所以无法移除记录
         many: 由于 %{record} 需要此记录，所以无法移除记录
-      taken: 已经被使用
+      taken: 不能重复添加
       too_long:
         one: 过长（最长为一个字符）
         other: 过长（最长为 %{count} 个字符）
@@ -214,7 +214,7 @@ zh-CN:
       article_menu: 文章模块
       picture_menu: 图片模块
       album_menu: 相册模块
-      product_menu: 产品模块
+      article_menu: 文章模块
       message_menu: 留言板
       trash_menu: 回收站
     midmenu:
@@ -223,7 +223,7 @@ zh-CN:
       article_menu: 文章管理
       album_tags: 标签管理
       album: 相册管理
-      product_option: 参数管理
+      article_option: 参数管理
       message_menu: 留言管理
       trash_article: 垃圾文章
       trash_page: 垃圾文档
@@ -327,7 +327,7 @@ zh-CN:
     search_by_content: 根据文档内容查询 
     search_by_created:  根据文档创建日期查询
     search_by_deleted: 根据文档删除日期
-  product_option:
+  article_option:
     text: 参数名称
     table_title: 参数管理
     create: 新建参数
@@ -386,6 +386,8 @@ zh-CN:
         content: 文章内容
       admin/page:
         content: 文档内容
+      admin/article_option:
+        text: 参数名称
     successful:
       messages:
         article_category_created: 分栏添加成功。
@@ -410,9 +412,9 @@ zh-CN:
         page_deleted: 文档删除成功。
         page_restored: 文档恢复成功。
         page_force_deleted: 文档已经彻底删除
-        product_option_created: 产品参数添加成功。
-        product_option_updated: 产品参数更新成功。
-        product_option_deleted: 产品参数删除成功。
+        article_option_created: 文章参数添加成功。
+        article_option_updated: 文章参数更新成功。
+        article_option_deleted: 文章参数删除成功。
         message_updated: 留言回复添加成功。
         message_deleted: 留言删除成功。
         message_reviewed: 留言审核状态修改成功

@@ -8,7 +8,7 @@
 <div class="jarviswidget jarviswidget-color-darken" id="wid-id-1" data-widget-editbutton="false">
   <header>
     <span class="widget-icon"> <i class="fa fa-cogs"></i> </span>
-    <h2><p><%= t "product_option.table_title" %></p></h2>
+    <h2><p><%= t "article_option.table_title" %></p></h2>
   </header>
   <div>
     <div class="jarviswidget-editbox"></div>  
@@ -16,7 +16,7 @@
 
       <div class="row">
         <div class="col-md-12">
-          <a href="<%= new_admin_product_option_path() %>" 
+          <a href="<%= new_admin_article_option_path() %>" 
              class="btn btn-labeled btn-success" 
              data-toggle="modal" 
              data-target="#myModal">
@@ -27,31 +27,31 @@
       </div><br><!-- crete button -->
 
       <div class="row">
-        <% @admin_product_options.each do |admin_product_option| %>
+        <% @admin_article_options.each do |admin_article_option| %>
         <div class="col-md-12">
           <span class="label label-default" style="font-size:16px">
-            <i class="fa fa-cogs"></i>&nbsp;&nbsp;<%= admin_product_option.text %>
+            <i class="fa fa-cogs"></i>&nbsp;&nbsp;<%= admin_article_option.text %>
           </span>
-          <a href="<%= admin_product_option_path(admin_product_option) %>" 
+          <a href="<%= admin_article_option_path(admin_article_option) %>" 
             class="btn btn-labeled btn-danger pull-right" 
             data-method="delete"
-            data-title="<%= t("product_option.delete_title") %>" 
-            data-confirm="<%= t("product_option.delete_info") %>" >
+            data-title="<%= t("article_option.delete_title") %>" 
+            data-confirm="<%= t("article_option.delete_info") %>" >
             <span class="btn-label"><i class="glyphicon glyphicon-trash"></i></span>  <!-- for style -->
             <%= t("operate.delete") %>
           </a><!-- delete button -->
 
-          <a href="<%= edit_admin_product_option_path(admin_product_option) %>" 
+          <a href="<%= edit_admin_article_option_path(admin_article_option) %>" 
             class="btn btn-labeled btn-warning btn-warning-mr pull-right" 
             data-toggle="modal" 
-            data-target="#myModal_<%= admin_product_option.id %>">
+            data-target="#myModal_<%= admin_article_option.id %>">
             <span class="btn-label"><i class="glyphicon glyphicon-edit"></i></span>
             <%= t("operate.edit") %>
           </a><!-- edit button -->
         </div><br><br>
         <!-- dialog for edit tag -->
         <div class="modal fade" 
-             id="myModal_<%= admin_product_option.id %>" 
+             id="myModal_<%= admin_article_option.id %>" 
              tabindex="-1" role="dialog" 
              aria-labelledby="myModal" 
              aria-hidden="true">

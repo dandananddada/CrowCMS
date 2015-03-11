@@ -25,8 +25,12 @@ FactoryGirl.define do
 		f.title "your article title"
 		f.content "<p>your article content</p>"
 	end
-	factory :product_option, class: Admin::ProductOption do |f|
+	factory :article_option, class: Admin::ArticleOption do |f|
 		f.id 1
+		f.text "your article title"
+	end
+	factory :existed_article_option, class: Admin::ArticleOption do |f|
+		f.id 2
 		f.text "your article title"
 	end
 end

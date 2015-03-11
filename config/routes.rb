@@ -23,7 +23,7 @@ Rails.application.routes.draw do
         #reload article elements when categroy select changed.
         get 'concat', to: 'articles#article_concat', on: :collection
     end
-
+    resources :article_options, path: 'article-option'
     resources :article_pictures, path: 'article-picture', only: [:create, :destroy] do
       #show pictures belongs specificy article.
       get '',  to: 'article_pictures#index', 
@@ -44,9 +44,6 @@ Rails.application.routes.draw do
   #page module
     resources :pages, path: 'page'
     
-  #product module
-    resources :product_options, path: 'product-option'
-
   #trash module
     namespace :trash do
       #for article

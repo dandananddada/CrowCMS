@@ -1,10 +1,10 @@
-<%= form_for(@admin_product_option) do |f| %>
+<%= form_for(@admin_article_option, html: { id: "validate-form" }) do |f| %>
 
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
           &times;
         </button>
-        <h4 class="modal-title" id="myModalLabel"><%= t("product_option.edit") %></h4>
+        <h4 class="modal-title" id="myModalLabel"><%= t("article_option.edit") %></h4>
       </div>
       <div class="modal-body">
         <div class="smart-form">
@@ -12,7 +12,7 @@
             <div class="row">
               <div class="col col-md-12">
                 <label class="label"> 
-                  <%= f.label t "product_option.text" %><br>
+                  <%= f.label t "article_option.text" %><br>
                 </label>
                 <label class="input">
                   <i class="icon-append fa fa-pencil"></i>

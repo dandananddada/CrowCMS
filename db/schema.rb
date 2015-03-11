@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150310091927) do
+ActiveRecord::Schema.define(version: 20150311073359) do
 
   create_table "album_tags", force: :cascade do |t|
     t.string "text", limit: 255
@@ -31,6 +31,10 @@ ActiveRecord::Schema.define(version: 20150310091927) do
   end
 
   add_index "albums", ["deleted_at"], name: "index_albums_on_deleted_at", using: :btree
+
+  create_table "article_options", force: :cascade do |t|
+    t.string "text", limit: 255
+  end
 
   create_table "article_pictures", force: :cascade do |t|
     t.integer  "article_id",           limit: 4
@@ -133,10 +137,6 @@ ActiveRecord::Schema.define(version: 20150310091927) do
   end
 
   add_index "photos", ["album_id"], name: "index_photos_on_album_id", using: :btree
-
-  create_table "product_options", force: :cascade do |t|
-    t.string "text", limit: 255
-  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  limit: 255, default: "", null: false
