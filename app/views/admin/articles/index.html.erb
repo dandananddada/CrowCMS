@@ -5,6 +5,7 @@
   <strong><%= notice %></strong>
 </div>
 <% end %>
+<%= form_tag muti_destroy_admin_articles_path, method: :delete, id: "muti_destory_form"  do %>
 <div class="jarviswidget jarviswidget-color-darken" id="wid-id-0" data-widget-editbutton="false">
   <header>
     <span class="widget-icon"> <i class="fa fa-file"></i> </span>
@@ -16,6 +17,7 @@
       <table id="datatable_fixed_column" class="table table-striped table-bordered">
         <thead>
           <tr>
+            <th></th>
             <th><%= t("article.id") %></th>
             <th><%= t("article.category") %></th>
             <th><%= t("article.title") %></th>
@@ -25,10 +27,8 @@
             <th><%= t("operate.title") %></th>
           </tr>
           <tr class="second">
-            <td class="smart-form">
-              <label class="input">
-                <input type="text" value="<%= t("article.search_by_id") %>" class="search_init">
-              </label>
+            <td colspan="2">
+              <%= submit_tag t("operate.delete_selected"), data: { title: "#{t('article.muti_delete_title')}", confirm: "#{t('article.delete_info')}" }, class: 'btn btn-primary' %>
             </td>
             <td class="smart-form">
               <label class="input">
@@ -56,7 +56,7 @@
               </label>  
             </td>
             <td>
-                <%= link_to t("operate.new"), new_admin_article_path, data: { no_turbolink: true }, class: "btn bg-color-green txt-color-white" %>
+              <%= link_to t("operate.new"), new_admin_article_path, data: { no_turbolink: true }, class: "btn bg-color-green txt-color-white" %>
             </td>
           </tr>
         </thead>
@@ -64,6 +64,7 @@
         <tbody>
           <% @admin_articles.each do |admin_article| %>
           <tr>
+            <td class="smart-form"><label class="checkbox"><%= check_box_tag "article_ids[]", admin_article.id %><i></i> </label></td>
             <td><%= admin_article.id %></td>
             <td><%= admin_article.category.title %></td>
             <td><%= admin_article.title %></td>
@@ -75,16 +76,17 @@
              <%= link_to t("operate.edit"), edit_admin_article_path(admin_article), data: { no_turbolink: true }, class: "btn bg-color-orange txt-color-white" %>
              <%= link_to t("operate.delete"), admin_article, method: :delete, data: { title: "#{t('article.delete_title')}", confirm: "#{t('article.delete_info')}" }, class: "btn bg-color-red txt-color-white" %>
              <% if admin_article.category.is_carousel === true %>
-             <%= link_to t("article.is_carousel"), picture_by_admin_article_picture_path(admin_article.id), class: "btn bg-color-blueDark txt-color-white pull-right" %>
+             <%= link_to t("article.is_carousel"), picture_by_admin_article_picture_path(admin_article.id), class: "btn bg-color-blueDark txt-color-white" %>
              <% end %>
            </td>
-          </tr>
-          <% end %>
-        </tbody>
-      </table>      
-    </div>
-  </div>
+         </tr>
+         <% end %>
+       </tbody>
+     </table>      
+   </div>
+ </div>
 </div>
+<% end %>
 
 
 

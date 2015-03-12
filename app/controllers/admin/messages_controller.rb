@@ -1,4 +1,4 @@
-class Admin::MessagesController < ApplicationController
+class Admin::MessagesController < AuthController
   before_action :set_admin_message, only: [:show, :edit, :update, :destroy]
 
   # GET /admin/messages

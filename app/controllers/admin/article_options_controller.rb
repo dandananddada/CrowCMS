@@ -1,4 +1,4 @@
-class Admin::ArticleOptionsController < ApplicationController
+class Admin::ArticleOptionsController < AuthController
   before_action :set_admin_article_option, only: [:show, :edit, :update, :destroy]
 
   # GET /admin/article_options
@@ -34,6 +34,7 @@ class Admin::ArticleOptionsController < ApplicationController
         format.json { render :index, status: :created, location: @admin_article_option }
       else
         format.html { redirect_to admin_article_options_url }
+        format.json { render json: @admin_article_option.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -47,6 +48,7 @@ class Admin::ArticleOptionsController < ApplicationController
         format.json { render :index, status: :ok, location: @admin_article_option }
       else
         format.html { redirect_to admin_article_options_url }
+        format.json { render json: @admin_article_option.errors, status: :unprocessable_entity }
       end
     end
   end

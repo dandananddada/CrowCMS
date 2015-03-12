@@ -94,4 +94,6 @@ root.submit = ->
   $("#options").val(str.substring(0,str.length-1)+"}")
   $("#validate-form").submit()
   return
+root.mutiDestroy = ->
+  $("#muti_destory_form").submit()
 

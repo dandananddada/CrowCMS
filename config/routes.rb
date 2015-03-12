@@ -22,6 +22,7 @@ Rails.application.routes.draw do
     resources :articles, path: 'article' do
         #reload article elements when categroy select changed.
         get 'concat', to: 'articles#article_concat', on: :collection
+        delete 'muti-destroy', to: 'articles#muti_destroy', on: :collection
     end
     resources :article_options, path: 'article-option'
     resources :article_pictures, path: 'article-picture', only: [:create, :destroy] do
@@ -49,6 +50,7 @@ Rails.application.routes.draw do
       #for article
       resources :articles, path: 'article', only: [:index, :destroy] do
         put 'restore', to: 'articles#restore', on: :member
+        delete 'muti-destroy', to: 'articles#muti_destroy', on: :collection
       end
       #for pages
       resources :pages, path: 'page', only: [:index, :destroy] do

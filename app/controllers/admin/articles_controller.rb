@@ -75,6 +75,15 @@ class Admin::ArticlesController < AuthController
     render json: @article_concat
   end
 
+  def muti_destroy
+    params[:article_ids].inspect
+    Admin::Article.destroy(params[:article_ids])
+    respond_to do |format|
+      format.html { redirect_to admin_articles_url }
+      format.json { head :no_content }
+    end
+  end
+
 
   private
     def get_categories

@@ -264,6 +264,7 @@ zh-CN:
     created_at: 创建日期
     deleted_at: 删除日期
     delete_title: 您确认要删除文章？
+    muti_delete_title: 您确认要删除全部选中文章？
     delete_info: 文章删除后将进入回收站！
     force_delete_info: 文章删除后将无法恢复，请谨慎操作！
     search_by_id: 根据文章编号查询 
@@ -371,6 +372,8 @@ zh-CN:
     review: 审核
     reply: 回复
     close: 关闭
+    delete_selected: 删除选中
+    restore_selected: 恢复选中
   trash:
     article_title: 垃圾文章
     page_title: 垃圾文档
@@ -398,9 +401,9 @@ zh-CN:
         article_deleted: 文章删除成功。
         article_restored: 文章恢复成功。
         article_force_deleted: 文章已经彻底删除。
-        album_tag_created: 标签添加成功。
-        album_tag_updated: 标签更新成功。
-        album_tag_deleted: 标签删除成功。
+        album_tag_created: 相册标签添加成功。
+        album_tag_updated: 相册标签更新成功。
+        album_tag_deleted: 相册标签删除成功。
         album_created: 相册添加成功。
         album_updated: 相册更新成功。
         album_deleted: 相册删除成功。

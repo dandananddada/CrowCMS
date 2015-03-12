@@ -1,4 +1,4 @@
-class Admin::PagesController < ApplicationController
+class Admin::PagesController < AuthController
   before_action :set_admin_page, only: [:show, :edit, :update, :destroy]
 
   # GET /admin/pages

@@ -75,7 +75,7 @@ class Admin::CategoriesController < AuthController
 
   private
     def get_options
-      @options = Admin::ProductOption.all
+      @options = Admin::ArticleOption.all
     end
 
     # Use callbacks to share common setup or constraints between actions.

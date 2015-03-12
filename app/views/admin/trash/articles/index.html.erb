@@ -5,6 +5,7 @@
   <strong><%= notice %></strong>
 </div>
 <% end %>
+<%= form_tag muti_destroy_admin_trash_articles_path, method: :delete, id: "muti_destory_form"  do %>
 <div class="jarviswidget jarviswidget-color-darken" id="wid-id-0" data-widget-editbutton="false">
   <header>
     <span class="widget-icon"> <i class="fa fa-trash-o"></i> </span>
@@ -16,6 +17,7 @@
       <table id="datatable_fixed_column" class="table table-striped table-bordered">
         <thead>
           <tr>
+            <th></th> 
             <th><%= t("article.id") %></th>
             <th><%= t("article.category") %></th>
             <th><%= t("article.title") %></th>
@@ -25,10 +27,8 @@
             <th><%= t("operate.title") %></th>
           </tr>
           <tr class="second">
-            <td class="smart-form">
-              <label class="input">
-                <input type="text" value="<%= t("article.search_by_id") %>" class="search_init">
-              </label>
+             <td colspan="2">
+              <%= submit_tag t("operate.delete_selected"), data: { title: "#{t('article.muti_delete_title')}", confirm: "#{t('article.delete_info')}" }, class: 'btn btn-primary' %>
             </td>
             <td class="smart-form">
               <label class="input">
@@ -64,6 +64,7 @@
         <tbody>
           <% @admin_trush_articles.each do |admin_trush_article| %>
           <tr>
+            <td class="smart-form"><label class="checkbox"><%= check_box_tag "article_ids[]", admin_trush_article.id %><i></i> </label></td>
             <td><%= admin_trush_article.id %></td>
             <td><%= admin_trush_article.category.title %></td>
             <td><%= admin_trush_article.title %></td>
@@ -81,6 +82,7 @@
     </div>
   </div>
 </div>
+<% end %>
 
 
 
