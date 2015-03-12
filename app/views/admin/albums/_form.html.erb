@@ -45,7 +45,7 @@
         <section class="col col-md-12">
           <label class="label"><%= f.label t("album.cover") %><br></label>
           <div class="input input-file">
-            <span class="button"><%= f.file_field :cover, readonly: 'true', onchange: "this.parentNode.nextSibling.value = this.value" %><%= t("operate.upload") %></span><input type="text" readonly="true">
+            <span class="button"><%= f.file_field :cover, readonly: 'true', onchange: "this.parentNode.nextSibling.value = this.value", required: true %><%= t("operate.upload") %></span><input type="text" readonly="true" placeholder="<%= t "album.upload_cover" %>">
           </div>
         </section>
       </div>

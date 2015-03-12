@@ -299,6 +299,7 @@ zh-CN:
     name: 相册名称
     tags: 相册标签  
     cover: 相册封面
+    upload_cover: 请上传相册封面
     description: 相册描述
     delete_title: 您确认要删除相册？
     delete_info: 相册删除，其下的相片也会一并删除，请谨慎操作！
@@ -420,4 +421,4 @@ zh-CN:
         article_option_deleted: 文章参数删除成功。
         message_updated: 留言回复添加成功。
         message_deleted: 留言删除成功。
-        message_reviewed: 留言审核状态修改成功
+        message_reviewed: 留言审核状态更新成功

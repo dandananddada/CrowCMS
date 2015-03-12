@@ -4,7 +4,11 @@
 
 $(document).ready ->
   pageSetUp()
-  $('#validate-form').validate()
+  $('#validate-form').validate(
+      rules:
+        extra_file:
+          extension: "xls|csv|doc"
+    )
   return
   
 $("#datatable_fixed_column thead input").keyup ->

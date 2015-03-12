@@ -14,6 +14,11 @@ RSpec.describe Admin::ArticleOption, type: :model do
 			expect(article_option).not_to be_valid
 		end
 
+		it "when text is number" do
+			article_option = build(:article_option, text: "1")
+			expect(article_option).not_to be_valid
+		end
+
 		it "when text have existed" do
 			article_option = create(:article_option, text: "have existed")
 			existed_article_option = build(:existed_article_option, text: "have existed")

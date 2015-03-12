@@ -15,9 +15,17 @@ RSpec.describe "CategoryTests", type: :request do
        click_link '返回'
        expect(page).to have_content("分栏管理")
        click_link '添加顶级分栏'
-       fill_in 'admin_category_title', with: "aaa"
+       fill_in 'admin_category_title', with: "添加测试分栏"
+       page.check('admin_category[is_article]')
        click_link '提交'
        expect(page).to have_content("分栏添加成功。")
+       click_link '修改'
+       fill_in 'admin_category_title', with: "修改测试分栏"
+       click_link '提交'
+       expect(page).to have_content("分栏更新成功。")
+       click_link '返回'
+       expect(page).to have_content("修改测试分栏")
+       expect(page).to have_content("分栏删除成功。")
     end
 
   end
