@@ -44,6 +44,7 @@ class Admin::MessagesController < AuthController
   def update
     respond_to do |format|
       if @admin_message.update(admin_message_params)
+        MessageMailer.message_reply(@admin_message).deliver
         format.html { redirect_to admin_messages_url, notice: "#{ t 'activerecord.successful.messages.message_updated' }" }
         format.json { render :show, status: :ok, location: @admin_message }
       else

@@ -1,0 +1,11 @@
+development:
+  gmail_username: work2014wangyitian@gmail.com
+  gmail_password: 19370707ABC123
+
+test:
+  gmail_username: work2014wangyitian@gmail.com
+  gmail_password: 19370707ABC123
+
+production:
+  gmail_username: work2014wangyitian@gmail.com
+  gmail_password: 19370707ABC123

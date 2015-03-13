@@ -23,14 +23,11 @@ ActiveRecord::Schema.define(version: 20150311073359) do
     t.string   "description",        limit: 255
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
-    t.datetime "deleted_at"
     t.string   "cover_file_name",    limit: 255
     t.string   "cover_content_type", limit: 255
     t.integer  "cover_file_size",    limit: 4
     t.datetime "cover_updated_at"
   end
-
-  add_index "albums", ["deleted_at"], name: "index_albums_on_deleted_at", using: :btree
 
   create_table "article_options", force: :cascade do |t|
     t.string "text", limit: 255
@@ -70,7 +67,7 @@ ActiveRecord::Schema.define(version: 20150311073359) do
     t.datetime "file_updated_at"
   end
 
-  add_index "articles", ["category_id"], name: "fk_rails_09aecb6043", using: :btree
+  add_index "articles", ["category_id"], name: "fk_rails_bf25fcc7f0", using: :btree
   add_index "articles", ["deleted_at"], name: "index_articles_on_deleted_at", using: :btree
 
   create_table "categories", force: :cascade do |t|
