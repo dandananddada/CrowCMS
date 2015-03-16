@@ -92,10 +92,10 @@ $("#article-category").change ->
           $("#is_abstract").show()
 root = exports ? this
 root.submit = ->
-  str = "{"
+  str = ""
   $("#option_items .row .col .input input").each ->
     str+= "\:"+this.name+"=>\""+this.value+"\","
-  $("#options").val(str.substring(0,str.length-1)+"}")
+  $("#options").val("{"+str.substring(0,str.length-1)+"}")
   $("#validate-form").submit()
   return
 root.mutiDestroy = ->

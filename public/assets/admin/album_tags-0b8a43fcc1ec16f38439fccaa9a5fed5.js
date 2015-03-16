@@ -1,1 +1,0 @@
-(function(){$(document).ready(function(){return pageSetUp()})}).call(this);
