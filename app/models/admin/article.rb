@@ -17,14 +17,15 @@ class Admin::Article < ActiveRecord::Base
 	has_attached_file :file, 
 					  url: "/uploads/articles/file/:id/:style/:basename.:extension",
 					  path: ":rails_root/public/uploads/articles/file/:id/:style/:basename.:extension"
-	validates_attachment :file, content_type: { content_type: ["application/pdf",															#pdf
-															   "application/msword",														#doc
-															   "application/vnd.openxmlformats-officedocument.wordprocessingml.document",    #docx
-															   "application/vnd.ms-excel",													#excel
-															   "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",			#xlsx
-															   "application/vnd.ms-powerpoint",												#ppt
-															   "application/vnd.openxmlformats-officedocument.presentationml.presentation",	#pptx
-															   "application/zip",															#zip
-															   "application/x-shockwave-flash"												#swf
-															  ]}
+	validates_attachment :file, 
+				  	content_type: { content_type:["application/pdf",															    #pdf
+												  "application/msword",														    #doc
+												  "application/vnd.openxmlformats-officedocument.wordprocessingml.document",      #docx
+												  "application/vnd.ms-excel",													    #excel
+												  "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",		    #xlsx
+												  "application/vnd.ms-powerpoint",											    #ppt
+												  "application/vnd.openxmlformats-officedocument.presentationml.presentation",    #pptx
+												  "application/zip",															    #zip
+												  "application/x-shockwave-flash"												    #swf
+												   ]}
 end

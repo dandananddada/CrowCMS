@@ -276,6 +276,8 @@ zh-CN:
     search_by_created:  根据文章创建日期查询
     select_option_default: 请选择文章分类
     select_option_all: 全部分类
+    file_type_info: 请上传.doc .docx .ppt .ppxt .excel .xlsx .pdf格式文件
+    thumb_type_info: 请上传.jpeg .jpg .png .gif格式图片
 
   article_picture:
     table_title: 图集管理
@@ -379,6 +381,7 @@ zh-CN:
     submit: 提交
     back: 返回
     load: 加载
+    apply: 应用
     manage: 管理
     preview: 预览
     restore: 恢复
@@ -400,6 +403,8 @@ zh-CN:
         title: 标题
         author: 作者
         content: 文章内容
+        thumb: 缩略图
+        file: 附件
       admin/page:
         content: 文档内容
       admin/article_option:

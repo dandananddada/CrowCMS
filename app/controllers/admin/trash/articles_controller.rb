@@ -14,11 +14,20 @@ class Admin::Trash::ArticlesController < ApplicationController
   	redirect_to admin_trash_articles_url, notice: "#{t 'activerecord.successful.messages.article_force_deleted'}" 
   end
 
-  def muti_destroy
-    articles = Admin::Article.only_deleted.find(params[:article_ids])
-    articles.each do |article|
-       article.really_destroy!
+  def multi_destroy
+    respond_to do |format|
+      if params[:article_ids] == nil
+        format.html { redirect_to admin_trash_articles_url, flash: { error: "#{t 'activerecord.error.messages.article_muti_deleted'}" }  }
+        format.json { head :no_content }
+      else  
+        articles = Admin::Article.only_deleted.find(params[:article_ids])
+        articles.each do |article|
+          article.really_destroy!
+        end
+        format.html { redirect_to admin_trash_articles_url, notice: "#{t 'activerecord.successful.messages.article_muti_deleted'}" }
+        format.json { head :no_content }
+      end
     end
-    redirect_to admin_trash_articles_url, notice: "#{t 'activerecord.successful.messages.article_force_deleted'}" 
   end
+
 end

@@ -27,13 +27,13 @@
             <!-- end title -->
             <!-- category -->
             <div class="row">
-              <% if @admin_article.category_id %>
+              <% if @admin_article.created_at %>
                 <section class="col col-4">
                 <label class="label"> 
                   <%= f.label t("article.category") %><br>
                 </label>
                 <label class="input"><i class="icon-append fa fa-lock"></i>
-                  <input type="text" value="<%= @admin_article.category.title %>" disabled>
+                  <input type="text" value="<%= @admin_article.category.title %>" readonly >
                 </label>
               </section>
               <% else %>

@@ -74,7 +74,7 @@ class Admin::ArticlesController < AuthController
     render json: @article_concat
   end
 
-  def muti_destroy
+  def multi_destroy
     respond_to do |format|
       if params[:article_ids] == nil
         format.html { redirect_to admin_articles_url, flash: { error: "#{t 'activerecord.error.messages.article_muti_deleted'}" }  }

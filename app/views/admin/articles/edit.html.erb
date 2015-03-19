@@ -24,10 +24,10 @@
         <!-- extra information -->
         <fieldset>
         	<% if @admin_article.category.is_thumb %>
-        	<%= render partial: "admin/articles/extra/thumb", locals: {f: f} %>
+        	<%= render partial: "admin/articles/extra/thumb", locals: {f: f, admin_article: @admin_article } %>
         	<% end %>
         	<% if @admin_article.category.is_file %>
-        	<%= render partial: "admin/articles/extra/file", locals: {f: f, admin_article: @admin_article} %>
+        	<%= render partial: "admin/articles/extra/file", locals: {f: f, admin_article: @admin_article } %>
         	<% end %>
         	<% if @admin_article.category.is_abstract %>
         	<%= render partial: "admin/articles/extra/abstract", locals: {f: f} %>

@@ -1,10 +1,10 @@
 <!-- thumb upload -->
 <div class="row" id="is_thumb">
 	<section class="col col-4">
-		<label class="label"><%= f.label t("article.thumb") %><br></label>
+		<label class="label"><%= f.label t("article.thumb") %>（<%= t("article.thumb_type_info") %>）<br></label>
 		<div class="input input-file">
-			<span class="button"><%= f.file_field :thumb, readonly: 'true', onchange: "this.parentNode.nextSibling.value = this.value", accept: "image/jpeg, image/png, image/gif, image/jpg" %><%= t("operate.upload") %></span><input type="text" readonly="true">
+			<span class="button"><%= f.file_field :thumb, readonly: 'true', onchange: "this.parentNode.nextSibling.value = this.value", accept: "image/jpeg, image/png, image/gif, image/jpg" %><%= t("operate.upload") %></span><input type="text" readonly="true" value="<%= @admin_article.thumb_file_name %>">
 		</div>
 	</section>
 </div>
-          <!-- end thumb upload -->
+<!-- end thumb upload -->
