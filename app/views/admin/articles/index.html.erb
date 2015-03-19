@@ -5,6 +5,13 @@
   <strong><%= notice %></strong>
 </div>
 <% end %>
+<%if flash[:error] %>
+<div class="alert alert-danger fade in">
+  <button class="close" data-dismiss="alert">×</button>
+  <i class="fa-fw fa fa-times"></i>
+  <strong><%= flash[:error] %></strong>
+</div>
+<% end %>
 <%= form_tag muti_destroy_admin_articles_path, method: :delete, id: "muti_destory_form"  do %>
 <div class="jarviswidget jarviswidget-color-darken" id="wid-id-0" data-widget-editbutton="false">
   <header>
@@ -14,7 +21,7 @@
   <div>
     <div class="jarviswidget-editbox"></div>  
     <div class="widget-body no-padding">
-      <table id="datatable_fixed_column" class="table table-striped table-bordered">
+      <table id="datatable_fixed_column" class="table table-bordered">
         <thead>
           <tr>
             <th></th>
@@ -23,16 +30,21 @@
             <th><%= t("article.title") %></th>
             <th><%= t("article.author") %></th>
             <th><%= t("article.hits") %></th>
-            <th><%= t("article.created_at") %></th>
             <th><%= t("operate.title") %></th>
+            <th><%= t("article.created_at") %></th>
           </tr>
           <tr class="second">
             <td colspan="2">
-              <%= submit_tag t("operate.delete_selected"), data: { title: "#{t('article.muti_delete_title')}", confirm: "#{t('article.delete_info')}" }, class: 'btn bg-color-red txt-color-white' %>
+              <%= link_to t("operate.delete_selected"),"javascript:mutiDestroy()", class: 'btn bg-color-red txt-color-white' %>
             </td>
             <td class="smart-form">
               <label class="input">
-                <input type="text" value="<%= t("article.search_by_category") %>" class="search_init">
+                 <select id="category_select" class="select2 search_init" id="article-category" >
+                  <option value="" selected><%= t "article.select_option_all" %></option>
+                  <% @categories.each do |article_category| %>
+                  <option value="<%= article_category.title %>"><%= article_category.title %></option>
+                  <% end %>
+                </select>
               </label>  
             </td>
             <td class="smart-form">
@@ -45,14 +57,14 @@
                 <input type="text" value="<%= t("article.search_by_author") %>" class="search_init">
               </label>  
             </td>
-            <td class="smart-form">
+             <td class="smart-form">
               <label class="input">
                 <input type="text" value="<%= t("article.search_by_hits") %>" class="search_init">
               </label>  
             </td>
-            <td class="smart-form">
+             <td class="smart-form">
               <label class="input">
-                <input type="text" value="<%= t("article.search_by_created") %>" class="search_init">
+                <input type="text" value="<%= t("article.search_by_hits") %>" class="search_init">
               </label>  
             </td>
             <td>
@@ -69,8 +81,8 @@
             <td><%= admin_article.category.title %></td>
             <td><%= admin_article.title %></td>
             <td><%= admin_article.author %></td>
+            <td><%= admin_article.created_at.strftime("%Y-%m-%d") %></td>
             <td><%= admin_article.hits %></td>
-            <td><%= admin_article.created_at.strftime("%Y-%m-%d, %H:%M") %></td>
             <td>
              <%= link_to t("operate.show"), admin_article, class: "btn bg-color-blue txt-color-white" %>
              <%= link_to t("operate.edit"), edit_admin_article_path(admin_article), data: { no_turbolink: true }, class: "btn bg-color-orange txt-color-white" %>

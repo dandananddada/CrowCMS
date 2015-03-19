@@ -275,6 +275,7 @@ zh-CN:
     search_by_hits:  根据文章点击率查询
     search_by_created:  根据文章创建日期查询
     select_option_default: 请选择文章分类
+    select_option_all: 全部分类
 
   article_picture:
     table_title: 图集管理
@@ -347,6 +348,7 @@ zh-CN:
     is_permit: 审核状态
     permit_no: 未通过
     permit_yes: 已通过
+    permit_all: 全部
     review_no: 取消显示
     review_yes: 允许显示
     content: 留言内容
@@ -410,6 +412,7 @@ zh-CN:
         article_created: 文章添加成功。
         article_updated: 文章更新成功。
         article_deleted: 文章删除成功。
+        article_muti_deleted: 所选文章删除成功。
         article_restored: 文章恢复成功。
         article_force_deleted: 文章已经彻底删除。
         album_tag_created: 相册标签添加成功。
@@ -439,5 +442,6 @@ zh-CN:
         album_created: 相册添加失败，请检查相册名称是否过长，封面图片是否为png,jpeg,jpg.gif格式。
         album_updated: 相册修改失败，请检查相册名称是否过长，封面图片是否为png,jpeg,jpg.gif格式。
         photo_updated: 相片修改失败，请检查相片名称是否过长。
-        article_option_created: 文章参数添加失败，请检查参数名称是否过长或者存在重复。
-        article_option_updated: 文章参数修改失败，请检查参数名称是否过长或者存在重复。
+        article_option_created: 文章参数添加失败，请保证参数名称非纯数字并检查名称是否过长或者存在重复。
+        article_option_updated: 文章参数修改失败，请保证参数名称非纯数字并检查名称是否过长或者存在重复。
+        article_muti_deleted: 所选文章删除失败，请确认是否有选中文章。

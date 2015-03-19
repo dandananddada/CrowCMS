@@ -1,12 +1,11 @@
 class Admin::ArticlesController < AuthController
   before_action :set_admin_article, only: [:show, :edit, :update, :destroy]
 
-  #article categories in views
-  ARTICLS_CATEGORY = Admin::Category.select_article_categories
   
   # GET /admin/articles
   # GET /admin/articles.json
   def index
+    get_categories
     @admin_articles = Admin::Article.all
   end
 
@@ -76,11 +75,15 @@ class Admin::ArticlesController < AuthController
   end
 
   def muti_destroy
-    params[:article_ids].inspect
-    Admin::Article.destroy(params[:article_ids])
     respond_to do |format|
-      format.html { redirect_to admin_articles_url }
-      format.json { head :no_content }
+      if params[:article_ids] == nil
+        format.html { redirect_to admin_articles_url, flash: { error: "#{t 'activerecord.error.messages.article_muti_deleted'}" }  }
+        format.json { head :no_content }
+      else
+        Admin::Article.destroy(params[:article_ids])
+        format.html { redirect_to admin_articles_url, notice: "#{t 'activerecord.successful.messages.article_muti_deleted'}" }
+        format.json { head :no_content }
+      end
     end
   end
 

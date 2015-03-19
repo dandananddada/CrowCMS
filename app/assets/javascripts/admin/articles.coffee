@@ -10,6 +10,12 @@ $(document).ready ->
 $("#datatable_fixed_column thead input").keyup ->
   oTable.fnFilter @value, oTable.oApi._fnVisibleToColumnIndex(oTable.fnSettings(), $("thead input").index(this))
   return
+$("#datatable_fixed_column thead input").change ->
+  oTable.fnFilter @value, oTable.oApi._fnVisibleToColumnIndex(oTable.fnSettings(), $("thead input").index(this))
+  return 
+$("#datatable_fixed_column thead select").change ->
+  oTable.fnFilter @value, oTable.oApi._fnVisibleToColumnIndex(oTable.fnSettings(), $("thead input").index(this))
+  return
 
 $("#datatable_fixed_column thead input").each (i) ->
   @initVal = @value
@@ -95,5 +101,13 @@ root.submit = ->
   $("#validate-form").submit()
   return
 root.mutiDestroy = ->
-  $("#muti_destory_form").submit()
+  $.SmartMessageBox(
+      title:'您确认要删除全部选中文章？',
+      content:'您确认要删除全部选中文章？',
+      buttons : '[否][是]',
+      (ButtonPressed) ->
+        if ButtonPressed == "是"
+          $("#muti_destory_form").submit()
+  )
+ 
 

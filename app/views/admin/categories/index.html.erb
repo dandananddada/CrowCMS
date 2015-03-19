@@ -5,6 +5,13 @@
   <strong><%= notice %></strong>
 </div>
 <% end %>
+<%if flash[:error] %>
+<div class="alert alert-danger fade in">
+  <button class="close" data-dismiss="alert">×</button>
+  <i class="fa-fw fa fa-times"></i>
+  <strong><%= flash[:error] %></strong>
+</div>
+<% end %>
 <div class="jarviswidget jarviswidget-color-darken" id="wid-id-1" data-widget-editbutton="false">
   <header>
     <span class="widget-icon"> <i class="fa fa-list-ul"></i> </span>
