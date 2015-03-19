@@ -33,7 +33,7 @@ class Admin::ArticleOptionsController < AuthController
         format.html { redirect_to admin_article_options_url, notice: "#{ t 'activerecord.successful.messages.article_option_created'}" }
         format.json { render :index, status: :created, location: @admin_article_option }
       else
-        format.html { redirect_to admin_article_options_url }
+        format.html { redirect_to admin_article_options_url, flash: { error: "#{t 'activerecord.error.messages.article_option_created'}" } }
         format.json { render json: @admin_article_option.errors, status: :unprocessable_entity }
       end
     end
@@ -47,7 +47,7 @@ class Admin::ArticleOptionsController < AuthController
         format.html { redirect_to admin_article_options_url, notice: "#{ t 'activerecord.successful.messages.article_option_updated'}"  }
         format.json { render :index, status: :ok, location: @admin_article_option }
       else
-        format.html { redirect_to admin_article_options_url }
+        format.html { redirect_to admin_article_options_url, flash: { error: "#{t 'activerecord.error.messages.article_option_updated'}" } }
         format.json { render json: @admin_article_option.errors, status: :unprocessable_entity }
       end
     end

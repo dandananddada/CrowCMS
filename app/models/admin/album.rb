@@ -1,4 +1,5 @@
 class Admin::Album < ActiveRecord::Base
+	validates_length_of :name, maximum: 24
 	has_many :photo, dependent: :destroy
 	has_attached_file :cover, 
                        styles: 	{ small: "240x240>"},

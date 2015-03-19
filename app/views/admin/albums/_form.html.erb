@@ -1,4 +1,4 @@
-<%= form_for(@admin_album) do |f| %>
+<%= form_for(@admin_album, html: { id: "validate-form" } ) do |f| %>
 <div class="modal-header">
   <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
     &times;
@@ -16,7 +16,7 @@
           </label>
           <label class="input">
             <i class="icon-append fa fa-pencil"></i>
-            <%= f.text_field :name, required: true%>
+            <%= f.text_field :name, required: true, maxlength: 24, placeholder: t("album.name_length_info") %>
           </label>
         </section>
       </div>
@@ -40,15 +40,26 @@
         </section>
       </div>
       <!-- end tags -->
+      <% if @admin_album.created_at %>
       <!-- cover -->
       <div class="row">
         <section class="col col-md-12">
           <label class="label"><%= f.label t("album.cover") %><br></label>
           <div class="input input-file">
-            <span class="button"><%= f.file_field :cover, readonly: 'true', onchange: "this.parentNode.nextSibling.value = this.value", required: true %><%= t("operate.upload") %></span><input type="text" readonly="true" placeholder="<%= t "album.upload_cover" %>">
+            <span class="button"><%= f.file_field :cover, readonly: 'true', onchange: "this.parentNode.nextSibling.value = this.value", accept: "image/jpeg, image/png, image/gif, image/jpg" %><%= t("operate.upload") %></span><input type="text" readonly="true" placeholder="<%= t "album.upload_cover" %>" value="<%= @admin_album.cover_file_name %>" >
           </div>
         </section>
       </div>
+      <% else %>
+      <div class="row">
+        <section class="col col-md-12">
+          <label class="label"><%= f.label t("album.cover") %><br></label>
+          <div class="input input-file">
+            <span class="button"><%= f.file_field :cover, readonly: 'true', onchange: "this.parentNode.nextSibling.value = this.value", required: true, accept: "image/jpeg, image/png, image/gif, image/jpg" %><%= t("operate.upload") %></span><input type="text" readonly="true" placeholder="<%= t "album.cover_valid_info" %>" >
+          </div>
+        </section>
+      </div>
+      <% end %>
       <!-- end cover -->
       <!-- description -->
       <div class="row">

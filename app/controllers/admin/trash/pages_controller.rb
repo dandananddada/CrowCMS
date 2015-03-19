@@ -11,6 +11,6 @@ class Admin::Trash::PagesController < ApplicationController
   def destroy
   	page = Admin::Page.only_deleted.find(params[:id])
     page.really_destroy!
-  	redirect_to admin_pages_url, notice: "#{t 'activerecord.successful.messages.page_force_deleted'}" 
+  	redirect_to admin_trash_pages_url, notice: "#{t 'activerecord.successful.messages.page_force_deleted'}" 
   end
 end

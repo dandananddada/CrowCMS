@@ -3,7 +3,8 @@
  	<section class="col col-4">
  		<label class="label"><%= f.label t("article.file") %><br></label>
  		<div class="input input-file">
- 			<span class="button"><%= f.file_field :file, readonly: 'true', onchange: "this.parentNode.nextSibling.value = this.value" %><%= t("operate.upload") %></span><input type="text" readonly="true">
+ 			<span class="button"><%= f.file_field :file, readonly: 'true', onchange: "this.parentNode.nextSibling.value = this.value",
+ 			accept: "application/pdf, application/msword, application/vnd.ms-excel, application/vnd.ms-powerpoint" %><%= t("operate.upload") %></span><input type="text" readonly="true">
  		</div>
  	</section>
  </div>

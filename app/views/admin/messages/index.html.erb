@@ -19,35 +19,38 @@
             <th><%= t "message.id" %></th>
             <th><%= t "message.author" %></th>
             <th><%= t "message.email" %></th>
-            <th><%= t "message.is_permit" %></th>
             <th><%= t "message.created_at" %></th>
+            <th><%= t "message.is_permit" %></th>
             <th><%= t "operate.review" %></th>
             <th><%= t "operate.title" %></th>
           </tr>
           <tr class="second">
             <td class="smart-form">
               <label class="input">
-                <input type="text" value="<%= t("article.search_by_id") %>" class="search_init">
+                <input type="text" value="<%= t ("message.search_by_id") %>" class="search_init">
               </label>
             </td>
             <td class="smart-form">
               <label class="input">
-                <input type="text" value="<%= t("article.search_by_category") %>" class="search_init">
+                <input type="text" value="<%= t("message.search_by_author") %>" class="search_init">
               </label>  
             </td>
             <td class="smart-form">
               <label class="input">
-                <input type="text" value="<%= t("article.search_by_title") %>" class="search_init">
+                <input type="text" value="<%= t("message.search_by_email") %>" class="search_init">
               </label>  
             </td>
             <td class="smart-form">
-              <label class="input">
-                <input type="text" value="<%= t("article.search_by_author") %>" class="search_init">
-              </label>  
+               <label class="input"><i class="icon-append fa fa-calendar"></i>
+                <input type="text" value="<%= t("message.search_by_created") %>" class="datepicker search_init" data-dateformat="yy-mm-dd">
+              </label>
             </td>
             <td class="smart-form">
               <label class="input">
-                <input type="text" value="<%= t("article.search_by_hits") %>" class="search_init">
+              <select class="select2 search_init">
+                <option value="<%= t "message.permit_yes" %>"><%= t "message.permit_yes" %></option>
+                <option value="<%= t "message.permit_no" %>"><%= t "message.permit_no" %></option>
+              </select>
               </label>  
             </td>
             <td colspan="2">
@@ -61,6 +64,7 @@
             <td><%= admin_message.id %></td>
             <td><%= admin_message.author %></td>
             <td><%= admin_message.email %></td>
+            <td><%= admin_message.created_at.strftime("%Y-%m-%d, %H:%m").to_s %></td>
             <td>
             <% if admin_message.is_permit == true %>
             <%= t "message.permit_yes" %>
@@ -68,7 +72,6 @@
             <%= t "message.permit_no" %>
             <% end %>
             </td>
-            <td><%= admin_message.created_at.strftime("%Y-%m-%d, %H:%M") %></td>
             <td>
             <a href="<%= review_admin_message_path(admin_message.id) %>" data-method="put" class="btn bg-color-green txt-color-white" >
             <% if admin_message.is_permit == true %>

@@ -5,9 +5,7 @@ $(document).ready ->
   pageSetUp()
   $('#validate-form').validate()
   if $("#is_option").is(':checked')
-    $("#option_checkboxs").show()
-  else
-    $("#option_checkboxs").hide()
+    $("#option_checkboxs").css("display","block")
   $('.tree > ul').attr('role', 'tree').find('ul').attr 'role', 'group'
   $('.tree').find('li:has(ul)').addClass('parent_li').attr('role', 'treeitem').find(' > span').attr('title', 'Collapse this branch').on 'click', (e) ->
     children = $(this).parent('li.parent_li').find(' > ul > li')
@@ -21,9 +19,9 @@ $(document).ready ->
     return
   $("#is_option").change -> 
     if $("#is_option").is(':checked')
-      $("#option_checkboxs").show()
+      $("#option_checkboxs").css("display","block")
     else
-      $("#option_checkboxs").hide()
+      $("#option_checkboxs").css("display","none")
   return
 root = exports ? this
 root.submit = ->
@@ -34,6 +32,10 @@ root.submit = ->
     $("#option-ids").val(str.substring(0,str.length-1))
   else
     $("#option-ids").val("")
-  $("#validate-form").submit()
+  if $("#is_option").is(':checked')&&$("#option-ids").val()==""
+    $('#error_alert').css('display','block')
+  else
+    $('#error_alert').css('display','none')
+    $("#validate-form").submit()
   return
 

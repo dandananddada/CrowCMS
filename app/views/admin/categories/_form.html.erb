@@ -4,6 +4,11 @@
     <h2><%= t "category.category_edit" %></h2>
   </header>
   <div>
+  <div class="alert alert-danger fade in" id="error_alert" style="display:none">
+  <button class="close" data-dismiss="alert">×</button>
+  <i class="fa-fw fa fa-times"></i>
+  <strong><%= t "category.option_should_not_be_null" %></strong>
+</div>
     <div class="jarviswidget-editbox"></div>  
     <div class="widget-body no-padding">
       <%= form_for(@admin_category, html: { class: "smart-form", id: "validate-form" }) do |f| %>
@@ -104,7 +109,7 @@
           </div> 
         </div>
         <% else %>
-        <div class="row" id="option_checkboxs" >
+        <div class="row" id="option_checkboxs" style="display:none">
           <div class="col col-4">
             <% @options.each_slice(3) do |slice| %>
             <% slice.each do |category| %>

@@ -9,6 +9,9 @@ $(document).ready ->
 $("#datatable_fixed_column thead input").keyup ->
   oTable.fnFilter @value, oTable.oApi._fnVisibleToColumnIndex(oTable.fnSettings(), $("thead input").index(this))
   return
+$("#datatable_fixed_column thead input").change ->
+  oTable.fnFilter @value, oTable.oApi._fnVisibleToColumnIndex(oTable.fnSettings(), $("thead input").index(this))
+  return
 
 $("#datatable_fixed_column thead input").each (i) ->
   @initVal = @value

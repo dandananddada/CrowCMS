@@ -3,4 +3,5 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 #js written in views/photos/new.html.erb file. 
-	
+$(document).ready ->
+  $('#validate-form').validate()	

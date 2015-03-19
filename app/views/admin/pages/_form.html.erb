@@ -29,7 +29,7 @@
             </label>
             <label class="input">
               <i class="icon-append fa fa-pencil"></i>
-              <%= f.text_field :title, required: true%>
+              <%= f.text_field :title, required: true, maxlength: 26 %>
             </label>
           </section>
         </div>
@@ -45,6 +45,7 @@
         
         <div class="row">
           <section class="col col-8"> 
+            <label class="label"><%= f.label t "page.content"  %><br></label>
             <%= f.cktext_area :content, required: true, :ckeditor => {:language => 'zh-cn', :toolbar => 'Full' }  %>
           </section>
         </div>

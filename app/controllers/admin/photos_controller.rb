@@ -48,7 +48,7 @@ class Admin::PhotosController < AuthController
         format.html { redirect_to :back, notice: "#{t 'activerecord.successful.messages.photo_updated'}" }
         format.json { render :show, status: :ok, location: @admin_photo }
       else
-        format.html { render :edit }
+        format.html { redirect_to :back, flash: { error: "#{t 'activerecord.error.messages.photo_updated'}" } }
         format.json { render json: @admin_photo.errors, status: :unprocessable_entity }
       end
     end

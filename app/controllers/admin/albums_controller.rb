@@ -40,7 +40,7 @@ class Admin::AlbumsController < AuthController
         format.html { redirect_to @admin_album, notice: "#{t 'activerecord.successful.messages.album_created'}" }
         format.json { render :show, status: :created, location: @admin_album }
       else
-        format.html { render :new }
+        format.html { redirect_to admin_albums_url, flash: { error: "#{t 'activerecord.error.messages.album_created'}" } }
         format.json { render json: @admin_album.errors, status: :unprocessable_entity }
       end
     end
@@ -54,7 +54,7 @@ class Admin::AlbumsController < AuthController
         format.html { redirect_to @admin_album, notice: "#{t 'activerecord.successful.messages.album_updated'}" }
         format.json { render :show, status: :ok, location: @admin_album }
       else
-        format.html { render :edit }
+        format.html { redirect_to admin_albums_url, flash: { error: "#{t 'activerecord.error.messages.album_updated'}" } }
         format.json { render json: @admin_album.errors, status: :unprocessable_entity }
       end
     end

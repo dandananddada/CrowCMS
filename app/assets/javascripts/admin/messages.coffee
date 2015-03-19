@@ -3,10 +3,16 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 $(document).ready ->
   pageSetUp()
-  $('#validate-form').validate()
+  $("#validate-form").validate()
   return
   
 $("#datatable_fixed_column thead input").keyup ->
+  oTable.fnFilter @value, oTable.oApi._fnVisibleToColumnIndex(oTable.fnSettings(), $("thead input").index(this))
+  return
+$("#datatable_fixed_column thead input").change ->
+  oTable.fnFilter @value, oTable.oApi._fnVisibleToColumnIndex(oTable.fnSettings(), $("thead input").index(this))
+  return 
+$("#datatable_fixed_column thead select").change ->
   oTable.fnFilter @value, oTable.oApi._fnVisibleToColumnIndex(oTable.fnSettings(), $("thead input").index(this))
   return
 

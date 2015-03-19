@@ -68,6 +68,8 @@ Rails.application.routes.draw do
   #end admin namespace
 
    namespace :api do
+      get 'categories', to: 'categories#index'
+      get 'category/:id', to: 'categories#show'
       get 'articles', to: 'articles#index'
       get 'article/:id', to: 'articles#show'
       get 'articles/title/:title', to: 'articles#search_by_title'

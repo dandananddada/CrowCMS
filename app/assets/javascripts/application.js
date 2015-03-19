@@ -26,5 +26,6 @@
 //= require plugin/dropzone/dropzone.min
 //= require plugin/superbox/superbox
 //= require plugin/masonry/masonry.pkgd.min
+//= require plugin/bootstrap-timepicker/bootstrap-timepicker.min
 //= require app
 //= require common

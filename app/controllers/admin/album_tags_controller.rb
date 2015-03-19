@@ -33,7 +33,7 @@ class Admin::AlbumTagsController < AuthController
         format.html { redirect_to admin_album_tags_url, notice: "#{t 'activerecord.successful.messages.album_tag_created'}" }
         format.json { render :show, status: :created, location: @admin_album_tag }
       else
-        format.html { render :new }
+        format.html { redirect_to admin_album_tags_url, flash: { error: "#{t 'activerecord.error.messages.album_tag_created'}" } }
         format.json { render json: @admin_album_tag.errors, status: :unprocessable_entity }
       end
     end
@@ -47,7 +47,7 @@ class Admin::AlbumTagsController < AuthController
         format.html { redirect_to admin_album_tags_url, notice: "#{t 'activerecord.successful.messages.album_tag_updated'}" }
         format.json { render :show, status: :ok, location: @admin_album_tag }
       else
-        format.html { render :edit }
+        format.html { redirect_to admin_album_tags_url, flash: { error: "#{t 'activerecord.error.messages.album_tag_updated'}" } }
         format.json { render json: @admin_album_tag.errors, status: :unprocessable_entity }
       end
     end

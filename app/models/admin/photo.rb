@@ -1,6 +1,6 @@
 class Admin::Photo < ActiveRecord::Base
 	belongs_to :album
-	
+	validates_length_of :name, maximum: 16
 	has_attached_file :image, 
 					  styles: { small: "160x160>"},
 					  url: "/uploads/albums/photos/:id/:style/:basename.:extension",

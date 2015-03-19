@@ -242,6 +242,7 @@ zh-CN:
     is_option: 是否设置参数
     delete_title: 您确认要删除分栏？
     delete_info: 删除分栏后，分栏下的文章也会一并删除，请谨慎操作！
+    option_should_not_be_null: 开启参数选项请至少选择一项参数类型
     new: 添加顶级分栏
   article:
     table_title: 文章管理
@@ -292,6 +293,7 @@ zh-CN:
     name: 标签名称
     delete_title: 您确认要删除标签？
     delete_info: 标签删除后将无法恢复，请谨慎操作！
+    text_length_info: 标签名称不得超过12个字符
   album:
     table_title: 相册管理
     create: 新建相册
@@ -299,10 +301,11 @@ zh-CN:
     name: 相册名称
     tags: 相册标签  
     cover: 相册封面
-    upload_cover: 请上传相册封面
     description: 相册描述
     delete_title: 您确认要删除相册？
     delete_info: 相册删除，其下的相片也会一并删除，请谨慎操作！
+    name_length_info: 相册名称不能为空，长度不能超过24个字符
+    cover_valid_info: 相册封面不能为空，支持图片格式为jpg,jpeg,png,gif
   photo:
     board_title: 相册>
     board_description: 描述：
@@ -313,6 +316,7 @@ zh-CN:
     description: 相片描述
     delete_title: 您确认要删除图片？                #这部分在superbox.js中
     delete_info: 图片删除后将无法恢复，请谨慎操作！    #这部分在superbox.js中
+    name_length_info: 图片名称不能超过16个字符
   page:
     table_title: 文档管理
     edit_title: 编辑文档
@@ -354,6 +358,11 @@ zh-CN:
     reply_dialog: 回复留言
     delete_title: 您确认要删除该留言？               
     delete_info: 留言删除后将无法恢复，请谨慎操作！
+    search_by_id: 根据留言编号查询
+    search_by_author: 根据留言作者查询
+    search_by_email: 根据留言邮箱查询
+    search_by_review: 根据留言审核状态查询
+    search_by_created: 根据留言发布日期查询
   auth:
     admin: 后台管理
     login: 登录
@@ -367,6 +376,7 @@ zh-CN:
     upload: 上传
     submit: 提交
     back: 返回
+    load: 加载
     manage: 管理
     preview: 预览
     restore: 恢复
@@ -422,3 +432,12 @@ zh-CN:
         message_updated: 留言回复添加成功。
         message_deleted: 留言删除成功。
         message_reviewed: 留言审核状态更新成功
+    error:
+      messages:
+        album_tag_created: 相册标签添加失败，请检查标签名是否过长或者存在重复。
+        album_tag_updated: 相册标签修改失败，请检查标签名是否过长或者存在重复。
+        album_created: 相册添加失败，请检查相册名称是否过长，封面图片是否为png,jpeg,jpg.gif格式。
+        album_updated: 相册修改失败，请检查相册名称是否过长，封面图片是否为png,jpeg,jpg.gif格式。
+        photo_updated: 相片修改失败，请检查相片名称是否过长。
+        article_option_created: 文章参数添加失败，请检查参数名称是否过长或者存在重复。
+        article_option_updated: 文章参数修改失败，请检查参数名称是否过长或者存在重复。
