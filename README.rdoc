@@ -1,10 +1,8 @@
 == README
 
-CrowCMS is a cms based on Rails.
+#CrowCMS is a cms based on Rails.
 
 You can manage your articles and categries by this beta1.0 version.
-
-I will add picture module in the next days.
 
 Thanks.
 
