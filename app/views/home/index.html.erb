@@ -1,0 +1,18 @@
+<div class="row">
+	<div class="col-md-6">
+		新闻
+		<% @news.each do |news| %>
+			<p><%= news.title %>[<%= news.created_at %>]</p>
+		<% end %>
+	</div>
+	<div class="col-md-6">
+		公告
+		<% @notices.each do |notice| %>
+			<p><%= notice.title %>[<%= notice.created_at %>]</p>
+		<% end %>
+	</div>
+</div>
+<div class="row">
+
+	<div class="col-md-3">yingji</div>
+</div>

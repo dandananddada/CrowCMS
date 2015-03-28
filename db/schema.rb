@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150318054819) do
+ActiveRecord::Schema.define(version: 20150328035816) do
 
   create_table "album_tags", force: :cascade do |t|
     t.string "text", limit: 255
@@ -67,7 +67,7 @@ ActiveRecord::Schema.define(version: 20150318054819) do
     t.datetime "file_updated_at"
   end
 
-  add_index "articles", ["category_id"], name: "fk_rails_2e8fb6905f", using: :btree
+  add_index "articles", ["category_id"], name: "fk_rails_8292c89268", using: :btree
   add_index "articles", ["deleted_at"], name: "index_articles_on_deleted_at", using: :btree
 
   create_table "categories", force: :cascade do |t|
@@ -115,6 +115,15 @@ ActiveRecord::Schema.define(version: 20150318054819) do
   end
 
   add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
+
+  create_table "friend_links", force: :cascade do |t|
+    t.string   "name",              limit: 255
+    t.string   "url",               limit: 255
+    t.string   "logo_file_name",    limit: 255
+    t.string   "logo_content_type", limit: 255
+    t.integer  "logo_file_size",    limit: 4
+    t.datetime "logo_updated_at"
+  end
 
   create_table "messages", force: :cascade do |t|
     t.string   "author",     limit: 255

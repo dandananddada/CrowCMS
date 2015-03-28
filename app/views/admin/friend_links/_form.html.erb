@@ -1,0 +1,72 @@
+
+
+<%= form_for(@admin_friend_link, html: { id: "validate-form" } ) do |f| %>
+<div class="modal-header">
+  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+    &times;
+  </button>
+  <h4 class="modal-title" id="myModalLabel"><%= t("friend_link.edit") %></h4>
+</div>
+<div class="modal-body">
+  <div class="smart-form">
+    <fieldset>
+      <!-- name -->
+      <div class="row">
+        <section class="col col-md-12">
+          <label class="label"> 
+            <%= f.label t("friend_link.name") %><br>
+          </label>
+          <label class="input">
+            <i class="icon-append fa fa-pencil"></i>
+            <%= f.text_field :name, required: true, maxlength: 18, placeholder: t("friend_link.name_length_info") %>
+          </label>
+        </section>
+      </div>
+      <!-- end name -->
+      <div class="row">
+        <section class="col col-md-12">
+          <label class="label"> 
+            <%= f.label t("friend_link.url") %><br>
+          </label>
+          <label class="input">
+            <i class="icon-append fa fa-pencil"></i>
+            <%= f.text_field :url, required: true %>
+          </label>
+        </section>
+      </div>
+      <% if @admin_friend_link.logo_file_name %>
+      <!-- logo -->
+      <div class="row">
+        <section class="col col-md-12">
+          <label class="label"><%= f.label t("friend_link.logo") %><br></label>
+          <div class="input input-file">
+            <span class="button"><%= f.file_field :logo, readonly: 'true', onchange: "this.parentNode.nextSibling.value = this.value", accept: "image/jpeg, image/png, image/gif, image/jpg" %><%= t("operate.upload") %></span><input type="text" readonly="true" placeholder="<%= t "friend_link.upload_logo" %>" value="<%= @admin_friend_link.logo_file_name %>" >
+          </div>
+        </section>
+      </div>
+      <% else %>
+      <div class="row">
+        <section class="col col-md-12">
+          <label class="label"><%= f.label t("friend_link.logo") %><br></label>
+          <div class="input input-file">
+            <span class="button"><%= f.file_field :logo, readonly: 'true', onchange: "this.parentNode.nextSibling.value = this.value", accept: "image/jpeg, image/png, image/gif, image/jpg" %><%= t("operate.upload") %></span><input type="text" readonly="true" placeholder="<%= t "friend_link.logo_valid_info" %>" >
+          </div>
+        </section>
+      </div>
+      <% end %>
+      <!-- end logo -->
+    </fieldset>
+  </div>
+  <!-- end smart-form -->
+</div>
+<div class="modal-footer">
+  <%= f.submit t("operate.submit"), class: "btn btn-primary" %>
+  <button type="button" class="btn btn-default" data-dismiss="modal"><%= t("operate.back") %></button>
+</div>
+<% end %>
+
+
+
+
+
+

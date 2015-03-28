@@ -228,6 +228,15 @@ zh-CN:
       trash_article: 垃圾文章
       trash_page: 垃圾文档
 
+  friend_link:
+    table_title: 友情链接管理
+    name: 站点名称
+    url: 站点网址
+    logo: 站点图标
+    name_length_info: 站点名称不得超过18个字符
+    logo_valid_info: 请上传.jpeg .jpg .png .gif格式图片
+    delete_title: 您确认要删除友情链接？
+    delete_info: 友情链接删除后将无法恢复，请谨慎操作！
   category:
     table_title: 分栏管理
     category_edit: 编辑分栏
@@ -370,6 +379,8 @@ zh-CN:
   auth:
     admin: 后台管理
     login: 登录
+    logout_title: 退出
+    logout_content: 在关闭浏览器前退出登录，能让您的账户更加安全
   operate:
     title: 操作
     new: 添加
@@ -439,7 +450,10 @@ zh-CN:
         article_option_deleted: 文章参数删除成功。
         message_updated: 留言回复添加成功。
         message_deleted: 留言删除成功。
-        message_reviewed: 留言审核状态更新成功
+        message_reviewed: 留言审核状态更新成功。
+        friend_link_created: 友情链接添加成功。
+        friend_link_updated: 友情链接更新成功。
+        friend_link_deleted: 友情链接删除成功。
     error:
       messages:
         album_tag_created: 相册标签添加失败，请检查标签名是否过长或者存在重复。

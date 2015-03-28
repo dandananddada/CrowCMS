@@ -1,0 +1,25 @@
+<%= form_for(@admin_menu) do |f| %>
+  <% if @admin_menu.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@admin_menu.errors.count, "error") %> prohibited this admin_menu from being saved:</h2>
+
+      <ul>
+      <% @admin_menu.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :url %><br>
+    <%= f.text_field :url %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -28,4 +28,4 @@
 //= require plugin/masonry/masonry.pkgd.min
 //= require plugin/bootstrap-timepicker/bootstrap-timepicker.min
 //= require app
-//= require common
+//= require admin/common

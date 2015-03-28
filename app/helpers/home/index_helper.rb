@@ -1,0 +1,2 @@
+module Home::IndexHelper
+end

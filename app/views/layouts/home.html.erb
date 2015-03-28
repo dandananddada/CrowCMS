@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CrowCMS</title>
+	<%= stylesheet_link_tag    'home', media: 'all', 'data-turbolinks-track' => true %>
+	<%= stylesheet_link_tag params[:controller], 'data-turbolinks-track' => true %>
+	<%= csrf_meta_tags %>
+	<%= yield :csslib %>
+</head>
+<body>
+	<!-- 导航栏菜单 -->
+	<%= render 'home/includes/navication' %>
+
+	<div class="container theme-showcase" role="main">
+		<!-- 顶部轮播区 -->
+		<div class="jumbotron">
+			<h1>Hello, world!</h1>
+		</div>
+		<!-- 文档主体部分 -->
+		<%= yield %>
+		<%= render 'home/includes/friendlink' %>
+	</div>
+	<%= render 'home/includes/footer' %>
+	
+</body>
+</html>

@@ -28,4 +28,8 @@ class Admin::Article < ActiveRecord::Base
 												  "application/zip",															    #zip
 												  "application/x-shockwave-flash"												    #swf
 												   ]}
+
+	scope :news_for_home,    -> { where(category_id: 2).limit(10).order('id asc') }	
+	scope :notices_for_home, -> { where(category_id: 3).limit(10).order('id asc') }											
+
 end

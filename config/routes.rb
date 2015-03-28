@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  namespace :admin do
+    resources :menus
+  end
+
   root to: 'admin/home#index'
 
   devise_for :users, 
@@ -10,6 +14,11 @@ Rails.application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
   
   namespace :admin do
+
+  #friend links
+    resources :friend_links, path: 'friend-link'
+
+
   #article module
     resources :categories, path: 'category', except: :new do
         #add a category under super category.
@@ -75,5 +84,9 @@ Rails.application.routes.draw do
       get 'articles/title/:title', to: 'articles#search_by_title'
    end
 
+   get 'test', to: 'home/index#index'
+   get 'article/:id', to: 'home/article#show'
+   get 'about-us', to: 'home/page#about_us'
+   get 'contract-us', to: 'home/page#contract_us'
 
 end

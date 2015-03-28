@@ -1,0 +1,2 @@
+module Home::PageHelper
+end
