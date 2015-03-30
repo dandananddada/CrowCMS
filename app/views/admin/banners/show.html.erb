@@ -1,0 +1,31 @@
+
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+        &times;
+    </button>
+    <h4 class="modal-title" id="myModalLabel">Modal Title</h4>
+</div>
+<div class="modal-body">
+    <p>
+  <strong>Name:</strong>
+  <%= @admin_banner.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @admin_banner.description %>
+</p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @admin_banner.url %>
+</p>
+
+<p>
+  <strong>Banner:</strong>
+  <%= @admin_banner.banner %>
+</p>
+</div>
+<div class="modal-footer">
+    <a class="btn btn-default" data-dismiss="modal"><%= t "operate.back" %></a>
+</div>

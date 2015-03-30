@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150328035816) do
+ActiveRecord::Schema.define(version: 20150328080843) do
 
   create_table "album_tags", force: :cascade do |t|
     t.string "text", limit: 255
@@ -70,6 +70,18 @@ ActiveRecord::Schema.define(version: 20150328035816) do
   add_index "articles", ["category_id"], name: "fk_rails_8292c89268", using: :btree
   add_index "articles", ["deleted_at"], name: "index_articles_on_deleted_at", using: :btree
 
+  create_table "banners", force: :cascade do |t|
+    t.string   "name",                limit: 255
+    t.text     "description",         limit: 65535
+    t.string   "url",                 limit: 255
+    t.string   "banner_file_name",    limit: 255
+    t.string   "banner_content_type", limit: 255
+    t.integer  "banner_file_size",    limit: 4
+    t.datetime "banner_updated_at"
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
+  end
+
   create_table "categories", force: :cascade do |t|
     t.string   "ancestry",    limit: 255
     t.string   "title",       limit: 255
@@ -123,6 +135,12 @@ ActiveRecord::Schema.define(version: 20150328035816) do
     t.string   "logo_content_type", limit: 255
     t.integer  "logo_file_size",    limit: 4
     t.datetime "logo_updated_at"
+  end
+
+  create_table "menus", force: :cascade do |t|
+    t.string "ancestry", limit: 255
+    t.string "name",     limit: 255
+    t.string "url",      limit: 255
   end
 
   create_table "messages", force: :cascade do |t|

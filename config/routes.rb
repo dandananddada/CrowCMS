@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
 
-  namespace :admin do
-    resources :menus
-  end
 
   root to: 'admin/home#index'
 
@@ -15,6 +12,17 @@ Rails.application.routes.draw do
   
   namespace :admin do
 
+  #menu 
+    resources :menus, path: 'menu', except: :new do
+        #add a category under super category.
+        get 'new', to: 'menus#new', 
+                   on: :member, 
+                   as: :new, 
+                   :constraints => { :parent_id => /\d/ }
+    end
+
+  #banner
+     resources :banners, path: 'banner'
   #friend links
     resources :friend_links, path: 'friend-link'
 

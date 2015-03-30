@@ -1,10 +1,9 @@
 class CreateAdminMenus < ActiveRecord::Migration
   def change
-    create_table :admin_menus do |t|
+    create_table :menus do |t|
+      t.string :ancestry
       t.string :name
       t.string :url
-
-      t.timestamps null: false
     end
   end
 end

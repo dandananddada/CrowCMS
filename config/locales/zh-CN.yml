@@ -227,6 +227,31 @@ zh-CN:
       message_menu: 留言管理
       trash_article: 垃圾文章
       trash_page: 垃圾文档
+    table_title: 菜单管理
+    name: 菜单名称
+    url: 菜单路径
+    new: 添加主菜单
+    edit: 编辑菜单
+    name_length_info: 菜单名称不得超过12个字符
+    delete_title: 您确认要删除菜单
+    delete_info: 删除菜单后，菜单下的子菜单也会一并删除，请谨慎操作！
+
+  banner:
+    table_title: 横幅管理
+    banner_edit: 编辑横幅
+    id: 编号
+    name: 名称
+    url: 链接
+    banner: 图片
+    description: 描述
+    name_length_info: 名称不得超过36个字符
+    banner_type_info: 请上传.jpeg .jpg .png .gif格式图片
+    delete_title: 您确认要删除横幅
+    delete_info: 横幅删除后将无法恢复，请谨慎操作！
+    search_by_id: 根据编号查询
+    search_by_name: 根据名称查询
+    search_by_url: 根据链接查询
+    search_by_created: 根据创建日期查询
 
   friend_link:
     table_title: 友情链接管理
@@ -454,6 +479,12 @@ zh-CN:
         friend_link_created: 友情链接添加成功。
         friend_link_updated: 友情链接更新成功。
         friend_link_deleted: 友情链接删除成功。
+        menu_created: 菜单添加成功。
+        menu_updated: 菜单更新成功。
+        menu_deleted: 菜单删除成功。
+        banner_created: 横幅添加成功。
+        banner_updated: 横幅更新成功。
+        banner_deleted: 横幅删除成功。
     error:
       messages:
         album_tag_created: 相册标签添加失败，请检查标签名是否过长或者存在重复。

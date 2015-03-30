@@ -21,7 +21,7 @@
         		</h2>
         	</div>
 			<div class="row">
-				<%= raw(@admin_page.content) %>
+				<%= sanitize @admin_page.content %>
 			</div>
       <br>
       <br> <!-- <br> for newline -->

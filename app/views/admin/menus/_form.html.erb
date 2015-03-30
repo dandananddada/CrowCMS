@@ -1,25 +1,55 @@
-<%= form_for(@admin_menu) do |f| %>
-  <% if @admin_menu.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@admin_menu.errors.count, "error") %> prohibited this admin_menu from being saved:</h2>
 
-      <ul>
-      <% @admin_menu.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+<%= form_for(@admin_menu, html: { id: "validate-form" } ) do |f| %>
+<div class="modal-header">
+  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+    &times;
+  </button>
+  <h4 class="modal-title" id="myModalLabel"><%= t("menu.edit") %></h4>
+</div>
+<div class="modal-body">
+  <div class="smart-form">
+    <fieldset>
+      <!-- parent menu id -->
+        <%= f.hidden_field :parent_id %>
+      <!-- end parent menu id -->
+      <!-- name -->
+      <div class="row">
+        <section class="col col-md-12">
+          <label class="label"> 
+            <%= f.label t("menu.name") %><br>
+          </label>
+          <label class="input">
+            <i class="icon-append fa fa-pencil"></i>
+            <%= f.text_field :name, required: true, maxlength: 12, placeholder: t("menu.name_length_info") %>
+          </label>
+        </section>
+      </div>
+      <!-- end name -->
+      <!-- url -->
+      <div class="row">
+        <section class="col col-md-12">
+          <label class="label"> 
+            <%= f.label t("menu.url") %><br>
+          </label>
+          <label class="input">
+            <i class="icon-append fa fa-link"></i>
+            <%= f.text_field :url, required: true, maxlength: 12 %>
+          </label>
+        </section>
+      </div>
+      <!-- end url -->
+    </fieldset>
   </div>
-  <div class="field">
-    <%= f.label :url %><br>
-    <%= f.text_field :url %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <!-- end smart-form -->
+</div>
+<div class="modal-footer">
+  <%= f.submit t("operate.submit"), class: "btn btn-primary" %>
+  <button type="button" class="btn btn-default" data-dismiss="modal"><%= t("operate.back") %></button>
+</div>
 <% end %>
+
+
+
+
+
+

@@ -59,7 +59,7 @@
               <% if admin_page.abstract %>
               <%= h truncate(admin_page.abstract, length: 45) %>
               <% else %>
-              <%= h truncate((admin_page.content.html_safe), length: 20)  %>
+              <%= h truncate((admin_page.content), length: 20)  %>
               <% end %>
             </td>
             <td><%= admin_page.created_at.strftime("%Y-%m-%d, %H:%m") %></td>

@@ -1,4 +1,4 @@
-class Admin::MenusController < ApplicationController
+class Admin::MenusController < AuthController
   before_action :set_admin_menu, only: [:show, :edit, :update, :destroy]
 
   # GET /admin/menus
@@ -14,11 +14,17 @@ class Admin::MenusController < ApplicationController
 
   # GET /admin/menus/new
   def new
-    @admin_menu = Admin::Menu.new
+    if (params[:id] == '0')
+      @admin_menu = Admin::Menu.new
+    else
+      @admin_menu = Admin::Menu.new(:parent_id => params[:id])
+    end
+    render layout: false
   end
 
   # GET /admin/menus/1/edit
   def edit
+    render layout: false
   end
 
   # POST /admin/menus
@@ -28,7 +34,7 @@ class Admin::MenusController < ApplicationController
 
     respond_to do |format|
       if @admin_menu.save
-        format.html { redirect_to @admin_menu, notice: 'Menu was successfully created.' }
+        format.html { redirect_to admin_menus_url, notice: "#{ t 'activerecord.successful.messages.menu_created'}" }
         format.json { render :show, status: :created, location: @admin_menu }
       else
         format.html { render :new }
@@ -42,7 +48,7 @@ class Admin::MenusController < ApplicationController
   def update
     respond_to do |format|
       if @admin_menu.update(admin_menu_params)
-        format.html { redirect_to @admin_menu, notice: 'Menu was successfully updated.' }
+        format.html { redirect_to admin_menus_url, notice: "#{ t 'activerecord.successful.messages.menu_updated'}" }
         format.json { render :show, status: :ok, location: @admin_menu }
       else
         format.html { render :edit }
@@ -56,7 +62,7 @@ class Admin::MenusController < ApplicationController
   def destroy
     @admin_menu.destroy
     respond_to do |format|
-      format.html { redirect_to admin_menus_url, notice: 'Menu was successfully destroyed.' }
+      format.html { redirect_to admin_menus_url, notice: "#{ t 'activerecord.successful.messages.menu_deleted'}" }
       format.json { head :no_content }
     end
   end
@@ -69,6 +75,6 @@ class Admin::MenusController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def admin_menu_params
-      params.require(:admin_menu).permit(:name, :url)
+      params.require(:admin_menu).permit(:name, :url, :parent_id)
     end
 end

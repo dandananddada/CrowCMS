@@ -1,29 +1,48 @@
-<p id="notice"><%= notice %></p>
 
-<h1>Listing Admin Menus</h1>
+<%if notice %>
+<div class="alert alert-success fade in">
+  <button class="close" data-dismiss="alert">×</button>
+  <i class="fa-fw fa fa-check"></i>
+  <strong><%= notice %></strong>
+</div>
+<% end %>
+<%if flash[:error] %>
+<div class="alert alert-danger fade in">
+  <button class="close" data-dismiss="alert">×</button>
+  <i class="fa-fw fa fa-times"></i>
+  <strong><%= flash[:error] %></strong>
+</div>
+<% end %>
+<div class="jarviswidget jarviswidget-color-darken" id="wid-id-1" data-widget-editbutton="false">
+  <header>
+    <span class="widget-icon"> <i class="fa fa-list-ul"></i> </span>
+    <h2><p><%= t("menu.table_title") %></p></h2>
+  </header>
+  <div>
+    <div class="jarviswidget-editbox"></div>  
+    <div class="widget-body">
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Url</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+       <div class="row">
+        <div class="col-md-12">
+          <a  href="<%= new_admin_menu_path(id: 0) %>" 
+              class="btn btn-labeled btn-success" 
+              data-toggle="modal" 
+              data-target="#myModal" >
+                <span class="btn-label"><i class="glyphicon glyphicon-plus"></i></span>
+              <%= t("menu.new") %>
+          </a>
+        </div>
+      </div><br><!-- crete button -->
 
-  <tbody>
-    <% @admin_menus.each do |admin_menu| %>
-      <tr>
-        <td><%= admin_menu.name %></td>
-        <td><%= admin_menu.url %></td>
-        <td><%= link_to 'Show', admin_menu %></td>
-        <td><%= link_to 'Edit', edit_admin_menu_path(admin_menu) %></td>
-        <td><%= link_to 'Destroy', admin_menu, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Menu', new_admin_menu_path %>
+      <div class="tree">
+        <%= nested_menu @admin_menus.roots %>
+      </div>
+      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModal" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>  
+</div>

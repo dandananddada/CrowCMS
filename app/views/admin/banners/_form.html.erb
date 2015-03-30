@@ -1,0 +1,66 @@
+<%= form_for(@admin_banner, html: { id: "validate-form" , multipart: true  }) do |f| %>
+
+
+    <!-- widget-section-3 -->
+    <div class="jarviswidget jarviswidget-color-darken" data-widget-editbutton="false" id="extra_panel">
+      <header>
+        <span class="widget-icon"><i class="fa fa-edit"></i></span>
+        <h2><%= t("banner.banner_edit") %></h2>
+      </header>
+      <!-- smart-form -->
+      <div class="smart-form">
+        <!-- extra information -->
+        <fieldset>
+         <div class="row">
+          <section class="col col-md-6">
+            <label class="label"> 
+            <%= f.label t("banner.name") %><br>
+            </label>
+            <label class="input">
+              <i class="icon-append fa fa-pencil"></i>
+              <%= f.text_field :name, required: true, maxlength: 36, placeholder: t("banner.name_length_info") %>
+            </label>
+          </section>
+        </div>
+          <div class="row">
+          <section class="col col-md-6">
+            <label class="label"> 
+            <%= f.label t("banner.url") %><br>
+            </label>
+            <label class="input">
+              <i class="icon-append fa fa-link"></i>
+              <%= f.text_field :url, required: true %>
+            </label>
+          </section>
+        </div>
+        <div class="row">
+          <section class="col col-6">
+            <label class="label"><%= f.label t("banner.banner") %><br></label>
+            <div class="input input-file">
+              <span class="button"><%= f.file_field :banner, readonly: 'true', onchange: "this.parentNode.nextSibling.value = this.value", accept: "image/jpeg, image/png, image/gif, image/jpg" %><%= t("operate.upload") %></span><input type="text" readonly="true" value="<%= @admin_banner.banner_file_name %>" placeholder= "<%= t("banner.banner_type_info") %>">
+            </div>
+          </section>
+        </div>
+        <div class="row">
+          <section class="col col-8"> 
+            <label class="label"><%= f.label t("banner.description") %><br></label>
+            <label class="textarea textarea-resizable"><i class="icon-append fa fa-comment"></i>   
+              <%= f.text_area :description, class: "custom-scroll", rows: "7" %>                
+            </label>
+          </section>
+        </div>
+        </fieldset> 
+
+         <footer>
+          <%= link_to t("operate.back"), admin_banners_path, class: "btn btn-primary", data: { no_turbolink: true } %>
+          <div class="actions">
+            <%= f.submit t("operate.submit"), class: 'btn btn-primary' %>
+          </div>
+        </footer>
+      </div>
+      <!-- end smart-form -->
+    </div>
+    <!-- end widget-section-3 -->
+
+<% end %>
+

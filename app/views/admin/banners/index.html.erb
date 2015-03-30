@@ -1,0 +1,93 @@
+
+<%if notice %>
+<div class="alert alert-success fade in">
+  <button class="close" data-dismiss="alert">×</button>
+  <i class="fa-fw fa fa-check"></i>
+  <strong><%= notice %></strong>
+</div>
+<% end %>
+
+<div class="jarviswidget jarviswidget-color-darken" id="wid-id-0" data-widget-editbutton="false">
+  <header>
+    <span class="widget-icon"> <i class="fa fa-file"></i> </span>
+    <h2><p><%= t "banner.table_title" %></p></h2>
+  </header>
+  <div>
+    <div class="jarviswidget-editbox"></div>  
+    <div class="widget-body no-padding">
+      <table id="datatable_fixed_column" class="table table-striped table-bordered">
+        <thead>
+          <tr>
+            <th><%= t "banner.id" %></th>
+            <th><%= t "banner.name" %></th>
+            <th><%= t "banner.url" %></th>
+            <th><%= t "article.created_at" %></th>
+            <th><%= t "operate.title" %></th>
+          </tr>
+             <tr class="second">
+            <td class="smart-form">
+              <label class="input">
+                <input type="text" value="<%= t "banner.search_by_id" %>" class="search_init">
+              </label>
+            </td>
+            <td class="smart-form">
+              <label class="input">
+                <input type="text" value="<%= t "banner.search_by_name" %>" class="search_init">
+              </label>  
+            </td>
+            <td class="smart-form">
+              <label class="input">
+                <input type="text" value="<%= t "banner.search_by_url" %>" class="search_init">
+              </label>  
+            </td>
+            <td class="smart-form">
+              <label class="input"><i class="icon-append fa fa-calendar"></i>
+                <input type="text" value="<%= t "banner.search_by_created" %>" class="datepicker search_init" data-dateformat="yy-mm-dd">
+              </label>  
+            </td>
+            <td>
+                <%= link_to t("operate.new"), new_admin_banner_path, data: { no_turbolink: true }, class: "btn bg-color-green txt-color-white" %>
+            </td>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @admin_banners.each do |admin_banner| %>
+          <tr>
+           <td><%= admin_banner.id %></td>
+           <td><%= admin_banner.name%></td>
+            <td> 
+              <%= h truncate(admin_banner.description, length: 45) %>
+            </td>
+            <td><%= admin_banner.created_at.strftime("%Y-%m-%d, %H:%m") %></td>
+            <td>
+              <%= link_to t("operate.show"), admin_banner, class: "btn bg-color-blue txt-color-white", data: { toggle: "modal", target: "#myModal_"+admin_banner.id.to_s } %>
+              <%= link_to t("operate.edit"), edit_admin_banner_path(admin_banner), data: { no_turbolink: true }, class: "btn bg-color-orange txt-color-white" %>
+             <%= link_to t("operate.delete"), admin_banner, method: :delete, data: { title: "#{t('banner.delete_title')}", confirm: "#{t('banner.delete_info')}" }, class: "btn bg-color-red txt-color-white" %>
+            </td>
+          </tr>
+          <div class="modal fade" 
+          id="myModal_<%= admin_banner.id %>" 
+          tabindex="-1" 
+          role="dialog" 
+          aria-labelledby="myModal" 
+          aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <!-- render form -->
+            </div>
+          </div>
+        </div><!-- end dialog -->
+          <% end %>
+        </tbody>
+      </table>      
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
