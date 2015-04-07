@@ -38,6 +38,8 @@ GEM
       tzinfo (~> 1.1)
     ancestry (2.1.0)
       activerecord (>= 3.0.0)
+    apipie-rails (0.3.3)
+      json
     arel (6.0.0)
     bcrypt (3.1.10)
     binding_of_caller (0.7.2)
@@ -259,6 +261,7 @@ PLATFORMS
 
 DEPENDENCIES
   ancestry
+  apipie-rails
   byebug
   capybara
   capybara-webkit

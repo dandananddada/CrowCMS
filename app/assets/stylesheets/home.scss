@@ -1,0 +1,145 @@
+/*
+ *
+ *= require bootstrap.min
+ */
+$lightBlack: #535353;
+$weightRed: #8b2328;
+$noBackgroundColor: rgba(0,0,0,0);
+body{
+	background-image: url('/images/bg.png');
+	font-family: "Bradley Hand";
+	font-size: 16px;
+}
+.cms-navbar{
+	/*set contianer much thinner*/
+	.container{
+		margin-top: 3%;
+		width: 60%;
+		li a{
+			color: $lightBlack;
+			padding: 0px;
+			margin: 10px 15px;
+			font-size: 24px;
+			font-family: Mistral;
+			text-align:center;
+			&:hover{
+				background-color: $noBackgroundColor;
+				border-bottom: 3px solid $weightRed;
+				margin-bottom: -3px;
+			}
+		}
+	}
+}
+
+.cms-banner{
+	padding: 20px 0px 60px 0px;
+	background-color: $noBackgroundColor;
+	text-align: center;
+}
+.cms-container{
+	width: 56%;
+	#cms-index{
+		h3{
+			font-family: "Bauhaus 93";
+			margin-bottom: 20px;
+			small{
+				float: right;
+				margin-right: 60px;
+				a{
+					color: #777;
+					text-decoration: none;
+				}
+			}
+		}
+		h5{
+			color: #000;
+			p{
+				margin-left: 5%;
+				a{
+					color: $lightBlack;
+					text-decoration: none;
+					font-size: 18px;
+					font-family: "Bradley Hand";
+				}
+				small{
+					float: right;
+					margin-right: 60px;
+					font-style: italic;
+					font-size: 14px;
+				}
+			}
+		}
+	}
+	#cms-list{
+		text-align: center;
+		.row{
+			margin-bottom: 12px;
+		}
+		h4{
+			font-size: 22px;
+			a, a:hover{
+				color: $lightBlack;
+			}
+		}
+		img{
+			margin-bottom: 20px;
+		}
+		p{
+			font-size: 18px;
+			font-style: italic;
+		}
+		hr{
+			color: #333;
+		}
+	}
+	#cms-article{
+		h3{
+			text-align: center;
+			font-size: 24px;
+		}
+		.cms-article-content{
+			font-size: 18px;
+		}
+	}
+	#cms-album{
+		text-align: center;
+		h4{
+			font-size: 18px;
+		}
+		p{
+			font-size: 16px;
+			font-style: italic;
+		}
+		.row{
+			margin-bottom: 30px;
+		}
+	}
+	#cms-photo{
+		.row{
+			margin-bottom: 30px;
+		}
+	}
+}
+
+.cms-friend-link{
+	margin-top: 10%;
+	a{
+		color: $lightBlack;
+		text-decoration: none;
+		font-family: "SignPainter";
+		font-size: 18px;
+	}
+
+}
+#cms-footer{
+	.container{
+		font-size:  22px;
+		margin: 2% auto;
+		text-align: center;
+		span{
+			font-family: "Mistral";
+			font-size: 20px;
+			margin-right: 12px;
+		}
+	}
+}

@@ -11,17 +11,20 @@
 <body>
 	<!-- 导航栏菜单 -->
 	<%= render 'home/includes/navication' %>
+	
+	<!-- 顶部轮播区 -->
+	<div class="cms-banner">
+		<%= render 'home/includes/banner' %>
+	</div>
 
-	<div class="container theme-showcase" role="main">
-		<!-- 顶部轮播区 -->
-		<div class="jumbotron">
-			<h1>Hello, world!</h1>
-		</div>
-		<!-- 文档主体部分 -->
+	<!-- 文档主体部分 -->
+	<div class="container cms-container" role="main">
 		<%= yield %>
 		<%= render 'home/includes/friendlink' %>
 	</div>
 	<%= render 'home/includes/footer' %>
+	<%= yield :jslib %>
+	<%= javascript_include_tag "home", "data-turbolinks-track" => true %>
 	
 </body>
 </html>

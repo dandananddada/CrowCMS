@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150328080843) do
+ActiveRecord::Schema.define(version: 20150403092828) do
 
   create_table "album_tags", force: :cascade do |t|
     t.string "text", limit: 255
@@ -138,9 +138,11 @@ ActiveRecord::Schema.define(version: 20150328080843) do
   end
 
   create_table "menus", force: :cascade do |t|
-    t.string "ancestry", limit: 255
-    t.string "name",     limit: 255
-    t.string "url",      limit: 255
+    t.string  "ancestry", limit: 255
+    t.string  "name",     limit: 255
+    t.string  "url",      limit: 255
+    t.integer "weight",   limit: 4,   default: 0
+    t.boolean "visible",  limit: 1,   default: true
   end
 
   create_table "messages", force: :cascade do |t|

@@ -4,7 +4,7 @@
     <!-- widget-section-3 -->
     <div class="jarviswidget jarviswidget-color-darken" data-widget-editbutton="false" id="extra_panel">
       <header>
-        <span class="widget-icon"><i class="fa fa-edit"></i></span>
+        <span class="widget-icon"><i class="fa fa-picture-o"></i></span>
         <h2><%= t("banner.banner_edit") %></h2>
       </header>
       <!-- smart-form -->
@@ -29,7 +29,7 @@
             </label>
             <label class="input">
               <i class="icon-append fa fa-link"></i>
-              <%= f.text_field :url, required: true %>
+              <%= f.text_field :url, url: true, placeholder: t("banner.url_valid_info") %>
             </label>
           </section>
         </div>

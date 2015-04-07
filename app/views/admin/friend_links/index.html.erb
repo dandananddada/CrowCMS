@@ -1,5 +1,5 @@
 
-
+<!-- This is new table list -->
 <%if notice %>
 <div class="alert alert-success fade in">
   <button class="close" data-dismiss="alert">×</button>
@@ -16,81 +16,92 @@
 <% end %>
 <div class="jarviswidget jarviswidget-color-darken" id="wid-id-0" data-widget-editbutton="false">
   <header>
-    <span class="widget-icon"> <i class="fa fa-picture-o"></i> </span>
+    <span class="widget-icon"> <i class="fa fa-external-link"></i> </span>
     <h2><p><%= t("friend_link.table_title") %></p></h2>
   </header>
   <div>
     <div class="jarviswidget-editbox"></div>  
-    <div class="widget-body">
-      <div class="row">
-        <div class="col-md-12">
-          <a href="<%= new_admin_friend_link_path %>" 
-           class="btn btn-labeled btn-success" 
-           data-toggle="modal" 
-           data-target="#myModal">
-           <span class="btn-label">
-            <i class="glyphicon glyphicon-plus"></i></span><%= t("operate.new") %>
-          </a>
-        </div>
-      </div>
-      <br>
-      <div class="row" id="container">
-        <% @admin_friend_links.each do |admin_friend_link| %>
+    <div class="widget-body no-padding">
+      <table id="datatable_fixed_column" class="table table-bordered">
+        <thead>
+          <tr>
+            <th><%= t("friend_link.id") %></th>
+            <th><%= t("friend_link.name") %></th>
+            <th><%= t("friend_link.url") %></th>
+            <th><%= t("friend_link.logo") %></th> 
+            <th><%= t("operate.title") %></th>
+          </tr>
+          <tr class="second">
+          <td class="smart-form td-id">
+              <label class="input">
+                <input type="text" value="<%= t("friend_link.search_by_id") %>" class="search_init">
+              </label>  
+            </td>
+            <td class="smart-form">
+              <label class="input">
+                <input type="text" value="<%= t("friend_link.search_by_name") %>" class="search_init">
+              </label>  
+            </td>
+            <td class="smart-form">
+              <label class="input">
+                <input type="text" value="<%= t("friend_link.search_by_url") %>" class="search_init">
+              </label>  
+            </td>
+            <td width="30%" class="smart-form">
+            </td>
+            <td>
+              <%= link_to t("operate.new"), new_admin_friend_link_path, data: { no_turbolink: true, toggle: "modal", target: "#myModal" }, class: "btn bg-color-green txt-color-white" %>
+            </td>
+          </tr>
+        </thead>
 
-        <div class="col-xs-12 col-sm-4 col-md-2 item">
-          <div class="panel panel-darken">
-            <div class="panel-heading">
-              <h3 class="panel-title text-align-center"><%= admin_friend_link.name %></h3>
-              </div>
-              <div class="panel-body no-padding text-align-center">
-                <div class="the-price">
-                  <a href="<%= admin_friend_link_path(admin_friend_link) %>">
-                    <%= image_tag admin_friend_link.logo.url(:small), class: "img-responsive" %>
-                  </a>
+        <tbody>
+          <% @admin_friend_links.each do |admin_friend_link| %>
+          <tr>
+            <td class="valgin-center text-center"><%= admin_friend_link.id %></td>
+            <td class="valgin-center text-center"><%= admin_friend_link.name %></td>
+            <td class="valgin-center text-center"><a href="<%= admin_friend_link.url %>"><%= admin_friend_link.url %></a></td>
+            <td class="valgin-center text-center">
+              <% if admin_friend_link.logo_file_name %>
+                <%= image_tag admin_friend_link.logo(:small) %>
+              <% else %>
+                <%= t("friend_link.no_image") %>
+              <% end %>
+            </td>
+            <td> 
+              <a href="<%= edit_admin_friend_link_path(admin_friend_link) %>" 
+                class="btn bg-color-orange txt-color-white" 
+                data-toggle="modal" 
+                data-target="#myModal_<%= admin_friend_link.id %>">
+                <%= t("operate.edit") %>
+              </a>
+              <a href="<%= admin_friend_link_path(admin_friend_link) %>" 
+                class="btn bg-color-redLight txt-color-white" 
+                data-method="delete"
+                data-title="<%= t("friend_link.delete_title") %>" 
+                data-confirm="<%= t("friend_link.delete_info") %>">
+                <%= t("operate.delete") %>
+              </a>
+            </td>
+            <div class="modal fade" id="myModal_<%= admin_friend_link.id %>" tabindex="-1" role="dialog" aria-labelledby="myModal" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
                 </div>
               </div>
-              <div class="panel-footer no-padding">
-                <a href="<%= edit_admin_friend_link_path(admin_friend_link) %>" 
-                 class="btn bg-color-orange txt-color-white btn-block" 
-                 data-toggle="modal" 
-                 data-target="#myModal_<%= admin_friend_link.id %>">
-                 <%= t("operate.edit") %>
-               </a>
-             </div>
-             <div class="panel-footer no-padding">
-              <a href="<%= admin_friend_link_path(admin_friend_link) %>" 
-               class="btn bg-color-redLight txt-color-white btn-block" 
-               data-method="delete"
-               data-title="<%= t("friend_link.delete_title") %>" 
-               data-confirm="<%= t("friend_link.delete_info") %>">
-               <%= t("operate.delete") %>
-             </a>
-           </div>
-         </div>
-       </div>
-
-       <div class="modal fade" id="myModal_<%= admin_friend_link.id %>" tabindex="-1" role="dialog" aria-labelledby="myModal" aria-hidden="true">
+            </div>
+          </tr>
+          <% end %>
+        </tbody>
+      </table> 
+      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModal" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
           </div>
         </div>
-      </div>
-      <% end %>
+      </div>     
     </div>
-
-
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModal" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-        </div>
-      </div>
-    </div>
-
   </div>
 </div>
-</div>
-
-
 
 
 

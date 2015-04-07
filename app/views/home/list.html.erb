@@ -1,0 +1,10 @@
+<div id="cms-list">
+	<% @articles.each do |article| %>
+	<div class="row">
+		<h4><a href="<%= article_path(article.id) %>"><%= article.title %></a></h4>
+		<%= image_tag article.thumb.url(:small) if article.thumb_file_name %>
+		<p><%= article.abstract %></p>
+		<hr>
+	</div>
+	<% end %>
+</div>

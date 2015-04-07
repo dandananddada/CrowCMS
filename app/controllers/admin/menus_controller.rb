@@ -75,6 +75,6 @@ class Admin::MenusController < AuthController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def admin_menu_params
-      params.require(:admin_menu).permit(:name, :url, :parent_id)
+      params.require(:admin_menu).permit(:name, :url, :parent_id, :weight, :visible)
     end
 end

@@ -1,6 +1,12 @@
-<div class="row">
-	<div class="col-md-3">This is a friend link.</div>
-	<div class="col-md-3">This is a friend link.</div>
-	<div class="col-md-3">This is a friend link.</div>
-	<div class="col-md-3">This is a friend link.</div>
-</div>
+	<div class="row container cms-friend-link">
+		<% @friend_links.each_slice(6) do |slice| %>
+		<div class="row">
+			<% slice.each do |friend_link| %>
+			<div class="col-md-2">
+				<%# image_tag friend_link.logo(:small) %>
+				<a href="<%= friend_link.url %>"><%= friend_link.name  %></a>
+			</div>
+			<% end %>
+		</div>
+		<% end %>
+	</div>

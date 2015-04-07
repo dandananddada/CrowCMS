@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 
+  apipie
   root to: 'admin/home#index'
 
   devise_for :users, 
@@ -46,7 +47,7 @@ Rails.application.routes.draw do
       #show pictures belongs specificy article.
       get '',  to: 'article_pictures#index', 
                as: :picture_by, 
-               :constraints => { :article_id => /\d/ },
+               constraints: { article_id: /\d/ },
                on: :member  
     end
   #album module
@@ -85,16 +86,25 @@ Rails.application.routes.draw do
   #end admin namespace
 
    namespace :api do
-      get 'categories', to: 'categories#index'
-      get 'category/:id', to: 'categories#show'
-      get 'articles', to: 'articles#index'
-      get 'article/:id', to: 'articles#show'
+      # api for layouts
+      get 'menus',                 to: 'layouts#menus'
+      get 'friend-link',           to: 'layouts#friend_links'
+      get 'categories',            to: 'categories#index'
+      get 'category/:id',          to: 'categories#show'
+      get 'articles',              to: 'articles#index'
+      get 'article/:id',           to: 'articles#show'
       get 'articles/title/:title', to: 'articles#search_by_title'
    end
 
-   get 'test', to: 'home/index#index'
-   get 'article/:id', to: 'home/article#show'
-   get 'about-us', to: 'home/page#about_us'
+   get 'home',        to: 'home/index#index'
+   get 'news',        to: 'home/article#news'
+   get 'notices',     to: 'home/article#notices'
+   get 'products',    to: 'home/article#products'
+   get 'article/:id', to: 'home/article#show',    as: 'article'
+   get 'product/:id', to: 'home/article#product', as: 'product'
+   get 'albums',      to: 'home/album#list',      as: 'albums'
+   get 'album/:id',   to: 'home/album#show',      as: 'album'
+   get 'about-us',    to: 'home/page#about_us'
    get 'contract-us', to: 'home/page#contract_us'
 
 end

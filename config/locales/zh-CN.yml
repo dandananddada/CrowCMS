@@ -210,29 +210,36 @@ zh-CN:
   menu:
     submenu:
       home_menu: 首页
-      page_menu: 文档模块
-      article_menu: 文章模块
-      picture_menu: 图片模块
-      album_menu: 相册模块
-      article_menu: 文章模块
+      site_menu: 站点管理
+      page_menu: 文档管理
+      article_menu: 文章管理
+      picture_menu: 图片管理
+      album_menu: 相册管理
+      article_menu: 文章管理
       message_menu: 留言板
       trash_menu: 回收站
     midmenu:
-      page_menu: 文档管理
-      category_menu: 分栏管理
-      article_menu: 文章管理
-      album_tags: 标签管理
-      album: 相册管理
-      article_option: 参数管理
-      message_menu: 留言管理
-      trash_article: 垃圾文章
-      trash_page: 垃圾文档
+      menu_menu: 菜单
+      banner_menu: 横幅
+      friend_link_menu: 友情链接
+      page_menu: 静态信息
+      category_menu: 文章分栏
+      article_menu: 文章
+      album_tags: 相册标签
+      album: 相册
+      article_option: 文章参数
+      message_menu: 审核回复
+      trash_article: 废弃文章
+      trash_page: 废弃文档
     table_title: 菜单管理
     name: 菜单名称
     url: 菜单路径
+    weight: 显示顺序
+    visible: 是否显示
     new: 添加主菜单
     edit: 编辑菜单
     name_length_info: 菜单名称不得超过12个字符
+    url_valid_info: 请输入合法的URL，以http://开始
     delete_title: 您确认要删除菜单
     delete_info: 删除菜单后，菜单下的子菜单也会一并删除，请谨慎操作！
 
@@ -244,7 +251,11 @@ zh-CN:
     url: 链接
     banner: 图片
     description: 描述
+    show: 显示横幅
+    no_description: 暂无描述
+    no_image: 暂无图片
     name_length_info: 名称不得超过36个字符
+    url_valid_info: 请输入合法的URL，以http://开始
     banner_type_info: 请上传.jpeg .jpg .png .gif格式图片
     delete_title: 您确认要删除横幅
     delete_info: 横幅删除后将无法恢复，请谨慎操作！
@@ -255,11 +266,18 @@ zh-CN:
 
   friend_link:
     table_title: 友情链接管理
+    edit: 编辑友情链接
+    id: 编号
     name: 站点名称
     url: 站点网址
     logo: 站点图标
     name_length_info: 站点名称不得超过18个字符
+    url_valid_info: 请输入合法的URL，以http://开始
     logo_valid_info: 请上传.jpeg .jpg .png .gif格式图片
+    search_by_id: 根据链接编号查询
+    search_by_name: 根据链接名称查询
+    search_by_url: 根据链接网址查询
+    no_image: 暂无图片
     delete_title: 您确认要删除友情链接？
     delete_info: 友情链接删除后将无法恢复，请谨慎操作！
   category:

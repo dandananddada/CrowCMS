@@ -29,7 +29,11 @@ class Admin::Article < ActiveRecord::Base
 												  "application/x-shockwave-flash"												    #swf
 												   ]}
 
-	scope :news_for_home,    -> { where(category_id: 2).limit(10).order('id asc') }	
-	scope :notices_for_home, -> { where(category_id: 3).limit(10).order('id asc') }											
+	scope :news_for_home,     -> { where(category_id: 2).limit(10).order('id asc') }	
+	scope :notices_for_home,  -> { where(category_id: 3).limit(10).order('id asc') }	
+	scope :products_for_home, -> { where(category_id: 5).limit(5).order('id asc') }	
+	scope :news_for_list,     -> { where(category_id: 2).order('id asc') }	
+	scope :notices_for_list,  -> { where(category_id: 3).order('id asc') }	
+	scope :products_for_list, -> { where(category_id: 5).order('id asc') }										
 
 end

@@ -33,11 +33,29 @@
           </label>
           <label class="input">
             <i class="icon-append fa fa-link"></i>
-            <%= f.text_field :url, required: true, maxlength: 12 %>
+            <%= f.text_field :url, required: true, placeholder: t("menu.url_valid_info") %>
           </label>
         </section>
       </div>
       <!-- end url -->
+      <!-- order -->
+      <div class="row">
+        <section class="col col-6">
+              <label class="label"><%= f.label t("menu.weight") %></label>
+              <%= f.text_field :weight, class: "spinner", id: "spinner", value: 0, style: 'box-sizing: border-box;', required: true, value: @admin_menu.weight %>
+            </section>
+      </div>
+      <!-- end order -->
+      <!-- visible -->
+      <div class="row">
+        <section class="col col-6">
+          <label class="toggle">
+            <%= f.check_box :visible %>
+            <i data-swchoff-text="关闭" data-swchon-text="开启"></i><%= t "menu.visible" %>
+          </label>
+        </section>
+      </div>
+      <!-- end visible -->
     </fieldset>
   </div>
   <!-- end smart-form -->
@@ -48,6 +66,18 @@
 </div>
 <% end %>
 
+<%= javascript_tag  do%>
+$(document).ready(function() {
+  $('#validate-form').validate();
+  $(".spinner").spinner({
+      min: 0,
+      max: 2500,
+      step: 1,
+      start: 0,
+      numberFormat: "C"
+    });
+});
+<% end %>
 
 
 

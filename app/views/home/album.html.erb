@@ -1,0 +1,9 @@
+<div id="cms-album">
+	<% @albums.each do |album| %>
+	<div class="row text-center">
+		<a href="<%= album_path(album.id) %>"><%= image_tag album.cover.url(:small) %></a>
+		<h4><%= album.name %></h4>
+		<p><%= album.description %></p>
+	</div>
+	<% end %>
+</div>

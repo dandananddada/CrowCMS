@@ -3,29 +3,33 @@
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
         &times;
     </button>
-    <h4 class="modal-title" id="myModalLabel">Modal Title</h4>
+    <h4 class="modal-title" id="myModalLabel"><%= t "banner.show" %></h4>
 </div>
 <div class="modal-body">
     <p>
-  <strong>Name:</strong>
+  <strong><%= t "banner.name" %>:</strong>
   <%= @admin_banner.name %>
 </p>
 
 <p>
-  <strong>Description:</strong>
-  <%= @admin_banner.description %>
+  <strong><%= t "banner.url" %>:</strong>
+  <a href="<%= @admin_banner.url %>"><%= @admin_banner.url %></a>
 </p>
 
 <p>
-  <strong>Url:</strong>
-  <%= @admin_banner.url %>
+  <strong><%= t "banner.description" %>:</strong><br>
+    <%= @admin_banner.description %>
 </p>
 
 <p>
-  <strong>Banner:</strong>
-  <%= @admin_banner.banner %>
+  <strong><%= t "banner.banner" %>:</strong><br>
+  <% if @admin_banner.banner_file_name %>
+    <%= image_tag @admin_banner.banner %>
+  <% else %>
+    <%= t "banner.no_image" %>
+  <% end %>
 </p>
 </div>
 <div class="modal-footer">
-    <a class="btn btn-default" data-dismiss="modal"><%= t "operate.back" %></a>
+    <a class="btn btn-default" data-dismiss="modal"><%= t "operate.close" %></a>
 </div>

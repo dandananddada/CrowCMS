@@ -15,6 +15,11 @@
 # Admin::Category.create(id: 4, title: '产品中心', is_article: false)
 # 
 # 
-Admin::Page.create(id: 1, title: '公司介绍')
-Admin::Page.create(id: 2, title: '联系我们')
+Admin::Menu.create(id: 1, name: '企业介绍', url: '/about-us')
+Admin::Menu.create(id: 2, name: '企业新闻', url: '/news')
+Admin::Menu.create(id: 3, name: '企业公告', url: '/notices')
+Admin::Menu.create(id: 4, name: '企业产品', url: '/products')
+Admin::Menu.create(id: 5, name: '联系我们', url: '/contract-us')
+# Admin::Page.create(id: 1, title: '公司介绍')
+# Admin::Page.create(id: 2, title: '联系我们')
 

@@ -1,4 +1,5 @@
   $.validator.messages.required = "该字段不能为空，请输入相关信息！"
+  $.validator.messages.url = "请输入合法的URL（以http://开始）！"
   
   $.rails.allowAction = (link) ->
     return true  unless link.attr("data-confirm")

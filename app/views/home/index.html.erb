@@ -1,18 +1,54 @@
-<div class="row">
-	<div class="col-md-6">
-		新闻
-		<% @news.each do |news| %>
-			<p><%= news.title %>[<%= news.created_at %>]</p>
-		<% end %>
+<div id="cms-index">
+	<div class="row">
+		<div class="col-md-6">
+			<h3>News<small><a href="<%= news_path %>">more</a></small></h3>
+			<% @news.each do |news| %>
+			<h5>
+				<p>
+					<a href="<%= article_path(news.id) %>"><%= news.title %></a>
+					<small><%= news.created_at.strftime("%Y/%m/%d") %></small>
+				</p>
+			</h5>
+			<% end %>
+		</div>
+		<div class="col-md-6">
+			<h3>Notices<small><a href="<%= notices_path %>">more</a></small></h3>
+			<% @notices.each do |notice| %>
+			<h5>
+				<p>
+					<a href="<%= article_path(notice.id) %>"><%= notice.title %></a>
+					<small><%= notice.created_at.strftime("%Y/%m/%d") %></small>
+				</p>
+			</h5>
+			<% end %>
+		</div>
 	</div>
-	<div class="col-md-6">
-		公告
-		<% @notices.each do |notice| %>
-			<p><%= notice.title %>[<%= notice.created_at %>]</p>
-		<% end %>
+	<br><br>
+	<div class="row">
+		<div class="col-md-6">
+			<h3>Products<small><a href="<%= products_path %>">more</a></small></h3>
+			<% @products.each do |product| %>
+			<div class="col-md-6 text-center">
+				<p>
+					<a href="<%= article_path(product.id) %>"><%= image_tag "/images/no-image.png", class: "text-center" %></a>
+				</p>
+				<p class="text-center"><%= product.title %></p>
+			</div>
+			<% end %>
+		</div>
+		<div class="col-md-6">
+			<h3>Albums<small><a href="<%= albums_path %>">more</a></small></h3>
+			<% @albums.each do |album| %>
+			<div class="col-md-6 text-center">
+				<a href="<%= album_path(album.id) %>"><%= image_tag "/images/no-image.png", class: "text-center" %></a>
+				<p class="text-center"><%= album.name %></p>
+			</div>
+			<% end %>
+		</div>
 	</div>
-</div>
-<div class="row">
 
-	<div class="col-md-3">yingji</div>
 </div>
+
+
+
+

@@ -28,11 +28,11 @@
               <td><%= admin_article_picture.picture_file_size %></td>
               <td><%= admin_article_picture.picture_updated_at %></td>
               <td>
-                <a href="javascript:void(0);" class="btn bg-color-green txt-color-white" rel="tooltip" data-placement="left" data-original-title="<img src=' <%= admin_article_picture.picture.url(:small) %>' alt='<%= admin_article_picture.picture_file_name %>'>" data-html="true" data-toggle="modal" data-target="#myModal_<%= @admin_article_picture.id %>"><%= t("operate.preview") %></a> 
+                <a href="javascript:void(0);" class="btn bg-color-green txt-color-white" rel="tooltip" data-placement="left" data-original-title="<img src=' <%= admin_article_picture.picture.url(:small) %>' alt='<%= admin_article_picture.picture_file_name %>'>" data-html="true" data-toggle="modal" data-target="#myModal_<%= admin_article_picture.id %>"><%= t("operate.preview") %></a> 
                 <%= link_to t("operate.delete"), admin_article_picture, method: :delete, data: { title: "#{t('article_picture.delete_title')}", confirm: "#{t('article_picture.delete_info')}" }, class: "btn bg-color-red txt-color-white" %>
               </td>
             </tr>
-            <div class="modal fade" id="myModal_<%= @admin_article_picture.id %>" tabindex="-1" role="dialog" 
+            <div class="modal fade" id="myModal_<%= admin_article_picture.id %>" tabindex="-1" role="dialog" 
             aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
               <div class="modal-content">
@@ -46,7 +46,9 @@
                 </h4>
               </div>
               <div class="modal-body">
-                <img src=' <%= admin_article_picture.picture.url %>' alt='<%= admin_article_picture.picture_file_name %>'>
+                <div class="row text-center">
+                  <img src=' <%= admin_article_picture.picture.url %>' alt='<%= admin_article_picture.picture_file_name %>'>
+                </div>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-default" 

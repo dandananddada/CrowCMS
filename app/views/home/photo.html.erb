@@ -1,0 +1,7 @@
+<div id="cms-photo">
+	<% @photos.each do |photo| %>
+	<div class="row text-center">
+	<%= image_tag  photo.image.url %>
+	</div>
+	<% end %>
+</div>
