@@ -23,9 +23,9 @@ Rails.application.routes.draw do
     end
 
   #banner
-     resources :banners, path: 'banner'
-  #friend links
-    resources :friend_links, path: 'friend-link'
+    resources :banners, path: 'banner'
+  #links
+    resources :links, path: 'link'
 
 
   #article module
@@ -88,7 +88,7 @@ Rails.application.routes.draw do
    namespace :api do
       # api for layouts
       get 'menus',                 to: 'layouts#menus'
-      get 'friend-link',           to: 'layouts#friend_links'
+      get 'link',                  to: 'layouts#friend_links'
       get 'categories',            to: 'categories#index'
       get 'category/:id',          to: 'categories#show'
       get 'articles',              to: 'articles#index'

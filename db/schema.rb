@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150403092828) do
+ActiveRecord::Schema.define(version: 20150408034433) do
 
   create_table "album_tags", force: :cascade do |t|
     t.string "text", limit: 255
@@ -128,7 +128,7 @@ ActiveRecord::Schema.define(version: 20150403092828) do
 
   add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
 
-  create_table "friend_links", force: :cascade do |t|
+  create_table "links", force: :cascade do |t|
     t.string   "name",              limit: 255
     t.string   "url",               limit: 255
     t.string   "logo_file_name",    limit: 255

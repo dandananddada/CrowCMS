@@ -13,8 +13,6 @@ class Admin::AlbumsController < AuthController
   # GET /admin/albums/1.json
   def show
     @admin_photos = Admin::Photo.where(album_id: @admin_album.id)
-    # render @admin_photos.inspect
-    # render plain: "dasda"
   end
 
   # GET /admin/albums/new

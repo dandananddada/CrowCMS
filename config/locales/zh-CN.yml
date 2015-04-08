@@ -221,7 +221,7 @@ zh-CN:
     midmenu:
       menu_menu: 菜单
       banner_menu: 横幅
-      friend_link_menu: 友情链接
+      link_menu: 友情链接
       page_menu: 静态信息
       category_menu: 文章分栏
       article_menu: 文章
@@ -264,7 +264,7 @@ zh-CN:
     search_by_url: 根据链接查询
     search_by_created: 根据创建日期查询
 
-  friend_link:
+  link:
     table_title: 友情链接管理
     edit: 编辑友情链接
     id: 编号
@@ -494,9 +494,9 @@ zh-CN:
         message_updated: 留言回复添加成功。
         message_deleted: 留言删除成功。
         message_reviewed: 留言审核状态更新成功。
-        friend_link_created: 友情链接添加成功。
-        friend_link_updated: 友情链接更新成功。
-        friend_link_deleted: 友情链接删除成功。
+        link_created: 友情链接添加成功。
+        link_updated: 友情链接更新成功。
+        link_deleted: 友情链接删除成功。
         menu_created: 菜单添加成功。
         menu_updated: 菜单更新成功。
         menu_deleted: 菜单删除成功。

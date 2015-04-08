@@ -1,10 +1,9 @@
-
-<%= form_for(@admin_friend_link, html: { id: "validate-form" } ) do |f| %>
+<%= form_for(@admin_link, html: { id: "validate-form" } ) do |f| %>
 <div class="modal-header">
   <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
     &times;
   </button>
-  <h4 class="modal-title" id="myModalLabel"><%= t("friend_link.edit") %></h4>
+  <h4 class="modal-title" id="myModalLabel"><%= t("link.edit") %></h4>
 </div>
 <div class="modal-body">
   <div class="smart-form">
@@ -13,11 +12,11 @@
       <div class="row">
         <section class="col col-md-12">
           <label class="label"> 
-            <%= f.label t("friend_link.name") %><br>
+            <%= f.label t("link.name") %><br>
           </label>
           <label class="input">
             <i class="icon-append fa fa-pencil"></i>
-            <%= f.text_field :name, required: true, maxlength: 18, placeholder: t("friend_link.name_length_info") %>
+            <%= f.text_field :name, required: true, maxlength: 18, placeholder: t("link.name_length_info") %>
           </label>
         </section>
       </div>
@@ -25,30 +24,30 @@
       <div class="row">
         <section class="col col-md-12">
           <label class="label"> 
-            <%= f.label t("friend_link.url") %><br>
+            <%= f.label t("link.url") %><br>
           </label>
           <label class="input">
             <i class="icon-append fa fa-link"></i>
-            <%= f.text_field :url, required: true, url: true, placeholder: t("friend_link.url_valid_info") %>
+            <%= f.text_field :url, required: true, url: true, placeholder: t("link.url_valid_info") %>
           </label>
         </section>
       </div>
-      <% if @admin_friend_link.logo_file_name %>
+      <% if @admin_link.logo_file_name %>
       <!-- logo -->
       <div class="row">
         <section class="col col-md-12">
-          <label class="label"><%= f.label t("friend_link.logo") %><br></label>
+          <label class="label"><%= f.label t("link.logo") %><br></label>
           <div class="input input-file">
-            <span class="button"><%= f.file_field :logo, readonly: 'true', onchange: "this.parentNode.nextSibling.value = this.value", accept: "image/jpeg, image/png, image/gif, image/jpg" %><%= t("operate.upload") %></span><input type="text" readonly="true"  value="<%= @admin_friend_link.logo_file_name %>" >
+            <span class="button"><%= f.file_field :logo, readonly: 'true', onchange: "this.parentNode.nextSibling.value = this.value", accept: "image/jpeg, image/png, image/gif, image/jpg" %><%= t("operate.upload") %></span><input type="text" readonly="true"  value="<%= @admin_link.logo_file_name %>" >
           </div>
         </section>
       </div>
       <% else %>
       <div class="row">
         <section class="col col-md-12">
-          <label class="label"><%= f.label t("friend_link.logo") %><br></label>
+          <label class="label"><%= f.label t("link.logo") %><br></label>
           <div class="input input-file">
-            <span class="button"><%= f.file_field :logo, readonly: 'true', onchange: "this.parentNode.nextSibling.value = this.value", accept: "image/jpeg, image/png, image/gif, image/jpg" %><%= t("operate.upload") %></span><input type="text" readonly="true" placeholder="<%= t "friend_link.logo_valid_info" %>" >
+            <span class="button"><%= f.file_field :logo, readonly: 'true', onchange: "this.parentNode.nextSibling.value = this.value", accept: "image/jpeg, image/png, image/gif, image/jpg" %><%= t("operate.upload") %></span><input type="text" readonly="true" placeholder="<%= t "link.logo_valid_info" %>" >
           </div>
         </section>
       </div>
