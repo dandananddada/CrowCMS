@@ -223,6 +223,7 @@ zh-CN:
       banner_menu: 横幅
       link_menu: 友情链接
       page_menu: 静态信息
+      visit_menu: 访问统计
       category_menu: 文章分栏
       article_menu: 文章
       album_tags: 相册标签
@@ -447,6 +448,20 @@ zh-CN:
   trash:
     article_title: 垃圾文章
     page_title: 垃圾文档
+  visit:
+    notice: 注意
+    info: 本站点采用统计方式为每IP四小时内访问站点任意页面作为一次有效记录，其它访问情况将不会被收录。
+    table: 访问信息统计
+    pv: 访问量统计
+    browser: 浏览器统计
+    device: 终端统计
+    ip: 访问IP
+    user: 访问用户
+    landing_page: 受访页面
+    browser: 使用浏览器
+    os: 使用系统
+    device: 使用终端
+    started_at: 访问时间
 
   activerecord:
     models:

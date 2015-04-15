@@ -1,0 +1,38 @@
+ <div class="jarviswidget jarviswidget-color-darken" data-widget-editbutton="false">
+ 	<header>
+ 		<span class="widget-icon"><i class="fa fa-table"></i></span>
+ 		<h2><%= t("visit.table") %></h2>
+ 	</header>
+ 	<div>
+ 		<div class="jarviswidget-editbox"></div>
+ 		<div class="widget-body no-padding">
+		<div class="widget-body-toolbar"></div><!-- 放置工具栏的地方 -->
+ 			<table id="dt_basic" class="table table-striped table-bordered table-hover">
+ 				<thead>
+ 					<tr>
+ 						<th><%= t "visit.user" %></th>	
+ 						<th><%= t "visit.ip" %></th>
+						<th><%= t"visit.landing_page" %></th>
+						<th><%= t"visit.browser" %></th>
+						<th><%= t"visit.os" %></th>
+						<th><%= t"visit.device" %></th>
+						<th><%= t"visit.started_at" %></th>
+ 					</tr>
+ 				</thead>
+ 				<tbody>
+ 					<% $visits.each do |visit| %>
+ 					<tr>
+ 						<td><%= visit.user.email if !visit.user.blank? %></td>
+ 						<td><%= visit.ip %></td>
+ 						<td><a href="<%= visit.landing_page %>"><%= visit.landing_page %></a></td>
+ 						<td><%= visit.browser %></td>
+ 						<td><%= visit.os %></td>
+ 						<td><%= visit.device_type %></td>
+ 						<td><%= visit.started_at.strftime("%Y-%m-%d %H:%m") %></td>
+ 					</tr>
+ 					<% end %>
+ 				</tbody>
+ 			</table>
+ 		</div>
+ 	</div>
+ </div>

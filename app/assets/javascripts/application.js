@@ -27,5 +27,10 @@
 //= require plugin/superbox/superbox
 //= require plugin/masonry/masonry.pkgd.min
 //= require plugin/bootstrap-timepicker/bootstrap-timepicker.min
+//= require plugin/flot/jquery.flot.cust
+//= require plugin/flot/jquery.flot.pie
+//= require plugin/flot/jquery.flot.tooltip.min
+//= require plugin/morris/morris.min
+//= require plugin/morris/raphael-min
 //= require app
 //= require admin/common

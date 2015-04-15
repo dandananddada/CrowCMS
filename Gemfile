@@ -38,9 +38,13 @@ gem 'responders'
 gem 'devise'
 gem "paranoia", "~> 2.0"
 gem 'apipie-rails'
+gem 'ahoy_matey'
+gem 'activeuuid', '>= 0.5.0'
+gem 'groupdate'
+# gem 'chartkick'
 
 # for email delayed
-# gem 'delayed_job_active_record'
+gem 'delayed_job_active_record'
 # gem 'daemons'
 
 group :development, :test do

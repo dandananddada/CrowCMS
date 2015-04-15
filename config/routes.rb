@@ -82,6 +82,8 @@ Rails.application.routes.draw do
       put 'review', to: 'messages#review', on: :member
     end
 
+    get 'visit', to: 'statistics#index', as: 'visit'
+
   end 
   #end admin namespace
 
