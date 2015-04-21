@@ -2,13 +2,14 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>Dashboard</title>
+	<title>CrowCMS</title>
 	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
 	<%= stylesheet_link_tag params[:controller], 'data-turbolinks-track' => true %>
 	<%= csrf_meta_tags %>
 	<%= yield :csslib %>
 </head>
 <body>
+<% if current_user.admin?	%>
 	<header id="header">
 		<div id="logo-group">
 			<span id="logo"><a href=""><img src="/images/logo.png" alt="CrowCMS"></a></span>
@@ -34,7 +35,8 @@
 		</div>
 	</div>
 	<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-	<%= yield :jslib %>
 	<%= javascript_include_tag params[:controller] %>
+	<%= yield :jslib %>
+<% end %>
 </body>
 </html>
