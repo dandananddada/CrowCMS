@@ -45,8 +45,9 @@
       <div class="row">
         <section class="col col-md-12">
           <label class="label"><%= f.label t("album.cover") %><br></label>
+            <%= image_tag @admin_album.cover.url(:small), class: "img-responsive" %>
           <div class="input input-file">
-            <span class="button"><%= f.file_field :cover, readonly: 'true', onchange: "this.parentNode.nextSibling.value = this.value", accept: "image/jpeg, image/png, image/gif, image/jpg" %><%= t("operate.upload") %></span><input type="text" readonly="true" placeholder="<%= t "album.upload_cover" %>" value="<%= @admin_album.cover_file_name %>" >
+            <span class="button"><%= f.file_field :cover, readonly: 'true', onchange: "this.parentNode.nextSibling.value = this.value", accept: "image/jpeg, image/png, image/gif, image/jpg" %><%= t("operate.upload") %></span><input type="text" readonly="true"  value="<%= @admin_album.cover_file_name %>" >
           </div>
         </section>
       </div>
